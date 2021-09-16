@@ -7,7 +7,7 @@ You can author your README using Visual Studio Code.  Here are some useful edito
 * Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippet
 
 
-![womb]('./assets/SR_Banner.svg')
+![womb](./assets/SR_Banner.svg)
 ## Contributing
 
 
