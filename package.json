@@ -2,6 +2,9 @@
     "name": "semantic-rainbow",
     "displayName": "Semantic Rainbow",
     "description": "A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions",
+    "repository": {
+        "url": "https://github.com/Thertzlor/semantic-rainbow"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.60.0"
