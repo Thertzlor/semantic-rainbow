@@ -1,4 +1,4 @@
-//This file is used 
+//This file is used to parse the generated style color definitions into a valid
 import tinycolor from "tinycolor2";
 import { generateColors } from "./lib/colorGenerator.js";
 import {readFileSync,writeFile} from "fs";
@@ -28,7 +28,7 @@ for (const k in semanticRules)((Object.hasOwnProperty.call(semanticRules, k)) &&
 cnf.semanticTokenColors = semanticRules;
 cnf.tokenColors = tokenColors.concat(fallBackRules);
 
-const stringRules = JSON.stringify(cnf)
+const stringRules = JSON.stringify(cnf,null,3)
 
-if(stringRules !== cnfString)writeFile(configPath,JSON.stringify(cnf),'utf8',()=>{console.log('saved config.')})
+if(stringRules !== cnfString)writeFile(configPath,stringRules,'utf8',()=>{console.log('saved config.')})
 export {}
