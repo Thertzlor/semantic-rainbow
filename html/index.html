@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title>Colorsample</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <script src='../generator/lib/tinycolor.js'></script>
+   <script type="module">
+      import {generateColors, interpolate} from '../generator/lib/colorGenerator.js';
+      //We need to fetch the JSON configuration file via HTTP
+      const getConfig = new Promise((res, rej) => {
+         const Http = new XMLHttpRequest();
+         Http.open("GET", '../generator/config.json');
+         Http.send();
+         Http.onreadystatechange = e => {
+            if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
+            else if (Http.readyState === 4) rej(Http.responseText)
+         }
+      });
+
+      (async () => {
+         const jsonConfig = JSON.parse(await getConfig);
+         const frag = new DocumentFragment();
+         const {semanticRules, meta: {numColors, manualColors, baseNumber, filterNumber, extraCombinationsNumber}} = generateColors(tinycolor, jsonConfig);
+
+         const replacers = {
+            manualPercent: ((manualColors / numColors) * 100).toFixed(2),
+            numColors, manualColors, baseNumber, filterNumber, extraCombinationsNumber
+         };
+
+         //Filling in variables into the text;
+         [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, replacers));
+         //Creating the color table
+         const myTable = frag.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'));
+         let tableContainer;
+         let lastKey = '';
+         for (const k in semanticRules) {
+            //We only output a demo for the main token type, not for any aliases
+            if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias) continue;
+            const styleElement = semanticRules[k];
+            const keyArray = k.split('.');
+            const firstKey = keyArray[0]
+            //If the token type has changed, insert a new row into the table
+            if (lastKey !== firstKey) {
+               tableContainer = myTable.appendChild(document.createElement('tr'))
+               //The first cell contains the token name
+               tableContainer.appendChild(document.createElement('td')).innerHTML = firstKey;
+            }
+            lastKey = firstKey;
+            const colorValue = styleElement.foreground || styleElement
+            const tableSquare = tableContainer.appendChild(document.createElement('td'))
+            //Generating the tooltip element for the individual cells
+            const tooltip = tableSquare.appendChild(document.createElement('div'))
+            tooltip.classList.add('expl')
+            //HTML formatting for the token description
+            tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : '<i>' + e + '</i>').join('\n') + '\n' + '<p style="color:' + colorValue + '; text-shadow:none;">' + colorValue + '</p>';
+            tableSquare.style.background = colorValue;
+            tableSquare.classList.add('tableSquare')
+
+         }
+         document.getElementById("colorTable").appendChild(frag)
+
+      })()
+
+   </script>
+   <style>
+      * {
+         box-sizing: border-box;
+         color: white;
+         text-shadow: 2px 2px 5px black, 0px 0px 2px black;
+      }
+
+      table {
+         margin: 0 auto;
+         border-spacing: .4vw;
+      }
+
+      .tableSquare {
+         border: .2vmax transparent solid;
+         margin: 5px;
+         width: 3vw;
+         position: relative;
+         transition: border-color .3s ease-in-out;
+      }
+
+      .tableSquare .expl {
+         z-index: 4000;
+         position: absolute;
+         opacity: 0;
+         display: block;
+         overflow: hidden;
+         transition: opacity .4s, right .2s, bottom .2s;
+         bottom: 40%;
+         right: 40%;
+         pointer-events: none;
+         background: #15161f;
+         box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+         padding: 10px;
+         border: 3px solid #595e75;
+         border-radius: 5px;
+      }
+
+      .tableSquare:hover {
+
+         border-color: white;
+      }
+
+      .tableSquare:hover .expl {
+         opacity: 1;
+         right: 50%;
+         bottom: 50%;
+      }
+
+      .tableSquare p {
+         margin: 0;
+      }
+
+      .tableSquare::after {
+         content: '';
+         display: block;
+         padding-top: 100%;
+      }
+
+      h1,
+      h2 {
+         text-align: center;
+      }
+
+      body.bod {
+         padding-bottom: 3%
+      }
+
+      body,
+      html {
+         margin: 0;
+         padding: 0;
+         font-family: Calibri;
+         font-weight: bold;
+         font-size: 1.3vmax;
+         background: #15161f
+      }
+   </style>
+</head>
+
+<body class="bod">
+   <h1>Semantic Rainbow</h1>
+   <h2 class="text"> A {manualPercent}% hand crafted Color Theme for VSCode</h2>
+   <div id="colorTable"></div>
+
+   <h2>blum</h2>
+
+</body>
+
+</html>

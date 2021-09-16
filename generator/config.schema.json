@@ -1,0 +1,159 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "semanticRainbow.config.schema.json",
+   "title": "ColorConfig",
+   "description": "Color Configuration for Semantic rainbow",
+   "type": "object",
+   "properties": {
+      "$schema": {
+         "description": "a link to a schema file",
+         "type": "string"
+      },
+      "fallbacks": {
+         "description": "textMate scopes to be used as fallbacks for certain tokens and modifiers",
+         "type": "object",
+         "patternProperties": {
+            "^[A-z.]+$": {
+               "description": "the semantic token to define fallbacks for",
+               "type": "array",
+               "items": {
+                  "description": "fallback TextMate scope",
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "textformatMapping": {
+         "type": "object",
+         "description": "text formatting to be applied to certain token types or modifiers",
+         "patternProperties": {
+            "^[A-z.]+$": {
+               "description": "the semantic token or modifiers to format",
+               "type": "object",
+               "properties": {
+                  "clear": {
+                     "description": "clear all formatting applied by other themes",
+                     "type": "boolean"
+                  },
+                  "bold": {
+                     "description": "apply bold font style",
+                     "type": "boolean"
+                  },
+                  "italic": {
+                     "description": "apply italic font style",
+                     "type": "boolean"
+                  }
+               }
+            }
+         }
+      },
+      "alias": {
+         "description": "A definition of semantic tokens that have functional equivalents in other languages",
+         "type": "object",
+         "patternProperties": {
+            "^[A-z.]+$": {
+               "description": "the semantic token to define aliases for",
+               "type": "array",
+               "items": {
+                  "description": "functional equivalent alias",
+                  "type": "string"
+               }
+            }
+         }
+      },
+      "modifierCombinations": {
+         "description": "A list of valid combinations of modifiers that should be generated besides the basic modifiers",
+         "type": "array",
+         "items": {
+            "description": "a period separated list of two or more modifiers",
+            "pattern": "^[^.]+(\\.[^.]+)*\\.[^.]+$",
+            "type": "string"
+         }
+      },
+      "baseTokenColors": {
+         "description": "The base colors for all token types.",
+         "type": "object",
+         "patternProperties": {
+            "^[A-z]+$": {
+               "description": "semantic token type",
+               "type": "string",
+               "format": "color"
+            }
+         }
+      },
+      "filters": {
+         "description": "The Filters to apply to different token modifiers",
+         "type": "object",
+         "patternProperties": {
+            "^[A-z]+$": {
+               "description": "The name of a token modifier",
+               "type": "object",
+               "patternProperties": {
+                  "^[A-z]+$": {
+                     "description": "A list of tinycolor color transformations for this token type",
+                     "type": "object",
+                     "properties": {
+                        "brighten": {
+                           "description": "increase the brightness of the color",
+                           "type": "number"
+                        },
+                        "lighten": {
+                           "description": "increase the lightness of the color",
+                           "type": "number"
+                        },
+                        "darken": {
+                           "description": "decrease the brightness of the color",
+                           "type": "number"
+                        },
+                        "spin": {
+                           "description": "spin the hue of the color",
+                           "type": "number"
+                        },
+                        "desaturate": {
+                           "description": "decrease the saturation of the color",
+                           "type": "number"
+                        },
+                        "saturate": {
+                           "description": "increase the saturation of the color",
+                           "type": "number"
+                        }
+                     }
+                  }
+               },
+               "properties": {
+                  "default": {
+                     "description": "The default transformation values for this modifier.",
+                     "type": "object",
+                     "properties": {
+                        "brighten": {
+                           "description": "increase the brightness of the color",
+                           "type": "number"
+                        },
+                        "lighten": {
+                           "description": "increase the lightness of the color",
+                           "type": "number"
+                        },
+                        "darken": {
+                           "description": "decrease the brightness of the color",
+                           "type": "number"
+                        },
+                        "spin": {
+                           "description": "spin the hue of the color",
+                           "type": "number"
+                        },
+                        "desaturate": {
+                           "description": "decrease the saturation of the color",
+                           "type": "number"
+                        },
+                        "saturate": {
+                           "description": "increase the saturation of the color",
+                           "type": "number"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

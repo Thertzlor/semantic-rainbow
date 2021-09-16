@@ -1,0 +1,25 @@
+{
+    "name": "semantic-rainbow",
+    "displayName": "Semantic Rainbow",
+    "description": "A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Semantic Rainbow",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Semantic Rainbow-color-theme.json"
+            }
+        ]
+    },
+    "dependencies": {
+        "@types/node": "^16.9.1",
+        "tinycolor2": "^1.4.2"
+    }
+}

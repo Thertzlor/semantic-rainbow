@@ -1,0 +1,181 @@
+{
+   "$schema": "./config.schema.json",
+   "baseTokenColors": {
+      "variable": "#cc4755",
+      "parameter": "#df7850",
+      "typeParameter": "#c76025",
+      "type": "#db9b25",
+      "interface": "#dbb425",
+      "enum": "#b4bd38",
+      "enumMember": "#aec496",
+      "property": "#88ac47",
+      "class": "#3aad5d",
+      "namespace": "#2b9468",
+      "selfParameter": "#64c49b",
+      "method": "#20a6be",
+      "function": "#407de6",
+      "macro": "#5457ec"
+   },
+   "filters": {
+      "readonly": {
+         "default": {
+            "darken": 10,
+            "saturate": 5,
+            "spin": -6
+         },
+         "enum": {
+            "darken": 23,
+            "saturate": 5,
+            "spin": -6
+         },
+         "enumMember": {
+            "darken": 23,
+            "saturate": 5,
+            "spin": -6
+         }
+      },
+      "declaration": {
+         "default": {
+            "saturate": 6,
+            "spin": 3
+         }
+      },
+      "static": {
+         "default": {
+            "spin": 10,
+            "darken": 5
+         }
+      },
+      "async": {
+         "default": {
+            "lighten": 5,
+            "saturate": 5,
+            "spin": -5
+         }
+      },
+      "private": {
+         "default": {
+            "desaturate": 10,
+            "lighten": 10,
+            "spin": -10
+         }
+      },
+      "defaultLibrary": {
+         "default": {
+            "desaturate": 15,
+            "brighten": 10,
+            "spin": 10
+         },
+         "variable": {
+            "desaturate": 10,
+            "brighten": 5,
+            "spin": 0
+         },
+         "type": {
+            "desaturate": 50,
+            "brighten": 15,
+            "spin": 5
+         },
+         "interface": {
+            "desaturate": 25,
+            "lighten": 15,
+            "spin": 5
+         }
+      },
+      "documentation": {
+         "default": {
+            "desaturate": 35,
+            "brighten": 10
+         }
+      }
+   },
+   "textformatMapping": {
+      "class": {
+         "bold": true
+      },
+      "declaration": {
+         "italic": true
+      }
+   },
+   "fallbacks": {
+      "parameter": [
+         "variable.parameter.function",
+         "variable.parameter.function-call"
+      ],
+      "function": [
+         "entity.name.function",
+         "support.function",
+         "meta.function-call.generic"
+      ],
+      "variable": [
+         "variable.other.readwrite",
+         "variable.other",
+         "variable",
+         "support.variable",
+         "entity.name.tag",
+         "markup.heading",
+         "entity.name.section"
+      ],
+      "type": [
+         "entity.name.type.alias",
+         "support.type"
+      ],
+      "property": [
+         "variable.other.property",
+         "support.variable.property",
+         "variable.other.object.property",
+         "meta.attribute",
+         "support.type.property-name",
+         "variable.object.property",
+         "meta.flow-mapping.yaml",
+         "support.type.property-name.css",
+         "meta.property-name",
+         "entity.other.attribute-name"
+      ],
+      "class": [
+         "entity.name.type.class",
+         "entity.other.inherited-class"
+      ],
+      "method": [
+         "meta.directive.vue"
+      ],
+      "selfParameter": [
+         "variable.language.this",
+         "variable.language.self",
+         "variable.language.special.self"
+      ],
+      "variable.defaultLibrary.readonly": [
+         "const"
+      ]
+   },
+   "alias": {
+      "defaultLibrary": [
+         "builtin"
+      ],
+      "documentation": [
+         "typeHint"
+      ],
+      "function.defaultLibrary": [
+         "magicFunction"
+      ]
+   },
+   "modifierCombinations": [
+      "readonly.declaration",
+      "private.readonly.declaration",
+      "private.readonly",
+      "private.declaration",
+      "private.async.declaration",
+      "private.async",
+      "private.readonly.async.declaration",
+      "readonly.declaration.async",
+      "readonly.async",
+      "defaultLibrary.readonly",
+      "static.declaration",
+      "static.async",
+      "declaration.async",
+      "defaultLibrary.static",
+      "defaultLibrary.declaration",
+      "defaultLibrary.async",
+      "defaultLibrary.documentation"
+   ]
+}
