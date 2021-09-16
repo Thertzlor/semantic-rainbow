@@ -1,14 +1,17 @@
 //This file is used to parse the generated style color definitions into a valid
 import tinycolor from "tinycolor2";
-import { generateColors } from "./lib/colorGenerator.js";
+import { generateColors, interpolate } from "./lib/colorGenerator.js";
 import {readFileSync,writeFile} from "fs";
 
-const configPath = './themes/Semantic Rainbow-color-theme.json'
-const cnfString =readFileSync(configPath,'utf-8')
+const configPath = './themes/Semantic Rainbow-color-theme.json';
+const readmeTemplatePath ='./generator/_Template.md';
+const readmePath ="./README.md"
+const cnfString =readFileSync(configPath,'utf-8');
+const readme = readFileSync(readmeTemplatePath,'utf-8');
 const cnf = JSON.parse(cnfString);
 const colorConfig = JSON.parse(readFileSync('./generator/config.json','utf-8'))
 
-const  {semanticRules, fallBackRules} = generateColors(tinycolor,colorConfig);
+const  {semanticRules, fallBackRules, meta} = generateColors(tinycolor,colorConfig);
 const {tokenColors} = cnf;
 
 fallBackRules.forEach(({scope})=>
@@ -30,5 +33,5 @@ cnf.tokenColors = tokenColors.concat(fallBackRules);
 
 const stringRules = JSON.stringify(cnf,null,3)
 
-if(stringRules !== cnfString)writeFile(configPath,stringRules,'utf8',()=>{console.log('saved config.')})
+if(stringRules !== cnfString)(writeFile(configPath,stringRules,'utf8',()=>{console.log('saved config.')}),writeFile(readmePath,interpolate(readme,meta),'utf8',()=>console.log('saved readme.')))
 export {}

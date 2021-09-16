@@ -5,7 +5,7 @@ function generateColors(tinycolor,config){
    const filterNumber = Object.keys(config.filters).length;
    const extraCombinationsNumber = config.modifierCombinations.length
    const numColors = (baseNumber*filterNumber)+(baseNumber*extraCombinationsNumber);
-   const manualColors = (()=>{
+   const manualColors = ((()=>{
       let manualFilters = 0
       for (const f in config.filters) {
          if (!Object.hasOwnProperty.call(config.filters, f)) return;
@@ -13,8 +13,8 @@ function generateColors(tinycolor,config){
          for (const k in filter) (Object.hasOwnProperty.call(filter, k) && k !== 'default') && manualFilters++
       }
       return baseNumber+filterNumber+manualFilters
-   })()
-   const meta = {numColors,manualColors,baseNumber,filterNumber,extraCombinationsNumber}
+   })());
+   const meta = {numColors,manualColors,baseNumber,filterNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
 
    const applyColors= (base,variations)=>{
       const color = new tinycolor(config.baseTokenColors[base])

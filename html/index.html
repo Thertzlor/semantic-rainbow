@@ -23,15 +23,9 @@
       (async () => {
          const jsonConfig = JSON.parse(await getConfig);
          const frag = new DocumentFragment();
-         const {semanticRules, meta: {numColors, manualColors, baseNumber, filterNumber, extraCombinationsNumber}} = generateColors(tinycolor, jsonConfig);
-
-         const replacers = {
-            manualPercent: ((manualColors / numColors) * 100).toFixed(2),
-            numColors, manualColors, baseNumber, filterNumber, extraCombinationsNumber
-         };
-
+         const {semanticRules, meta} = generateColors(tinycolor, jsonConfig);
          //Filling in variables into the text;
-         [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, replacers));
+         [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, meta));
          //Creating the color table
          const myTable = frag.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'));
          let tableContainer;
