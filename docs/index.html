@@ -14,16 +14,14 @@
          const Http = new XMLHttpRequest();
          Http.open("GET", '../generator/config.json');
          Http.send();
-         Http.onreadystatechange = e => {
-            if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
-            else if (Http.readyState === 4) rej(Http.responseText)
-         }
+         Http.onreadystatechange = e => Http.readyState === 4 && [Http.status === 200 ? res : rej](Http.responseText)
       });
 
       (async () => {
          const jsonConfig = JSON.parse(await getConfig);
          const frag = new DocumentFragment();
-         const {semanticRules, meta} = generateColors(tinycolor, jsonConfig);
+         //Only using the stats from the main Theme
+         const {semanticRules, meta} = generateColors(tinycolor, jsonConfig.themes.find(t => t.mainTheme));
          //Filling in variables into the text;
          [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, meta));
          //Creating the color table
@@ -52,8 +50,8 @@
             tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : '<i>' + e + '</i>').join('\n') + '\n' + '<p style="color:' + colorValue + '; text-shadow:none;">' + colorValue + '</p>';
             tableSquare.style.background = colorValue;
             tableSquare.classList.add('tableSquare')
-
          }
+         //Showing the table
          document.getElementById("colorTable").appendChild(frag)
 
       })()

@@ -1,19 +1,27 @@
-function generateColors(tinycolor,config){
+
+/**
+ * @param {any} tinycolor the tinycolor library
+ * @param {any} config The configuration object
+ */
+const generateColors = (tinycolor,config)=>{
    const semanticRules={};
    const fallBackRules=[];
+   //In this section we compile metadata about the generated colors
    const baseNumber = Object.keys(config.baseTokenColors).length;
    const filterNumber = Object.keys(config.filters).length;
    const extraCombinationsNumber = config.modifierCombinations.length
    const numColors = (baseNumber*filterNumber)+(baseNumber*extraCombinationsNumber);
+   //Counting modifier filters and colors that were defined manually.
    const manualColors = ((()=>{
       let manualFilters = 0
       for (const f in config.filters) {
-         if (!Object.hasOwnProperty.call(config.filters, f)) return;
+         if (!Object.hasOwnProperty.call(config.filters, f)) continue;
          const filter = config.filters[f];
          for (const k in filter) (Object.hasOwnProperty.call(filter, k) && k !== 'default') && manualFilters++
       }
       return baseNumber+filterNumber+manualFilters
    })());
+   //Putting everything into our "meta" object.
    const meta = {numColors,manualColors,baseNumber,filterNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
 
    const applyColors= (base,variations)=>{
@@ -63,8 +71,8 @@ function generateColors(tinycolor,config){
 
 /**
  * Ridiculously basic string interpolation to generate dynamic readme and html
- * @param {string} text 
- * @param {Record<string,any>} replacements 
+ * @param {string} text Text wiht placholders
+ * @param {Record<string,any>} replacements An object of key/value pairs to be interpolated into the text
  * @returns 
  */
 const interpolate = (text,replacements) => {

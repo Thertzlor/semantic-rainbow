@@ -1,29 +1,99 @@
 {
-    "name": "semantic-rainbow",
-    "displayName": "Semantic Rainbow",
-    "description": "A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions",
-    "repository": {
-        "url": "https://github.com/Thertzlor/semantic-rainbow"
-    },
-    "icon": "./assets/SR_icon128.png",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.60.0"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "contributes": {
-        "themes": [
-            {
-                "label": "Semantic Rainbow",
-                "uiTheme": "vs-dark",
-                "path": "./themes/Semantic Rainbow-color-theme.json"
+   "name": "semantic-rainbow",
+   "displayName": "Semantic Rainbow",
+   "description": "A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions",
+   "repository": {
+      "url": "https://github.com/Thertzlor/semantic-rainbow"
+   },
+   "publisher": "thertzlor",
+   "author": {
+      "name": "Thertzlor"
+   },
+   "icon": "assets/SR_icon128.png",
+   "version": "0.1.1",
+   "engines": {
+      "vscode": "^1.60.0"
+   },
+   "categories": [
+      "Themes"
+   ],
+   "keywords": [
+      "semantic highlighting",
+      "dark",
+      "syntax highlighting",
+      "maximalist",
+      "colorful"
+   ],
+   "contributes": {
+      "themes": [
+         {
+            "id": "semantic-rainbow",
+            "label": "Semantic Rainbow",
+            "uiTheme": "vs-dark",
+            "path": "./themes/semantic-rainbow-color-theme.json"
+         }
+      ],
+      "semanticTokenScopes": [
+         {
+            "scopes": {
+               "parameter": [
+                  "variable.parameter.function",
+                  "variable.parameter.function-call"
+               ],
+               "function": [
+                  "entity.name.function",
+                  "support.function",
+                  "meta.function-call.generic"
+               ],
+               "variable": [
+                  "variable.other.readwrite",
+                  "variable.other",
+                  "variable",
+                  "support.variable",
+                  "entity.name.tag",
+                  "markup.heading",
+                  "entity.name.section"
+               ],
+               "type": [
+                  "entity.name.type.alias",
+                  "support.type"
+               ],
+               "namespace": [
+                  "meta.symbol.namespace"
+               ],
+               "property": [
+                  "variable.other.property",
+                  "support.variable.property",
+                  "variable.other.object.property",
+                  "meta.attribute",
+                  "support.type.property-name",
+                  "variable.object.property",
+                  "meta.flow-mapping.yaml",
+                  "support.type.property-name.css",
+                  "meta.property-name",
+                  "entity.other.attribute-name"
+               ],
+               "class": [
+                  "entity.name.type.class",
+                  "entity.other.inherited-class"
+               ],
+               "method": [
+                  "meta.directive.vue"
+               ],
+               "selfParameter": [
+                  "variable.language.this",
+                  "variable.language.self",
+                  "variable.language.special.self"
+               ],
+               "variable.defaultLibrary.readonly": [
+                  "const"
+               ]
             }
-        ]
-    },
-    "dependencies": {
-        "@types/node": "^16.9.1",
-        "tinycolor2": "^1.4.2"
-    }
+         }
+      ]
+   },
+   "dependencies": {
+      "@types/node": "^16.9.1",
+      "tinycolor2": "^1.4.2"
+   }
 }

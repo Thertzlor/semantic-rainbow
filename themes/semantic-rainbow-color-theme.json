@@ -147,10 +147,10 @@
       "minimapSlider.background": "#cbccff1f",
       "minimapSlider.hoverBackground": "#cbccff33",
       "editor.background": "#191a26",
-      "panel.background": "#15161f",
+      "panel.background": "#171824",
       "editorOverviewRuler.background": "#101014",
-      "editorGutter.background": "#15161f",
-      "minimap.background": "#15161f"
+      "editorGutter.background": "#171824",
+      "minimap.background": "#171824"
    },
    "semanticHighlighting": true,
    "semanticTokenColors": {
@@ -1872,6 +1872,15 @@
          "settings": {
             "foreground": "#3aad5d",
             "fontStyle": "bold"
+         }
+      },
+      {
+         "name": "namespace",
+         "scope": [
+            "meta.symbol.namespace"
+         ],
+         "settings": {
+            "foreground": "#2b9468"
          }
       },
       {
