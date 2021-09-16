@@ -5,13 +5,24 @@
     "repository": {
         "url": "https://github.com/Thertzlor/semantic-rainbow"
     },
-    "icon": "./assets/SR_icon128.png",
-    "version": "0.0.1",
+    "publisher": "thertzlor",
+    "author": {
+        "name": "Thertzlor"
+    },
+    "icon": "assets/SR_icon128.png",
+    "version": "0.1.1",
     "engines": {
         "vscode": "^1.60.0"
     },
     "categories": [
         "Themes"
+    ],
+    "keywords": [
+        "semantic highlighting",
+        "color theme",
+        "syntax highlighting",
+        "maximalist",
+        "colorful"
     ],
     "contributes": {
         "themes": [
