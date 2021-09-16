@@ -5,6 +5,7 @@
     "repository": {
         "url": "https://github.com/Thertzlor/semantic-rainbow"
     },
+    "icon": "./assets/SR_icon128.png",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.60.0"
