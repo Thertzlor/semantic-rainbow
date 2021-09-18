@@ -43,7 +43,7 @@ themes.forEach(t=>{
    const stringRules = JSON.stringify(cnf,null,3);
    //Updating the readme with color stats if it's the main Theme
    const pathDiff= (relative(parse(readmeTemplatePath).dir,parse(readmePath).dir))
-   const finalReadme = (mainTheme || themes.length ===1) && readme && interpolate(readme,meta).replace(/\]\((?!http)([^)]+)\)/gmi,(_,c)=>(`](.\\${relative(pathDiff,c)})`));
+   const finalReadme = (mainTheme || themes.length ===1) && readme && interpolate(readme,meta).replace(/\]\((?!http)([^)]+)\)/gmi,(_,c)=>(`](${relative(pathDiff,c).replace(/\\/gm,'/')})`));
    process.chdir(initialDirectory)
    //Saving the files
    writeFile(path,stringRules,'utf8',()=>{console.log('saved config.')});
