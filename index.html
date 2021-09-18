@@ -6,13 +6,13 @@
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
    <title>Colorsample</title>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
-   <script src='https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/main/generator/lib/tinycolor.js'></script>
+   <script src='./generator/lib/tinycolor.js'></script>
    <script type="module">
-      import {generateColors, interpolate} from 'https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/main/generator/lib/colorGenerator.js';
+      import {generateColors, interpolate} from './generator/lib/colorGenerator.js';
       //We need to fetch the JSON configuration file via HTTP
       const getConfig = new Promise((res, rej) => {
          const Http = new XMLHttpRequest();
-         Http.open("GET", 'https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/main/generator/config.json');
+         Http.open("GET", './generator/config.json');
          Http.send();
          Http.onreadystatechange = e => {
             if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
