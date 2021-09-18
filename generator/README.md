@@ -17,11 +17,11 @@ the *config.json* file contains a single main array `themes`
 Theme metatdata for VSCode.
 ### **baseTokenColors**  
 Base Tokens
-### **filters**  
+### **modifications**  
 
 `"brighten": 3` in the JSON definition resolves to `tinyColor.brighten(3)`
 
-### **textFormatMapping**
+### **textformatMapping**
 meh
 ### **modifierCombinations**
 meh

@@ -107,8 +107,8 @@
                      }
                   }
                },
-               "filters": {
-                  "description": "The Filters to apply to different token modifiers",
+               "modifications": {
+                  "description": "The modifications to apply to different token modifiers",
                   "type": "object",
                   "patternProperties": {
                      "^[A-z]+$": {

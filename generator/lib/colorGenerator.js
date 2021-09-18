@@ -1,5 +1,6 @@
 
 /**
+ * Generate a set of color rules
  * @param {any} tinycolor the tinycolor library
  * @param {any} config The configuration object
  */
@@ -8,36 +9,36 @@ const generateColors = (tinycolor,config)=>{
    const fallBackRules=[];
    //In this section we compile metadata about the generated colors
    const baseNumber = Object.keys(config.baseTokenColors).length;
-   const filterNumber = Object.keys(config.filters).length;
+   const filterNumber = Object.keys(config.modifications).length;
    const extraCombinationsNumber = config.modifierCombinations.length
    const numColors = (baseNumber*filterNumber)+(baseNumber*extraCombinationsNumber);
-   //Counting modifier filters and colors that were defined manually.
+   //Counting modifications and colors that were defined manually.
    const manualColors = ((()=>{
       let manualFilters = 0
-      for (const f in config.filters) {
-         if (!Object.hasOwnProperty.call(config.filters, f)) continue;
-         const filter = config.filters[f];
+      for (const f in config.modifications) {
+         if (!Object.hasOwnProperty.call(config.modifications, f)) continue;
+         const filter = config.modifications[f];
          for (const k in filter) (Object.hasOwnProperty.call(filter, k) && k !== 'default') && manualFilters++
       }
       return baseNumber+filterNumber+manualFilters
    })());
    //Putting everything into our "meta" object.
    const meta = {numColors,manualColors,baseNumber,filterNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
-
+   //Transforming a base color using one or more modifications
    const applyColors= (base,variations)=>{
       const color = new tinycolor(config.baseTokenColors[base])
       variations.forEach(v=>{
-         const def = config.filters[v][base]||config.filters[v].default;
+         const def = config.modifications[v][base]||config.modifications[v].default;
          for (const k in def)((Object.hasOwnProperty.call(def, k)) && color[k](def[k]));
       })
       return color;
    }
-
+   //Encoding colors into style rules
    const encode=(color,text)=>{
       const finalColor =   color.toHexString();
       const finalText = text.replace(/\s+/g,'.');
       let rule =  finalColor
-
+      //Generating TextMate rules
       const textMateTransform = r => {
          if(typeof rule ==='string')return {foreground:rule};
          let fontText = [];
@@ -46,7 +47,7 @@ const generateColors = (tinycolor,config)=>{
          if(r.bold === false && r.italic === false)fontText = [''];
          return {foreground:r.foreground, fontStyle:fontText.join(' ')}
       }
-
+      //Applying text style rules if we find them
       for (const f in config.textformatMapping) {
          if (!(Object.hasOwnProperty.call(config.textformatMapping, f) && (new RegExp(`\\b${f}\\b`,'gm'))).test(finalText)) continue;
          const formatDef = config.textformatMapping[f]
@@ -54,16 +55,20 @@ const generateColors = (tinycolor,config)=>{
          if(formatDef.clear) rule = {...rule, bold:false, italic:false};
          else rule = {...rule,...formatDef}
         }
-
+      //Saving the rule
       semanticRules[finalText] = rule;
-      for (const k in config.alias) (Object.hasOwnProperty.call(config.alias, k) && (new RegExp(`\\b${k}\\b`,'gm')).test(finalText)) &&  config.alias[k].forEach(a=> semanticRules[finalText.replace(new RegExp(`\\b${k}\\b`, 'g'), a)] = (typeof rule === 'string'?{foreground:rule,alias:true}:{...rule,alias:true}) )
+      //Copying the rule under a different name if the token has an alias
+      for (const k in config.alias) (Object.hasOwnProperty.call(config.alias, k) && (new RegExp(`\\b${k}\\b`,'gm')).test(finalText)) &&  config.alias[k].forEach(a=> semanticRules[finalText.replace(new RegExp(`\\b${k}\\b`, 'g'), a)] = (typeof rule === 'string'?{foreground:rule,alias:true}:{...rule,alias:true}))
+      //Saving the TextMate fallback rule
       if(config.fallbacks[finalText]) fallBackRules.push({name:finalText,scope:config.fallbacks[finalText],settings:textMateTransform(rule)})
    }
-
+   //Iterating over all defined basic tokens
    for (const t in config.baseTokenColors) {
       if (!(Object.hasOwnProperty.call(config.baseTokenColors, t))) return;
+      //Saving rule without any modifications
       encode(new tinycolor(config.baseTokenColors[t]),t)
-      for (const v in config.filters) ((Object.hasOwnProperty.call(config.filters, v)) && encode(applyColors(t,[v]),t+'\n'+v))
+      //Saving rules for all modifications and all combinations of modifiers
+      for (const v in config.modifications) ((Object.hasOwnProperty.call(config.modifications, v)) && encode(applyColors(t,[v]),t+'\n'+v))
       config.modifierCombinations.map(c=>c.split('.')).forEach(c=> encode(applyColors(t,c),t+'\n'+c.join(' ')))
    }
    return {semanticRules,fallBackRules,meta};
@@ -76,12 +81,12 @@ const generateColors = (tinycolor,config)=>{
  * @returns 
  */
 const interpolate = (text,replacements) => {
-   let finaltext = text
+   let finalText = text
    for (const r in replacements) {
       if (!Object.prototype.hasOwnProperty.call(replacements, r)) continue;
-      finaltext = finaltext.replace(new RegExp(`\{${r}\}`, 'gim'), replacements[r])
+      finalText = finalText.replace(new RegExp(`\{${r}\}`, 'gim'), replacements[r])
    } 
-   return finaltext;
+   return finalText;
 }
 
 export {generateColors,interpolate}

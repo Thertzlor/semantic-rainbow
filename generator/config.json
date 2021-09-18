@@ -23,7 +23,7 @@
             "function": "#407de6",
             "macro": "#5457ec"
          },
-         "filters": {
+         "modifications": {
             "readonly": {
                "default": {
                   "darken": 10,
