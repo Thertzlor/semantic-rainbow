@@ -1,10 +1,10 @@
-![Banner](assets\SR_Banner.png)
+![Banner](.\assets\SR_Banner.png)
 
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
 
-![Banner](assets\SR_Example.png)
+![Banner](.\assets\SR_Example.png)
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 
