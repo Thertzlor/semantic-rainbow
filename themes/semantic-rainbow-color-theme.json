@@ -647,9 +647,9 @@
       "enumMember.builtin": {
          "foreground": "#c2d1bb"
       },
-      "enumMember.documentation": "#c6c6c6",
+      "enumMember.documentation": "#c1ccb6",
       "enumMember.typeHint": {
-         "foreground": "#c6c6c6"
+         "foreground": "#c1ccb6"
       },
       "enumMember.readonly.declaration": {
          "foreground": "#799f46",
@@ -707,12 +707,12 @@
       "enumMember.builtin.async": {
          "foreground": "#d1ddc8"
       },
-      "enumMember.defaultLibrary.documentation": "#dfdfdf",
+      "enumMember.defaultLibrary.documentation": "#d9dcd8",
       "enumMember.builtin.documentation": {
-         "foreground": "#dfdfdf"
+         "foreground": "#d9dcd8"
       },
       "enumMember.defaultLibrary.typeHint": {
-         "foreground": "#dfdfdf"
+         "foreground": "#d9dcd8"
       },
       "property": "#88ac47",
       "property.readonly": "#768d33",
@@ -1277,7 +1277,7 @@
          "foreground": "#9faeeb"
       },
       "macro": "#5457ec",
-      "macro.readonly": "#2039ed",
+      "macro.readonly": "#384eef",
       "macro.declaration": {
          "foreground": "#534ef2",
          "italic": true
@@ -1294,14 +1294,14 @@
          "foreground": "#8e90e4"
       },
       "macro.readonly.declaration": {
-         "foreground": "#1928f4",
+         "foreground": "#313ff5",
          "italic": true
       },
       "macro.private.readonly.declaration": {
-         "foreground": "#5377ed",
+         "foreground": "#6a8aef",
          "italic": true
       },
-      "macro.private.readonly": "#5982e7",
+      "macro.private.readonly": "#6f92ea",
       "macro.private.declaration": {
          "foreground": "#8593ee",
          "italic": true
@@ -1312,17 +1312,17 @@
       },
       "macro.private.async": "#9cb3f1",
       "macro.private.readonly.async.declaration": {
-         "foreground": "#6693f3",
+         "foreground": "#7ea4f5",
          "italic": true
       },
       "macro.readonly.declaration.async": {
-         "foreground": "#2c4bfb",
+         "foreground": "#4561fb",
          "italic": true
       },
-      "macro.readonly.async": "#325af4",
-      "macro.defaultLibrary.readonly": "#4e46f9",
+      "macro.readonly.async": "#4a6df5",
+      "macro.defaultLibrary.readonly": "#655ffa",
       "macro.builtin.readonly": {
-         "foreground": "#4e46f9"
+         "foreground": "#655ffa"
       },
       "macro.static.declaration": {
          "foreground": "#5b37f0",

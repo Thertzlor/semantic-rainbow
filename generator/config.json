@@ -44,6 +44,11 @@
                   "darken": 23,
                   "saturate": 5,
                   "spin": -6
+               },
+               "macro": {
+                  "darken": 5,
+                  "saturate": 5,
+                  "spin": -6
                }
             },
             "declaration": {
@@ -98,6 +103,10 @@
                "default": {
                   "desaturate": 35,
                   "brighten": 10
+               },
+               "enumMember": {
+                  "desaturate": 15,
+                  "brighten": 8
                }
             }
          },

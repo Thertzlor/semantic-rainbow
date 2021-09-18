@@ -52,7 +52,7 @@
             const tooltip = tableSquare.appendChild(document.createElement('div'))
             tooltip.classList.add('expl')
             //HTML formatting for the token description
-            tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : '<i>' + e + '</i>').join('\n') + '\n' + '<p style="color:' + colorValue + '; text-shadow:none;">' + colorValue + '</p>';
+            tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : `<i>${e}</i>`).join('\n') + `\n<p style="color:${colorValue}; ${k.includes('declaration') ? 'font-style:italic;' : ''} text-shadow:none;">${colorValue}</p>`;
             tableSquare.style.background = colorValue;
             tableSquare.classList.add('tableSquare')
          }
@@ -112,6 +112,8 @@
 
       .tableSquare p {
          margin: 0;
+         line-height: 120%;
+
       }
 
       .tableSquare::after {
@@ -121,7 +123,8 @@
       }
 
       h1,
-      h2 {
+      h2,
+      h3 {
          text-align: center;
       }
 
@@ -135,30 +138,34 @@
          padding: 0;
          font-family: 'Fira Sans', Calibri, sans-serif;
          font-weight: 500;
-         font-size: 1.3vmax;
-         background: #191a26
+         font-size: 1vmax;
+         background: #191a26;
       }
 
       .text {
          width: 90vw;
          margin: 0 auto;
       }
+
+      .ctx {
+         text-align: center
+      }
    </style>
 </head>
 
 <body class="bod">
    <h1>Semantic Rainbow</h1>
-   <h2 class="text"> A {manualPercent}% hand crafted Color Theme for VSCode</h2>
-   <div id="colorTable"></div>
+   <h3 class="text"> A {manualPercent}% hand crafted Color Theme for Visual Studio Code</h2>
+      <h2>Colors</h2>
+      <p class="ctx">[Hover for details]</p>
+      <div id="colorTable"></div>
 
-   <div class="text">
-      <h2 id="spec">Design</h2>
-      <p>Coming Soon</p>
-      <h2 id="spec">Theme Definition Spec</h2>
-      <p>Coming Soon</p>
-   </div>
-
-
+      <div class="text">
+         <h2 id="spec">FAQ</h2>
+         <p>Coming Soon</p>
+         <h2 id="spec">Design</h2>
+         <p>Coming Soon</p>
+      </div>
 
 </body>
 
