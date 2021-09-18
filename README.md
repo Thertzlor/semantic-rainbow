@@ -1,5 +1,5 @@
+## A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions.
 ![Banner](./assets/SR_Banner.png)
-
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
@@ -28,6 +28,7 @@ Keep in mind results might vary based on the language extensions you have instal
 ## Roadmap
 * Support for triad/tetrad color transformation
 * Including color readability checks
+* Language specific definitions
 
 ## Contributing
 I am always looking for ways to improve Semantic Rainbow.

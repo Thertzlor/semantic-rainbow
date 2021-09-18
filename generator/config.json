@@ -203,5 +203,7 @@
             "defaultLibrary.documentation"
          ]
       }
-   ]
+   ],
+   "readmePath": "./README.md",
+   "readmeTemplatePath": "./generator/_Template.md"
 }

@@ -9,6 +9,14 @@
          "description": "a link to a schema file",
          "type": "string"
       },
+      "readmePath": {
+         "description": "Path to your Readme.md file",
+         "type": "string"
+      },
+      "readmeTemplatePath": {
+         "description": "Path to your Readme Template file",
+         "type": "string"
+      },
       "themes": {
          "mainTheme": {
             "description": "determines if the theme is the primary theme of a pack",

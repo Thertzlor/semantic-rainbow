@@ -3,16 +3,14 @@ import tinycolor from "tinycolor2";
 import { generateColors, interpolate } from "./lib/colorGenerator.js";
 import {readFileSync,writeFile} from "fs";
 //Defining paths and reading files
-const readmeTemplatePath ='./generator/_Template.md';
-const readmePath ="./README.md"
 const packageData = JSON.parse(readFileSync("package.json",'utf-8'))
-const colorConfig = JSON.parse(readFileSync('./generator/config.json','utf-8'))
-const readme = readFileSync(readmeTemplatePath,'utf-8');
+const {themes,readmePath,readmeTemplatePath} = JSON.parse(readFileSync('./generator/config.json','utf-8'))
+const readme = readmePath && readmeTemplatePath && readFileSync(readmeTemplatePath,'utf-8');
 //re-initializing the properties of the package.json that will be dynamically populated.
 packageData.contributes.semanticTokenScopes = [];
 packageData.contributes.themes = [];
 //iterating over all color themes in the config 
-colorConfig.themes.forEach(t=>{
+themes.forEach(t=>{
    const {id,label,uiTheme,path,fallbacks,mainTheme} = t;
    //Inserting theme metadata into packaga.json
    packageData.contributes.themes.push({id,label,uiTheme,path})
@@ -42,10 +40,10 @@ colorConfig.themes.forEach(t=>{
    cnf.tokenColors = tokenColors.concat(fallBackRules);
    const stringRules = JSON.stringify(cnf,null,3);
    //Updating the readme with color stats if it's the main Theme
-   const finalReadme = mainTheme && interpolate(readme,meta).replace(/\]\(\.\./gmi,'](.');
+   const finalReadme = mainTheme && readme && interpolate(readme,meta).replace(/\]\(\.\./gmi,'](.');
    //Saving the files
    writeFile(path,stringRules,'utf8',()=>{console.log('saved config.')});
-   mainTheme && writeFile(readmePath,finalReadme,'utf8',()=>console.log('saved readme.'));
+   finalReadme && writeFile(readmePath,finalReadme,'utf8',()=>console.log('saved readme.'));
 })
 //Saving the package  json with all the theme info
 writeFile("package.json",JSON.stringify(packageData,null,3),'utf8',()=>console.log('saved package'))
