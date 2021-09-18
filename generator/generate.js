@@ -1,4 +1,4 @@
-//This file is used to merge the generated style rules with the actual VSCode theme definition as well as outputting the readme
+//This file is used to merge the generated style rules with the actual VSCode theme definition as well as outputting the readme and modifying package.json
 import tinycolor from "tinycolor2";
 import { generateColors, interpolate } from "./lib/colorGenerator.js";
 import {readFileSync,writeFile} from "fs";
