@@ -16,8 +16,8 @@ For a list of styles and a breakdown of the design process, check out the [GitHu
 
 ## How it works
 If 336 styles sounds like too much to configure by hand, you're right.  
-**Semantic Rainbow** is programmatically generated, based on a configuration of *base colors* for the different tokens and a list of specific *color transformations* for token modifiers which can also be stacked to represent different combinations.  
-About 8.04% of styles/transformations are manually defined to ensure 
+*Semantic Rainbow* is programmatically generated, based on a configuration of base colors for the different tokens and a list of specific color transformations for token modifiers which can also be stacked to represent different combinations.  
+About 8.04% of styles/transformations are manually defined, stepping in where the automatic generation produced less than optimal results.
 
 The definition of colors and transformations follows a [simple spec]('') for easy tweaking and forking to create any number of dynamic semantic themes.
 
@@ -26,17 +26,17 @@ This theme relies on the presence of language server that support Semantic Highl
 Keep in mind results might vary based on the language extensions you have installed, and even for non-semantic highlighting the theme attempts to approximate results by providing fallback mappings to TextMate rules including but not limited to the [VSCode semantic token scope map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
 
 ## Roadmap
-* Maybe a more "intelligent" way to transform colors...
+* Support for triad/tetrad color transformation
+* Including color readability checks
 
 ## Contributing
-I am always on the lookout
-* Know any lanugage with Semantic Highlighting that this theme could support better?
+I am always looking for ways to improve Semantic Rainbow.
+* Know any language with Semantic Highlighting that this theme could support better?
 * Notice any contexts in which the existing syntax highlighting looks bad or incomplete?
 * Are there any TextMate fallbacks or modifier combinations that should be included?
 
-For any issues or fixes an example file 
-Demonstrating the fix or issue with an example file 
+Preferably issues or fixes should be demonstrated in an example file and with info about, if applicable, extensions used to provide syntax highlighting.
 
 ## Credits
-* [**Horizon Dark Theme**]() - Semantic Rainbow started as an extension of this theme and it remains an influence especially in the non-syntax parts. 
-* [**TinyColor**]() -  Used for color transformations.
+* [**Horizon Dark Theme**](https://horizontheme.netlify.app/) - Semantic Rainbow started as an extension of this theme and it remains an influence especially in the non-syntax parts. 
+* [**TinyColor**](https://github.com/bgrins/TinyColor) -  Used for color transformations.

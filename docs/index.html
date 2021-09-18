@@ -14,7 +14,10 @@
          const Http = new XMLHttpRequest();
          Http.open("GET", '../generator/config.json');
          Http.send();
-         Http.onreadystatechange = e => Http.readyState === 4 && [Http.status === 200 ? res : rej](Http.responseText)
+         Http.onreadystatechange = e => {
+            if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
+            else if (Http.readyState === 4) rej(Http.responseText)
+         }
       });
 
       (async () => {
@@ -131,7 +134,12 @@
          font-family: Calibri;
          font-weight: bold;
          font-size: 1.3vmax;
-         background: #15161f
+         background: #191a26
+      }
+
+      .text {
+         width: 90vw;
+         margin: 0 auto;
       }
    </style>
 </head>
@@ -141,7 +149,14 @@
    <h2 class="text"> A {manualPercent}% hand crafted Color Theme for VSCode</h2>
    <div id="colorTable"></div>
 
-   <h2>blum</h2>
+   <div class="text">
+      <h2 id="spec">Design</h2>
+      <p>Coming Soon</p>
+      <h2 id="spec">Theme Definition Spec</h2>
+      <p>Coming Soon</p>
+   </div>
+
+
 
 </body>
 
