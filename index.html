@@ -7,7 +7,6 @@
    <title>Semantic Rainbow</title>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
-
    <script src='./generator/lib/tinycolor.js'></script>
    <script type="module">
       import {generateColors, interpolate} from './generator/lib/colorGenerator.js';
@@ -23,10 +22,10 @@
       });
 
       (async () => {
-         const jsonConfig = JSON.parse(await getConfig);
+         const {themes} = JSON.parse(await getConfig);
          const frag = new DocumentFragment();
          //Only using the stats from the main Theme
-         const {semanticRules, meta} = generateColors(tinycolor, jsonConfig.themes.find(t => t.mainTheme));
+         const {semanticRules, meta} = generateColors(tinycolor, themes.find(t => themes.length === 1 || t.mainTheme));
          //Filling in variables into the text;
          [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, meta));
          //Creating the color table
@@ -163,7 +162,7 @@
       <div class="text">
          <h2 id="spec">FAQ</h2>
          <p>Coming Soon</p>
-         <h2 id="spec">Design</h2>
+         <h2 id="spec">Design Philosophy</h2>
          <p>Coming Soon</p>
       </div>
 

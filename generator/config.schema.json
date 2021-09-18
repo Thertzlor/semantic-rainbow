@@ -10,7 +10,7 @@
          "type": "string"
       },
       "readmePath": {
-         "description": "Path to your Readme.md file",
+         "description": "Path to your README.md file",
          "type": "string"
       },
       "readmeTemplatePath": {

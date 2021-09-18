@@ -1,10 +1,10 @@
-## A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions.
-![Banner](./assets/SR_Banner.png)
+![Banner](assets\SR_Banner.png)
+
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
 
-![Banner](./assets/SR_Example.png)
+![Banner](assets\SR_Example.png)
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 
@@ -12,14 +12,14 @@ By highlighing **14** types of semantic tokens each with **7** varations corresp
 
 If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *non-async default library method*, look no further.
 
-For a list of styles and a breakdown of the design process, check out the [GitHub page of this repo]('https://thertzlor.github.io/semantic-rainbow/').
+For a list of styles and a breakdown of the design process, check out the [GitHub page of this repo](https://thertzlor.github.io/semantic-rainbow/).
 
 ## How it works
 If 336 styles sounds like too much to configure by hand, you're right.  
 *Semantic Rainbow* is programmatically generated, based on a configuration of base colors for the different tokens and a list of specific color transformations for token modifiers which can also be stacked to represent different combinations.  
 About 8.63% of styles/transformations are manually defined, stepping in where the automatic generation produced less than optimal results.
 
-The definition of colors and transformations follows a [simple spec]('https://thertzlor.github.io/semantic-rainbow/#spec') for easy tweaking and forking to create any number of dynamic semantic themes.
+The definition of colors and transformations follows a [simple spec](https://github.com/Thertzlor/semantic-rainbow/tree/main/generator#user-content-working-with-the-semantic-theme-generator) for easy tweaking and forking to create any number of dynamic semantic themes.
 
 ## Compatibility
 This theme relies on the presence of language server that support Semantic Highlighting. Some of the languages with the best support for this feature include JavaScript, TypeScript and Python.  
@@ -28,10 +28,11 @@ Keep in mind results might vary based on the language extensions you have instal
 ## Roadmap
 * Support for triad/tetrad color transformation
 * Including color readability checks
-* Language specific definitions
+* Language specific rules
 
 ## Contributing
 I am always looking for ways to improve Semantic Rainbow.
+
 * Know any language with Semantic Highlighting that this theme could support better?
 * Notice any contexts in which the existing syntax highlighting looks bad or incomplete?
 * Are there any TextMate fallbacks or modifier combinations that should be included?

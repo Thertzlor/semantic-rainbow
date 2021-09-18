@@ -9,9 +9,9 @@ const generateColors = (tinycolor,config)=>{
    const fallBackRules=[];
    //In this section we compile metadata about the generated colors
    const baseNumber = Object.keys(config.baseTokenColors).length;
-   const filterNumber = Object.keys(config.modifications).length;
+   const modNumber = Object.keys(config.modifications).length;
    const extraCombinationsNumber = config.modifierCombinations.length
-   const numColors = (baseNumber*filterNumber)+(baseNumber*extraCombinationsNumber);
+   const numColors = (baseNumber*modNumber)+(baseNumber*extraCombinationsNumber);
    //Counting modifications and colors that were defined manually.
    const manualColors = ((()=>{
       let manualFilters = 0
@@ -20,10 +20,10 @@ const generateColors = (tinycolor,config)=>{
          const filter = config.modifications[f];
          for (const k in filter) (Object.hasOwnProperty.call(filter, k) && k !== 'default') && manualFilters++
       }
-      return baseNumber+filterNumber+manualFilters
+      return baseNumber+modNumber+manualFilters
    })());
    //Putting everything into our "meta" object.
-   const meta = {numColors,manualColors,baseNumber,filterNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
+   const meta = {numColors,manualColors,baseNumber,modNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
    //Transforming a base color using one or more modifications
    const applyColors= (base,variations)=>{
       const color = new tinycolor(config.baseTokenColors[base])

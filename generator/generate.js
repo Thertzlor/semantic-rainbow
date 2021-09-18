@@ -2,6 +2,8 @@
 import tinycolor from "tinycolor2";
 import { generateColors, interpolate } from "./lib/colorGenerator.js";
 import {readFileSync,writeFile} from "fs";
+import {relative,parse,join} from "path"
+const initialDirectory = process.cwd();
 //Defining paths and reading files
 const packageData = JSON.parse(readFileSync("package.json",'utf-8'))
 const {themes,readmePath,readmeTemplatePath} = JSON.parse(readFileSync('./generator/config.json','utf-8'))
@@ -40,7 +42,9 @@ themes.forEach(t=>{
    cnf.tokenColors = tokenColors.concat(fallBackRules);
    const stringRules = JSON.stringify(cnf,null,3);
    //Updating the readme with color stats if it's the main Theme
-   const finalReadme = mainTheme && readme && interpolate(readme,meta).replace(/\]\(\.\./gmi,'](.');
+   const pathDiff= (relative(parse(readmeTemplatePath).dir,parse(readmePath).dir))
+   const finalReadme = (mainTheme || themes.length ===1) && readme && interpolate(readme,meta).replace(/\]\((?!http)([^)]+)\)/gmi,(_,c)=>(`](${relative(pathDiff,c)})`));
+   process.chdir(initialDirectory)
    //Saving the files
    writeFile(path,stringRules,'utf8',()=>{console.log('saved config.')});
    finalReadme && writeFile(readmePath,finalReadme,'utf8',()=>console.log('saved readme.'));
