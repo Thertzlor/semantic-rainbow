@@ -60,7 +60,8 @@ const generateColors = (tinycolor,config)=>{
          let fontText = [];
          if(r.bold)fontText.push('bold');
          if(r.italic)fontText.push('italic');
-         if(r.bold === false && r.italic === false)fontText = [''];
+         if(r.underline)fontText.push('underline');
+         if(r.bold === false && r.italic === false && r.underline ===false)fontText = [''];
          return {foreground:r.foreground, fontStyle:fontText.join(' ')}
       }
       //Applying text style rules if we find them
@@ -68,7 +69,7 @@ const generateColors = (tinycolor,config)=>{
          if (!(Object.hasOwnProperty.call(config.textformatMapping, f) && (new RegExp(`\\b${f}\\b`,'gm'))).test(finalText)) continue;
          const formatDef = config.textformatMapping[f]
          if(typeof rule === 'string')rule = {foreground:rule};
-         if(formatDef.clear) rule = {...rule, bold:false, italic:false};
+         if(formatDef.clear) rule = {...rule, bold:false, italic:false, underline:false};
          else rule = {...rule,...formatDef}
         }
       //Saving the rule

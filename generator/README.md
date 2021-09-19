@@ -50,7 +50,8 @@ The above example defines that all readonly tokens will have their color darkene
 A list token types or modifiers mapped to a text formatting definition which can take three boolean properties:  
 * `bold`: tokens will be displayed in bold.
 * `italic`: tokens will be displayed in italic.
-* `clear`: clear any bold/italic styles that other styles might have applied to this token.
+* `underline`: tokens will be underlined.
+* `clear`: clear any bold/itali/underline styles that other styles might have applied to this token.
 
 ### **modifierCombinations**
 A list of combinations of two or more token modifiers for which stacked modifications should be generated.  
