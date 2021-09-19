@@ -11,6 +11,7 @@
    },
    "icon": "assets/SR_icon128.png",
    "version": "1.0.0",
+   "homepage": "https://github.com/Thertzlor/semantic-rainbow",
    "engines": {
       "vscode": "^1.60.0"
    },
@@ -22,10 +23,7 @@
       "dark",
       "syntax highlighting",
       "maximalist",
-      "colorful"
-   ],
-   "files": [
-      "themes"
+      "color"
    ],
    "contributes": {
       "themes": [

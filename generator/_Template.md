@@ -8,9 +8,9 @@ Utilizing both bold colors and subtle distinctions, anything than *can* be ident
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 
-By highlighing **{baseNumber}** types of semantic tokens each with **{modNumber}** varations corresponding to different semantic modifiers and an additional **{extraCombinationsNumber}** shades for combinations of two or more individual modifiers, this theme defines a total of **{numColors}** styles for all conceivable (and a few inconceivable) kinds of tokens.
+By highlighting **{baseNumber}** types of semantic tokens each with **{modNumber}** varations corresponding to different semantic modifiers and an additional **{extraCombinationsNumber}** shades for combinations of two or more individual modifiers, this theme defines a total of **{numColors}** styles for all conceivable (and a few inconceivable) kinds of tokens.
 
-If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *non-async default library method*, look no further.
+If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *non-async default library method* look no further.
 
 For a list of styles and a breakdown of the design process, check out the [GitHub page of this repo](https://thertzlor.github.io/semantic-rainbow/).
 
