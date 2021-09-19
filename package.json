@@ -10,7 +10,7 @@
       "name": "Thertzlor"
    },
    "icon": "assets/SR_icon128.png",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "homepage": "https://github.com/Thertzlor/semantic-rainbow",
    "engines": {
       "vscode": "^1.60.0"
