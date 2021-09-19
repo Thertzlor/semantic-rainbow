@@ -1,16 +1,18 @@
 # Working with the Semantic Theme Generator
-The generator expects to find an existing `color-theme.json` file for all themes defined in `config.json`. as well as a `package.json` for the project in general.  
+Modifying Semantic Rainbow or generating your own dynamic semantic hightlighting theme is easy, simply edit the `config.json` file in this directory.  
+But if you start from scratch, note that this generator expects to find an existing `color-theme.json` definition for all themes defined in `config.json`, as well as a `package.json` for the project in general.  
 ## Compiling
 After making any modifications to the `config.json` file simply run `node ./generator/generate`.
+The generator will apply the following changes to the color theme definition and package.json:
 
 * The semanticTokenColors property will be fully replaced by the values generated based on the config.  
 * Textmate rules defined in tokenColors will be rpelaced or modified based on the fallback definitions in the config but any unrelated TextMate rules will be left intact.  
 * All other definitions in the color theme like interface colors are **not** modified.
 * The `package.json` file will be updated with the metadata of all configured themes as well as the semanticTokenScopes based on all the Theme's fallback properties.
-* 
+* If the required paths are provided a number statistics can be [interpolated into your README](#readme-interpolation).
 
 ## The Style Definition Spec
-Themes can be defined in the `config.json` file. The provided json schema file should provide a good enough guide on the structure, so the descriptions here 
+Themes can be defined in the `config.json` file. The provided json schema file should provide a good enough guide on the structure, so the descriptions provided here will be more general than technical.
 
 ### **path/label/id/uiTheme**  
 Theme metadata for VSCode to be inserted into `package.json`.  
@@ -42,7 +44,6 @@ A simple example of a modifier definition:
    }
 }
 ```
-
 The above example defines that all readonly tokens will have their color darkened with by 10, but all readonly *functions* will be darkened twice as much with an amount of 20. 
 
 ### **textformatMapping**
