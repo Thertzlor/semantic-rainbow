@@ -4,6 +4,10 @@
    "title": "ColorConfig",
    "description": "Color Configuration for Semantic rainbow",
    "type": "object",
+   "additionalProperties": false,
+   "required": [
+      "themes"
+   ],
    "properties": {
       "$schema": {
          "description": "a link to a schema file",
@@ -18,15 +22,24 @@
          "type": "string"
       },
       "themes": {
-         "mainTheme": {
-            "description": "determines if the theme is the primary theme of a pack",
-            "type": "boolean"
-         },
          "description": "a list of color theme definitions",
          "type": "array",
          "items": {
+            "required": [
+               "label",
+               "uiTheme",
+               "path",
+               "baseTokenColors",
+               "modifications",
+               "modifierCombinations"
+            ],
             "type": "object",
+            "additionalProperties": false,
             "properties": {
+               "mainTheme": {
+                  "description": "determines if the theme is the primary theme of a pack",
+                  "type": "boolean"
+               },
                "fallbacks": {
                   "description": "textMate scopes to be used as fallbacks for certain tokens and modifiers",
                   "type": "object",
@@ -126,6 +139,7 @@
                            "^[A-z]+$": {
                               "description": "A list of tinycolor color transformations for this token type",
                               "type": "object",
+                              "additionalProperties": false,
                               "properties": {
                                  "brighten": {
                                     "description": "increase the brightness of the color",
@@ -149,15 +163,31 @@
                                  },
                                  "saturate": {
                                     "description": "increase the saturation of the color",
+                                    "type": "number"
+                                 },
+                                 "alpha": {
+                                    "description": "set relative alpha",
+                                    "type": "number"
+                                 },
+                                 "triad": {
+                                    "description": "generate the triad for the current color and return the color in the provided position",
+                                    "type": "number"
+                                 },
+                                 "tetrad": {
+                                    "description": "generate the tetrads for the current color and return the color in the provided position",
                                     "type": "number"
                                  }
                               }
                            }
                         },
+                        "required": [
+                           "default"
+                        ],
                         "properties": {
                            "default": {
                               "description": "The default transformation values for this modifier.",
                               "type": "object",
+                              "additionalProperties": false,
                               "properties": {
                                  "brighten": {
                                     "description": "increase the brightness of the color",
@@ -181,6 +211,18 @@
                                  },
                                  "saturate": {
                                     "description": "increase the saturation of the color",
+                                    "type": "number"
+                                 },
+                                 "alpha": {
+                                    "description": "set relative alpha",
+                                    "type": "number"
+                                 },
+                                 "triad": {
+                                    "description": "generate the triad for the current color and return the color in the provided position",
+                                    "type": "number"
+                                 },
+                                 "tetrad": {
+                                    "description": "generate the tetrads for the current color and return the color in the provided position",
                                     "type": "number"
                                  }
                               }

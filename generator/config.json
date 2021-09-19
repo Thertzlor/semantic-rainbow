@@ -51,10 +51,9 @@
                   "spin": -6
                }
             },
-            "declaration": {
+            "private": {
                "default": {
-                  "saturate": 6,
-                  "spin": 3
+                  "alpha": 0.8
                }
             },
             "static": {
@@ -63,18 +62,17 @@
                   "darken": 5
                }
             },
+            "declaration": {
+               "default": {
+                  "saturate": 6,
+                  "spin": 3
+               }
+            },
             "async": {
                "default": {
                   "lighten": 5,
                   "saturate": 5,
                   "spin": -5
-               }
-            },
-            "private": {
-               "default": {
-                  "desaturate": 10,
-                  "lighten": 10,
-                  "spin": -10
                }
             },
             "defaultLibrary": {
@@ -121,21 +119,24 @@
          "fallbacks": {
             "parameter": [
                "variable.parameter.function",
-               "variable.parameter.function-call"
+               "variable.parameter.function-call",
+               "meta.function.parameter",
+               "meta.function.parameters"
             ],
             "function": [
                "entity.name.function",
-               "support.function",
-               "meta.function-call.generic"
+               "meta.function-call"
             ],
             "variable": [
                "variable.other.readwrite",
                "variable.other",
                "variable",
                "support.variable",
-               "entity.name.tag",
                "markup.heading",
                "entity.name.section"
+            ],
+            "variable.readonly": [
+               "entity.name.tag"
             ],
             "type": [
                "entity.name.type.alias",
@@ -143,6 +144,11 @@
             ],
             "namespace": [
                "meta.symbol.namespace"
+            ],
+            "function.defaultLibrary": [
+               "support.function.builtin",
+               "support.function.misc",
+               "support.function"
             ],
             "property": [
                "variable.other.property",
@@ -158,10 +164,12 @@
             ],
             "class": [
                "entity.name.type.class",
-               "entity.other.inherited-class"
+               "entity.other.inherited-class",
+               "entity.other.attribute-name.class"
             ],
             "method": [
-               "meta.directive.vue"
+               "meta.directive.vue",
+               "entity.other.attribute-name.pseudo-class"
             ],
             "selfParameter": [
                "variable.language.this",
@@ -184,15 +192,15 @@
             ]
          },
          "modifierCombinations": [
+            "readonly.declaration.async",
+            "readonly.async",
             "readonly.declaration",
             "private.readonly.declaration",
             "private.readonly",
+            "private.readonly.async.declaration",
             "private.declaration",
             "private.async.declaration",
             "private.async",
-            "private.readonly.async.declaration",
-            "readonly.declaration.async",
-            "readonly.async",
             "defaultLibrary.readonly",
             "static.declaration",
             "static.async",

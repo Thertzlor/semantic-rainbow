@@ -156,13 +156,13 @@
    "semanticTokenColors": {
       "variable": "#cc4755",
       "variable.readonly": "#b52b47",
+      "variable.private": "#cc4755cc",
+      "variable.static": "#c33f36",
       "variable.declaration": {
          "foreground": "#d34048",
          "italic": true
       },
-      "variable.static": "#c33f36",
       "variable.async": "#d7566e",
-      "variable.private": "#ce788f",
       "variable.defaultLibrary": "#cd606b",
       "variable.builtin": {
          "foreground": "#cd606b"
@@ -171,33 +171,33 @@
       "variable.typeHint": {
          "foreground": "#bc898e"
       },
-      "variable.readonly.declaration": {
-         "foreground": "#bc243c",
-         "italic": true
-      },
-      "variable.private.readonly.declaration": {
-         "foreground": "#cd4671",
-         "italic": true
-      },
-      "variable.private.readonly": "#c64d7a",
-      "variable.private.declaration": {
-         "foreground": "#d37388",
-         "italic": true
-      },
-      "variable.private.async.declaration": {
-         "foreground": "#dd829e",
-         "italic": true
-      },
-      "variable.private.async": "#d987a4",
-      "variable.private.readonly.async.declaration": {
-         "foreground": "#d8558a",
-         "italic": true
-      },
       "variable.readonly.declaration.async": {
          "foreground": "#d7224d",
          "italic": true
       },
       "variable.readonly.async": "#d02a5a",
+      "variable.readonly.declaration": {
+         "foreground": "#bc243c",
+         "italic": true
+      },
+      "variable.private.readonly.declaration": {
+         "foreground": "#bc243ccc",
+         "italic": true
+      },
+      "variable.private.readonly": "#b52b47cc",
+      "variable.private.readonly.async.declaration": {
+         "foreground": "#d7224dcc",
+         "italic": true
+      },
+      "variable.private.declaration": {
+         "foreground": "#d34048cc",
+         "italic": true
+      },
+      "variable.private.async.declaration": {
+         "foreground": "#dd4f63cc",
+         "italic": true
+      },
+      "variable.private.async": "#d7566ecc",
       "variable.defaultLibrary.readonly": "#c43652",
       "variable.builtin.readonly": {
          "foreground": "#c43652"
@@ -236,13 +236,13 @@
       },
       "parameter": "#df7850",
       "parameter.readonly": "#c24b21",
+      "parameter.private": "#df7850cc",
+      "parameter.static": "#db823a",
       "parameter.declaration": {
          "foreground": "#e57d4a",
          "italic": true
       },
-      "parameter.static": "#db823a",
       "parameter.async": "#e77b61",
-      "parameter.private": "#df8d83",
       "parameter.defaultLibrary": "#e8aa79",
       "parameter.builtin": {
          "foreground": "#e8aa79"
@@ -251,33 +251,33 @@
       "parameter.typeHint": {
          "foreground": "#d4a18d"
       },
-      "parameter.readonly.declaration": {
-         "foreground": "#c9511a",
-         "italic": true
-      },
-      "parameter.private.readonly.declaration": {
-         "foreground": "#d9543d",
-         "italic": true
-      },
-      "parameter.private.readonly": "#d25144",
-      "parameter.private.declaration": {
-         "foreground": "#e48f7e",
-         "italic": true
-      },
-      "parameter.private.async.declaration": {
-         "foreground": "#eb9790",
-         "italic": true
-      },
-      "parameter.private.async": "#e89694",
-      "parameter.private.readonly.async.declaration": {
-         "foreground": "#e2564d",
-         "italic": true
-      },
       "parameter.readonly.declaration.async": {
          "foreground": "#e54617",
          "italic": true
       },
       "parameter.readonly.async": "#de411e",
+      "parameter.readonly.declaration": {
+         "foreground": "#c9511a",
+         "italic": true
+      },
+      "parameter.private.readonly.declaration": {
+         "foreground": "#c9511acc",
+         "italic": true
+      },
+      "parameter.private.readonly": "#c24b21cc",
+      "parameter.private.readonly.async.declaration": {
+         "foreground": "#e54617cc",
+         "italic": true
+      },
+      "parameter.private.declaration": {
+         "foreground": "#e57d4acc",
+         "italic": true
+      },
+      "parameter.private.async.declaration": {
+         "foreground": "#ed7f5ccc",
+         "italic": true
+      },
+      "parameter.private.async": "#e77b61cc",
       "parameter.defaultLibrary.readonly": "#df7e35",
       "parameter.builtin.readonly": {
          "foreground": "#df7e35"
@@ -316,13 +316,13 @@
       },
       "typeParameter": "#c76025",
       "typeParameter.readonly": "#a13c18",
+      "typeParameter.private": "#c76025cc",
+      "typeParameter.static": "#b16e21",
       "typeParameter.declaration": {
          "foreground": "#ce671e",
          "italic": true
       },
-      "typeParameter.static": "#b16e21",
       "typeParameter.async": "#de5b27",
-      "typeParameter.private": "#d1684e",
       "typeParameter.defaultLibrary": "#ce9350",
       "typeParameter.builtin": {
          "foreground": "#ce9350"
@@ -331,33 +331,33 @@
       "typeParameter.typeHint": {
          "foreground": "#b78467"
       },
-      "typeParameter.readonly.declaration": {
-         "foreground": "#a64113",
-         "italic": true
-      },
-      "typeParameter.private.readonly.declaration": {
-         "foreground": "#c83c24",
-         "italic": true
-      },
-      "typeParameter.private.readonly": "#c13a2b",
-      "typeParameter.private.declaration": {
-         "foreground": "#d86b47",
-         "italic": true
-      },
-      "typeParameter.private.async.declaration": {
-         "foreground": "#e16e57",
-         "italic": true
-      },
-      "typeParameter.private.async": "#db6c5d",
-      "typeParameter.private.readonly.async.declaration": {
-         "foreground": "#df3226",
-         "italic": true
-      },
       "typeParameter.readonly.declaration.async": {
          "foreground": "#c23910",
          "italic": true
       },
       "typeParameter.readonly.async": "#bc3416",
+      "typeParameter.readonly.declaration": {
+         "foreground": "#a64113",
+         "italic": true
+      },
+      "typeParameter.private.readonly.declaration": {
+         "foreground": "#a64113cc",
+         "italic": true
+      },
+      "typeParameter.private.readonly": "#a13c18cc",
+      "typeParameter.private.readonly.async.declaration": {
+         "foreground": "#c23910cc",
+         "italic": true
+      },
+      "typeParameter.private.declaration": {
+         "foreground": "#ce671ecc",
+         "italic": true
+      },
+      "typeParameter.private.async.declaration": {
+         "foreground": "#e66120cc",
+         "italic": true
+      },
+      "typeParameter.private.async": "#de5b27cc",
       "typeParameter.defaultLibrary.readonly": "#bd6c2e",
       "typeParameter.builtin.readonly": {
          "foreground": "#bd6c2e"
@@ -396,13 +396,13 @@
       },
       "type": "#db9b25",
       "type.readonly": "#b56e18",
+      "type.private": "#db9b25cc",
+      "type.static": "#c6a721",
       "type.declaration": {
          "foreground": "#e3a71d",
          "italic": true
       },
-      "type.static": "#c6a721",
       "type.async": "#e49835",
-      "type.private": "#d8975b",
       "type.defaultLibrary": "#c1b38a",
       "type.builtin": {
          "foreground": "#c1b38a"
@@ -411,33 +411,33 @@
       "type.typeHint": {
          "foreground": "#c8a76a"
       },
-      "type.readonly.declaration": {
-         "foreground": "#bb7712",
-         "italic": true
-      },
-      "type.private.readonly.declaration": {
-         "foreground": "#dc7324",
-         "italic": true
-      },
-      "type.private.readonly": "#d56c2b",
-      "type.private.declaration": {
-         "foreground": "#de9e55",
-         "italic": true
-      },
-      "type.private.async.declaration": {
-         "foreground": "#e7a066",
-         "italic": true
-      },
-      "type.private.async": "#e19a6b",
-      "type.private.readonly.async.declaration": {
-         "foreground": "#e57234",
-         "italic": true
-      },
       "type.readonly.declaration.async": {
          "foreground": "#d8760e",
          "italic": true
       },
       "type.readonly.async": "#d16d15",
+      "type.readonly.declaration": {
+         "foreground": "#bb7712",
+         "italic": true
+      },
+      "type.private.readonly.declaration": {
+         "foreground": "#bb7712cc",
+         "italic": true
+      },
+      "type.private.readonly": "#b56e18cc",
+      "type.private.readonly.async.declaration": {
+         "foreground": "#d8760ecc",
+         "italic": true
+      },
+      "type.private.declaration": {
+         "foreground": "#e3a71dcc",
+         "italic": true
+      },
+      "type.private.async.declaration": {
+         "foreground": "#eba22ecc",
+         "italic": true
+      },
+      "type.private.async": "#e49835cc",
       "type.defaultLibrary.readonly": "#b59763",
       "type.builtin.readonly": {
          "foreground": "#b59763"
@@ -476,13 +476,13 @@
       },
       "interface": "#dbb425",
       "interface.readonly": "#b58418",
+      "interface.private": "#dbb425cc",
+      "interface.static": "#c6be21",
       "interface.declaration": {
          "foreground": "#e3c21d",
          "italic": true
       },
-      "interface.static": "#c6be21",
       "interface.async": "#e4b035",
-      "interface.private": "#d8a85b",
       "interface.defaultLibrary": "#d0c57d",
       "interface.builtin": {
          "foreground": "#d0c57d"
@@ -491,33 +491,33 @@
       "interface.typeHint": {
          "foreground": "#c8b46a"
       },
-      "interface.readonly.declaration": {
-         "foreground": "#bb8e12",
-         "italic": true
-      },
-      "interface.private.readonly.declaration": {
-         "foreground": "#dc8d24",
-         "italic": true
-      },
-      "interface.private.readonly": "#d5832b",
-      "interface.private.declaration": {
-         "foreground": "#deb155",
-         "italic": true
-      },
-      "interface.private.async.declaration": {
-         "foreground": "#e7b166",
-         "italic": true
-      },
-      "interface.private.async": "#e1aa6b",
-      "interface.private.readonly.async.declaration": {
-         "foreground": "#e58a34",
-         "italic": true
-      },
       "interface.readonly.declaration.async": {
          "foreground": "#d8920e",
          "italic": true
       },
       "interface.readonly.async": "#d18615",
+      "interface.readonly.declaration": {
+         "foreground": "#bb8e12",
+         "italic": true
+      },
+      "interface.private.readonly.declaration": {
+         "foreground": "#bb8e12cc",
+         "italic": true
+      },
+      "interface.private.readonly": "#b58418cc",
+      "interface.private.readonly.async.declaration": {
+         "foreground": "#d8920ecc",
+         "italic": true
+      },
+      "interface.private.declaration": {
+         "foreground": "#e3c21dcc",
+         "italic": true
+      },
+      "interface.private.async.declaration": {
+         "foreground": "#ebbc2ecc",
+         "italic": true
+      },
+      "interface.private.async": "#e4b035cc",
       "interface.defaultLibrary.readonly": "#c8ac52",
       "interface.builtin.readonly": {
          "foreground": "#c8ac52"
@@ -556,13 +556,13 @@
       },
       "enum": "#b4bd38",
       "enum.readonly": "#66631a",
+      "enum.private": "#b4bd38cc",
+      "enum.static": "#8da932",
       "enum.declaration": {
          "foreground": "#b3c431",
          "italic": true
       },
-      "enum.static": "#8da932",
       "enum.async": "#cecc40",
-      "enum.private": "#c3ba65",
       "enum.defaultLibrary": "#adc463",
       "enum.builtin": {
          "foreground": "#adc463"
@@ -571,33 +571,33 @@
       "enum.typeHint": {
          "foreground": "#a8ab7c"
       },
-      "enum.readonly.declaration": {
-         "foreground": "#686916",
-         "italic": true
-      },
-      "enum.private.readonly.declaration": {
-         "foreground": "#8b7c28",
-         "italic": true
-      },
-      "enum.private.readonly": "#85742d",
-      "enum.private.declaration": {
-         "foreground": "#cac55e",
-         "italic": true
-      },
-      "enum.private.async.declaration": {
-         "foreground": "#d5c76d",
-         "italic": true
-      },
-      "enum.private.async": "#cfbe72",
-      "enum.private.readonly.async.declaration": {
-         "foreground": "#a48729",
-         "italic": true
-      },
       "enum.readonly.declaration.async": {
          "foreground": "#827b17",
          "italic": true
       },
       "enum.readonly.async": "#7e721b",
+      "enum.readonly.declaration": {
+         "foreground": "#686916",
+         "italic": true
+      },
+      "enum.private.readonly.declaration": {
+         "foreground": "#686916cc",
+         "italic": true
+      },
+      "enum.private.readonly": "#66631acc",
+      "enum.private.readonly.async.declaration": {
+         "foreground": "#827b17cc",
+         "italic": true
+      },
+      "enum.private.declaration": {
+         "foreground": "#b3c431cc",
+         "italic": true
+      },
+      "enum.private.async.declaration": {
+         "foreground": "#d0d539cc",
+         "italic": true
+      },
+      "enum.private.async": "#cecc40cc",
       "enum.defaultLibrary.readonly": "#79852c",
       "enum.builtin.readonly": {
          "foreground": "#79852c"
@@ -636,13 +636,13 @@
       },
       "enumMember": "#aec496",
       "enumMember.readonly": "#7c984d",
+      "enumMember.private": "#aec496cc",
+      "enumMember.static": "#99bb86",
       "enumMember.declaration": {
          "foreground": "#abc991",
          "italic": true
       },
-      "enumMember.static": "#99bb86",
       "enumMember.async": "#bfd1a3",
-      "enumMember.private": "#cad1bc",
       "enumMember.defaultLibrary": "#c2d1bb",
       "enumMember.builtin": {
          "foreground": "#c2d1bb"
@@ -651,33 +651,33 @@
       "enumMember.typeHint": {
          "foreground": "#c1ccb6"
       },
-      "enumMember.readonly.declaration": {
-         "foreground": "#799f46",
-         "italic": true
-      },
-      "enumMember.private.readonly.declaration": {
-         "foreground": "#9cad6a",
-         "italic": true
-      },
-      "enumMember.private.readonly": "#9ba671",
-      "enumMember.private.declaration": {
-         "foreground": "#cad4b9",
-         "italic": true
-      },
-      "enumMember.private.async.declaration": {
-         "foreground": "#d9e0c7",
-         "italic": true
-      },
-      "enumMember.private.async": "#d9ddc9",
-      "enumMember.private.readonly.async.declaration": {
-         "foreground": "#afbb76",
-         "italic": true
-      },
       "enumMember.readonly.declaration.async": {
          "foreground": "#90b747",
          "italic": true
       },
       "enumMember.readonly.async": "#93af4f",
+      "enumMember.readonly.declaration": {
+         "foreground": "#799f46",
+         "italic": true
+      },
+      "enumMember.private.readonly.declaration": {
+         "foreground": "#799f46cc",
+         "italic": true
+      },
+      "enumMember.private.readonly": "#7c984dcc",
+      "enumMember.private.readonly.async.declaration": {
+         "foreground": "#90b747cc",
+         "italic": true
+      },
+      "enumMember.private.declaration": {
+         "foreground": "#abc991cc",
+         "italic": true
+      },
+      "enumMember.private.async.declaration": {
+         "foreground": "#bdd59fcc",
+         "italic": true
+      },
+      "enumMember.private.async": "#bfd1a3cc",
       "enumMember.defaultLibrary.readonly": "#88a76f",
       "enumMember.builtin.readonly": {
          "foreground": "#88a76f"
@@ -716,13 +716,13 @@
       },
       "property": "#88ac47",
       "property.readonly": "#768d33",
+      "property.private": "#88ac47cc",
+      "property.static": "#6b9a40",
       "property.declaration": {
          "foreground": "#84b340",
          "italic": true
       },
-      "property.static": "#6b9a40",
       "property.async": "#a0be4e",
-      "property.private": "#a8b571",
       "property.defaultLibrary": "#91b372",
       "property.builtin": {
          "foreground": "#91b372"
@@ -731,33 +731,33 @@
       "property.typeHint": {
          "foreground": "#959a8b"
       },
-      "property.readonly.declaration": {
-         "foreground": "#74922e",
-         "italic": true
-      },
-      "property.private.readonly.declaration": {
-         "foreground": "#9fad46",
-         "italic": true
-      },
-      "property.private.readonly": "#9ea64d",
-      "property.private.declaration": {
-         "foreground": "#a8bc6a",
-         "italic": true
-      },
-      "property.private.async.declaration": {
-         "foreground": "#bcc877",
-         "italic": true
-      },
-      "property.private.async": "#bbc37d",
-      "property.private.readonly.async.declaration": {
-         "foreground": "#b9c04d",
-         "italic": true
-      },
       "property.readonly.declaration.async": {
          "foreground": "#8fab2e",
          "italic": true
       },
       "property.readonly.async": "#91a535",
+      "property.readonly.declaration": {
+         "foreground": "#74922e",
+         "italic": true
+      },
+      "property.private.readonly.declaration": {
+         "foreground": "#74922ecc",
+         "italic": true
+      },
+      "property.private.readonly": "#768d33cc",
+      "property.private.readonly.async.declaration": {
+         "foreground": "#8fab2ecc",
+         "italic": true
+      },
+      "property.private.declaration": {
+         "foreground": "#84b340cc",
+         "italic": true
+      },
+      "property.private.async.declaration": {
+         "foreground": "#9dc647cc",
+         "italic": true
+      },
+      "property.private.async": "#a0be4ecc",
       "property.defaultLibrary.readonly": "#80a34f",
       "property.builtin.readonly": {
          "foreground": "#80a34f"
@@ -802,21 +802,21 @@
          "foreground": "#298b3d",
          "bold": true
       },
-      "class.declaration": {
-         "foreground": "#33b461",
-         "bold": true,
-         "italic": true
+      "class.private": {
+         "foreground": "#3aad5dcc",
+         "bold": true
       },
       "class.static": {
          "foreground": "#349a64",
          "bold": true
       },
+      "class.declaration": {
+         "foreground": "#33b461",
+         "bold": true,
+         "italic": true
+      },
       "class.async": {
          "foreground": "#3bc65a",
-         "bold": true
-      },
-      "class.private": {
-         "foreground": "#60ba6c",
          "bold": true
       },
       "class.defaultLibrary": {
@@ -835,39 +835,6 @@
          "foreground": "#7b9e86",
          "bold": true
       },
-      "class.readonly.declaration": {
-         "foreground": "#23913f",
-         "bold": true,
-         "italic": true
-      },
-      "class.private.readonly.declaration": {
-         "foreground": "#39ae43",
-         "bold": true,
-         "italic": true
-      },
-      "class.private.readonly": {
-         "foreground": "#40a744",
-         "bold": true
-      },
-      "class.private.declaration": {
-         "foreground": "#59c16c",
-         "bold": true,
-         "italic": true
-      },
-      "class.private.async.declaration": {
-         "foreground": "#66cd71",
-         "bold": true,
-         "italic": true
-      },
-      "class.private.async": {
-         "foreground": "#6cc771",
-         "bold": true
-      },
-      "class.private.readonly.async.declaration": {
-         "foreground": "#3ac73a",
-         "bold": true,
-         "italic": true
-      },
       "class.readonly.declaration.async": {
          "foreground": "#23aa3a",
          "bold": true,
@@ -875,6 +842,39 @@
       },
       "class.readonly.async": {
          "foreground": "#29a438",
+         "bold": true
+      },
+      "class.readonly.declaration": {
+         "foreground": "#23913f",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.readonly.declaration": {
+         "foreground": "#23913fcc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.readonly": {
+         "foreground": "#298b3dcc",
+         "bold": true
+      },
+      "class.private.readonly.async.declaration": {
+         "foreground": "#23aa3acc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.declaration": {
+         "foreground": "#33b461cc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.async.declaration": {
+         "foreground": "#33cd5dcc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.async": {
+         "foreground": "#3bc65acc",
          "bold": true
       },
       "class.defaultLibrary.readonly": {
@@ -939,13 +939,13 @@
       },
       "namespace": "#2b9468",
       "namespace.readonly": "#1c7044",
+      "namespace.private": "#2b9468cc",
+      "namespace.static": "#258069",
       "namespace.declaration": {
          "foreground": "#259a6f",
          "italic": true
       },
-      "namespace.static": "#258069",
       "namespace.async": "#2bad6c",
-      "namespace.private": "#43af70",
       "namespace.defaultLibrary": "#529f8c",
       "namespace.builtin": {
          "foreground": "#529f8c"
@@ -954,33 +954,33 @@
       "namespace.typeHint": {
          "foreground": "#658c7c"
       },
-      "namespace.readonly.declaration": {
-         "foreground": "#187449",
-         "italic": true
-      },
-      "namespace.private.readonly.declaration": {
-         "foreground": "#2a9551",
-         "italic": true
-      },
-      "namespace.private.readonly": "#308f4e",
-      "namespace.private.declaration": {
-         "foreground": "#3bb775",
-         "italic": true
-      },
-      "namespace.private.async.declaration": {
-         "foreground": "#42ca76",
-         "italic": true
-      },
-      "namespace.private.async": "#49c271",
-      "namespace.private.readonly.async.declaration": {
-         "foreground": "#2aae4f",
-         "italic": true
-      },
       "namespace.readonly.declaration.async": {
          "foreground": "#188d4d",
          "italic": true
       },
       "namespace.readonly.async": "#1d8848",
+      "namespace.readonly.declaration": {
+         "foreground": "#187449",
+         "italic": true
+      },
+      "namespace.private.readonly.declaration": {
+         "foreground": "#187449cc",
+         "italic": true
+      },
+      "namespace.private.readonly": "#1c7044cc",
+      "namespace.private.readonly.async.declaration": {
+         "foreground": "#188d4dcc",
+         "italic": true
+      },
+      "namespace.private.declaration": {
+         "foreground": "#259a6fcc",
+         "italic": true
+      },
+      "namespace.private.async.declaration": {
+         "foreground": "#25b473cc",
+         "italic": true
+      },
+      "namespace.private.async": "#2bad6ccc",
       "namespace.defaultLibrary.readonly": "#3c826a",
       "namespace.builtin.readonly": {
          "foreground": "#3c826a"
@@ -1019,13 +1019,13 @@
       },
       "selfParameter": "#64c49b",
       "selfParameter.readonly": "#3db877",
+      "selfParameter.private": "#64c49bcc",
+      "selfParameter.static": "#52bda1",
       "selfParameter.declaration": {
          "foreground": "#5ecaa1",
          "italic": true
       },
-      "selfParameter.static": "#52bda1",
       "selfParameter.async": "#72d0a0",
-      "selfParameter.private": "#91caa8",
       "selfParameter.defaultLibrary": "#8dcdbd",
       "selfParameter.builtin": {
          "foreground": "#8dcdbd"
@@ -1034,33 +1034,33 @@
       "selfParameter.typeHint": {
          "foreground": "#a2b8af"
       },
-      "selfParameter.readonly.declaration": {
-         "foreground": "#36bf7e",
-         "italic": true
-      },
-      "selfParameter.private.readonly.declaration": {
-         "foreground": "#63c586",
-         "italic": true
-      },
-      "selfParameter.private.readonly": "#69bf83",
-      "selfParameter.private.declaration": {
-         "foreground": "#8ccfab",
-         "italic": true
-      },
-      "selfParameter.private.async.declaration": {
-         "foreground": "#9bdab2",
-         "italic": true
-      },
-      "selfParameter.private.async": "#9fd6b1",
-      "selfParameter.private.readonly.async.declaration": {
-         "foreground": "#71d18b",
-         "italic": true
-      },
       "selfParameter.readonly.declaration.async": {
          "foreground": "#3ed07e",
          "italic": true
       },
       "selfParameter.readonly.async": "#46c979",
+      "selfParameter.readonly.declaration": {
+         "foreground": "#36bf7e",
+         "italic": true
+      },
+      "selfParameter.private.readonly.declaration": {
+         "foreground": "#36bf7ecc",
+         "italic": true
+      },
+      "selfParameter.private.readonly": "#3db877cc",
+      "selfParameter.private.readonly.async.declaration": {
+         "foreground": "#3ed07ecc",
+         "italic": true
+      },
+      "selfParameter.private.declaration": {
+         "foreground": "#5ecaa1cc",
+         "italic": true
+      },
+      "selfParameter.private.async.declaration": {
+         "foreground": "#6cd5a5cc",
+         "italic": true
+      },
+      "selfParameter.private.async": "#72d0a0cc",
       "selfParameter.defaultLibrary.readonly": "#64c3a1",
       "selfParameter.builtin.readonly": {
          "foreground": "#64c3a1"
@@ -1099,13 +1099,13 @@
       },
       "method": "#20a6be",
       "method.readonly": "#149097",
+      "method.private": "#20a6becc",
+      "method.static": "#1c7ca8",
       "method.declaration": {
          "foreground": "#19a2c5",
          "italic": true
       },
-      "method.static": "#1c7ca8",
       "method.async": "#1dcdda",
-      "method.private": "#40d1cf",
       "method.defaultLibrary": "#4a9ec6",
       "method.builtin": {
          "foreground": "#4a9ec6"
@@ -1114,33 +1114,33 @@
       "method.typeHint": {
          "foreground": "#60a4b0"
       },
-      "method.readonly.declaration": {
-         "foreground": "#0f8d9c",
-         "italic": true
-      },
-      "method.private.readonly.declaration": {
-         "foreground": "#1fbfb5",
-         "italic": true
-      },
-      "method.private.readonly": "#26b8a8",
-      "method.private.declaration": {
-         "foreground": "#39d2d8",
-         "italic": true
-      },
-      "method.private.async.declaration": {
-         "foreground": "#49e2da",
-         "italic": true
-      },
-      "method.private.async": "#4fdbcd",
-      "method.private.readonly.async.declaration": {
-         "foreground": "#1cdbbf",
-         "italic": true
-      },
       "method.readonly.declaration.async": {
          "foreground": "#0db5b8",
          "italic": true
       },
       "method.readonly.async": "#13b2ad",
+      "method.readonly.declaration": {
+         "foreground": "#0f8d9c",
+         "italic": true
+      },
+      "method.private.readonly.declaration": {
+         "foreground": "#0f8d9ccc",
+         "italic": true
+      },
+      "method.private.readonly": "#149097cc",
+      "method.private.readonly.async.declaration": {
+         "foreground": "#0db5b8cc",
+         "italic": true
+      },
+      "method.private.declaration": {
+         "foreground": "#19a2c5cc",
+         "italic": true
+      },
+      "method.private.async.declaration": {
+         "foreground": "#16c9e1cc",
+         "italic": true
+      },
+      "method.private.async": "#1dcddacc",
       "method.defaultLibrary.readonly": "#2f92ae",
       "method.builtin.readonly": {
          "foreground": "#2f92ae"
@@ -1179,13 +1179,13 @@
       },
       "function": "#407de6",
       "function.readonly": "#1673dd",
+      "function.private": "#407de6cc",
+      "function.static": "#294fe3",
       "function.declaration": {
          "foreground": "#3972ec",
          "italic": true
       },
-      "function.static": "#294fe3",
       "function.async": "#5298ee",
-      "function.private": "#75b0e4",
       "function.defaultLibrary": "#6984ef",
       "function.builtin": {
          "foreground": "#6984ef"
@@ -1197,33 +1197,33 @@
       "function.typeHint": {
          "foreground": "#7fa0d9"
       },
-      "function.readonly.declaration": {
-         "foreground": "#0f68e4",
-         "italic": true
-      },
-      "function.private.readonly.declaration": {
-         "foreground": "#3fa1e7",
-         "italic": true
-      },
-      "function.private.readonly": "#45a8e1",
-      "function.private.declaration": {
-         "foreground": "#70abe9",
-         "italic": true
-      },
-      "function.private.async.declaration": {
-         "foreground": "#83c1f0",
-         "italic": true
-      },
-      "function.private.async": "#87c5eb",
-      "function.private.readonly.async.declaration": {
-         "foreground": "#51baef",
-         "italic": true
-      },
       "function.readonly.declaration.async": {
          "foreground": "#1686f6",
          "italic": true
       },
       "function.readonly.async": "#1d91ef",
+      "function.readonly.declaration": {
+         "foreground": "#0f68e4",
+         "italic": true
+      },
+      "function.private.readonly.declaration": {
+         "foreground": "#0f68e4cc",
+         "italic": true
+      },
+      "function.private.readonly": "#1673ddcc",
+      "function.private.readonly.async.declaration": {
+         "foreground": "#1686f6cc",
+         "italic": true
+      },
+      "function.private.declaration": {
+         "foreground": "#3972eccc",
+         "italic": true
+      },
+      "function.private.async.declaration": {
+         "foreground": "#4c8ff3cc",
+         "italic": true
+      },
+      "function.private.async": "#5298eecc",
       "function.defaultLibrary.readonly": "#366def",
       "function.builtin.readonly": {
          "foreground": "#366def"
@@ -1278,13 +1278,13 @@
       },
       "macro": "#5457ec",
       "macro.readonly": "#384eef",
+      "macro.private": "#5457eccc",
+      "macro.static": "#563de9",
       "macro.declaration": {
          "foreground": "#534ef2",
          "italic": true
       },
-      "macro.static": "#563de9",
       "macro.async": "#6775f3",
-      "macro.private": "#899bea",
       "macro.defaultLibrary": "#8d7bf7",
       "macro.builtin": {
          "foreground": "#8d7bf7"
@@ -1293,33 +1293,33 @@
       "macro.typeHint": {
          "foreground": "#8e90e4"
       },
-      "macro.readonly.declaration": {
-         "foreground": "#313ff5",
-         "italic": true
-      },
-      "macro.private.readonly.declaration": {
-         "foreground": "#6a8aef",
-         "italic": true
-      },
-      "macro.private.readonly": "#6f92ea",
-      "macro.private.declaration": {
-         "foreground": "#8593ee",
-         "italic": true
-      },
-      "macro.private.async.declaration": {
-         "foreground": "#98acf4",
-         "italic": true
-      },
-      "macro.private.async": "#9cb3f1",
-      "macro.private.readonly.async.declaration": {
-         "foreground": "#7ea4f5",
-         "italic": true
-      },
       "macro.readonly.declaration.async": {
          "foreground": "#4561fb",
          "italic": true
       },
       "macro.readonly.async": "#4a6df5",
+      "macro.readonly.declaration": {
+         "foreground": "#313ff5",
+         "italic": true
+      },
+      "macro.private.readonly.declaration": {
+         "foreground": "#313ff5cc",
+         "italic": true
+      },
+      "macro.private.readonly": "#384eefcc",
+      "macro.private.readonly.async.declaration": {
+         "foreground": "#4561fbcc",
+         "italic": true
+      },
+      "macro.private.declaration": {
+         "foreground": "#534ef2cc",
+         "italic": true
+      },
+      "macro.private.async.declaration": {
+         "foreground": "#626af8cc",
+         "italic": true
+      },
+      "macro.private.async": "#6775f3cc",
       "macro.defaultLibrary.readonly": "#655ffa",
       "macro.builtin.readonly": {
          "foreground": "#655ffa"
@@ -1359,6 +1359,136 @@
    },
    "tokenColors": [
       {
+         "name": "Constants",
+         "scope": "constant",
+         "settings": {
+            "foreground": "#F09483E6"
+         }
+      },
+      {
+         "name": "Named entities",
+         "scope": "entity.name",
+         "settings": {
+            "foreground": "#FAC29AE6"
+         }
+      },
+      {
+         "name": "CSS ID selectors",
+         "scope": "entity.other.attribute-name.id",
+         "settings": {
+            "foreground": "#25B0BCE6"
+         }
+      },
+      {
+         "name": "Keywords",
+         "scope": "keyword",
+         "settings": {
+            "foreground": "#B877DBE6"
+         }
+      },
+      {
+         "name": "Markup quotes",
+         "scope": "markup.quote",
+         "settings": {
+            "foreground": "#FAB795B3",
+            "fontStyle": "italic"
+         }
+      },
+      {
+         "name": "Markup headings",
+         "scope": [
+            "markup.heading"
+         ],
+         "settings": {
+            "foreground": "#E95678E6"
+         }
+      },
+      {
+         "name": "Markup bold",
+         "scope": "markup.bold",
+         "settings": {
+            "foreground": "#B877DBE6",
+            "fontStyle": "bold"
+         }
+      },
+      {
+         "name": "Markup italics",
+         "scope": "markup.italic",
+         "settings": {
+            "foreground": "#25B0BCE6",
+            "fontStyle": "italic"
+         }
+      },
+      {
+         "name": "Markup code",
+         "scope": [
+            "markup.inline.raw",
+            "markup.fenced_code.block"
+         ],
+         "settings": {
+            "foreground": "#F09483E6"
+         }
+      },
+      {
+         "name": "Markup links",
+         "scope": "markup.underline.link",
+         "settings": {
+            "foreground": "#FAB795E6"
+         }
+      },
+      {
+         "name": "Storage keywords",
+         "scope": "storage",
+         "settings": {
+            "foreground": "#B877DBE6"
+         }
+      },
+      {
+         "name": "Markup link descriptions",
+         "scope": "string.other.link",
+         "settings": {
+            "foreground": "#F09483E6"
+         }
+      },
+      {
+         "name": "Provided (support) values",
+         "scope": [
+            "support",
+            "variable.language"
+         ],
+         "settings": {
+            "foreground": "#FAC29AE6"
+         }
+      },
+      {
+         "name": "Embedded template punctuation",
+         "scope": "string.template meta.embedded",
+         "settings": {
+            "foreground": "#BBBBBB"
+         }
+      },
+      {
+         "name": "Key/value separators",
+         "scope": "punctuation.separator",
+         "settings": {
+            "foreground": "#BBBBBB"
+         }
+      },
+      {
+         "name": "Embedded section punctuation",
+         "scope": "punctuation.section.embedded",
+         "settings": {
+            "foreground": "#B877DBE6"
+         }
+      },
+      {
+         "name": "Markup list punctuation",
+         "scope": "punctuation.definition.list",
+         "settings": {
+            "foreground": "#F09483E6"
+         }
+      },
+      {
          "scope": [
             "support"
          ],
@@ -1380,24 +1510,6 @@
          ],
          "settings": {
             "foreground": "#74b6c2"
-         }
-      },
-      {
-         "scope": [
-            "support.function.builtin"
-         ],
-         "settings": {
-            "foreground": "#7589d9"
-         }
-      },
-      {
-         "scope": [
-            "support.function.any-method",
-            "entity.other.attribute-name.pseudo-element",
-            "entity.other.attribute-name.pseudo-class"
-         ],
-         "settings": {
-            "foreground": "#20a6be"
          }
       },
       {
@@ -1441,7 +1553,10 @@
          }
       },
       {
-         "scope": "punctuation.definition.template-expression",
+         "scope": [
+            "punctuation.definition.template-expression",
+            "punctuation.section.tag"
+         ],
          "settings": {
             "foreground": "#bb615a"
          }
@@ -1449,7 +1564,9 @@
       {
          "scope": [
             "string.quoted",
-            "string.template"
+            "string.template",
+            "meta.attribute-selector",
+            "variable.parameter.url"
          ],
          "settings": {
             "foreground": "#facb95"
@@ -1598,7 +1715,8 @@
             "keyword.operator.expression",
             "keyword.operator.new",
             "keyword.control.flow",
-            "keyword.control.switch"
+            "keyword.control.switch",
+            "keyword.operator.type"
          ],
          "settings": {
             "foreground": "#826afc"
@@ -1633,172 +1751,85 @@
          }
       },
       {
-         "name": "Constants",
-         "scope": "constant",
-         "settings": {
-            "foreground": "#F09483E6"
-         }
-      },
-      {
-         "name": "Named entities",
-         "scope": "entity.name",
-         "settings": {
-            "foreground": "#FAC29AE6"
-         }
-      },
-      {
-         "name": "CSS ID selectors",
-         "scope": "entity.other.attribute-name.id",
-         "settings": {
-            "foreground": "#25B0BCE6"
-         }
-      },
-      {
-         "name": "Keywords",
-         "scope": "keyword",
-         "settings": {
-            "foreground": "#B877DBE6"
-         }
-      },
-      {
-         "name": "Units",
-         "scope": "keyword.other.unit",
-         "settings": {
-            "foreground": "#F09483E6"
-         }
-      },
-      {
-         "name": "Markup quotes",
-         "scope": "markup.quote",
-         "settings": {
-            "foreground": "#FAB795B3",
-            "fontStyle": "italic"
-         }
-      },
-      {
-         "name": "Markup headings",
+         "name": "class",
          "scope": [
-            "markup.heading"
+            "entity.name.type.class"
          ],
          "settings": {
-            "foreground": "#E95678E6"
-         }
-      },
-      {
-         "name": "Markup bold",
-         "scope": "markup.bold",
-         "settings": {
-            "foreground": "#B877DBE6",
+            "foreground": "#3aad5d",
             "fontStyle": "bold"
          }
       },
       {
-         "name": "Markup italics",
-         "scope": "markup.italic",
-         "settings": {
-            "foreground": "#25B0BCE6",
-            "fontStyle": "italic"
-         }
-      },
-      {
-         "name": "Markup code",
+         "name": "method",
          "scope": [
-            "markup.inline.raw",
-            "markup.fenced_code.block"
+            "meta.directive.vue"
          ],
          "settings": {
-            "foreground": "#F09483E6"
+            "foreground": "#20a6be"
          }
       },
       {
-         "name": "Markup links",
-         "scope": "markup.underline.link",
-         "settings": {
-            "foreground": "#FAB795E6"
-         }
-      },
-      {
-         "name": "Storage keywords",
-         "scope": "storage",
-         "settings": {
-            "foreground": "#B877DBE6"
-         }
-      },
-      {
-         "name": "Markup link descriptions",
-         "scope": "string.other.link",
-         "settings": {
-            "foreground": "#F09483E6"
-         }
-      },
-      {
-         "name": "Provided (support) values",
-         "scope": "support",
-         "settings": {
-            "foreground": "#FAC29AE6"
-         }
-      },
-      {
-         "name": "Language variables",
+         "name": "function.defaultLibrary",
          "scope": [
-            "variable.language"
+            "support.function.builtin"
          ],
          "settings": {
-            "foreground": "#FAC29AE6",
-            "fontStyle": "italic"
+            "foreground": "#6984ef"
          }
       },
       {
-         "name": "Embedded template punctuation",
-         "scope": "string.template meta.embedded",
-         "settings": {
-            "foreground": "#BBBBBB"
-         }
-      },
-      {
-         "name": "Key/value separators",
-         "scope": "punctuation.separator",
-         "settings": {
-            "foreground": "#BBBBBB"
-         }
-      },
-      {
-         "name": "Template expressions",
-         "scope": "punctuation.definition.template-expression",
-         "settings": {
-            "foreground": "#B877DBE6"
-         }
-      },
-      {
-         "name": "Embedded section punctuation",
-         "scope": "punctuation.section.embedded",
-         "settings": {
-            "foreground": "#B877DBE6"
-         }
-      },
-      {
-         "name": "Markup list punctuation",
-         "scope": "punctuation.definition.list",
-         "settings": {
-            "foreground": "#F09483E6"
-         }
-      },
-      {
-         "name": "type",
+         "name": "import",
          "scope": [
-            "entity.name.type.alias"
+            "keyword.other.important"
          ],
          "settings": {
-            "foreground": "#db9b25"
+            "foreground": "#ff0000"
          }
       },
       {
-         "name": "type",
+         "name": "function",
          "scope": [
-            "entity.name.type.alias"
+            "entity.name.function"
          ],
          "settings": {
-            "foreground": "#db9b25"
+            "foreground": "#407de6"
+         }
+      },
+      {
+         "name": "function",
+         "scope": [
+            "entity.name.function"
+         ],
+         "settings": {
+            "foreground": "#407de6"
+         }
+      },
+      {
+         "name": "function.defaultLibrary",
+         "scope": [
+            "support.function.builtin"
+         ],
+         "settings": {
+            "foreground": "#6984ef"
+         }
+      },
+      {
+         "name": "parameter",
+         "scope": [
+            "variable.parameter.function"
+         ],
+         "settings": {
+            "foreground": "#df7850"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
          }
       },
       {
@@ -1808,12 +1839,20 @@
             "variable.other",
             "variable",
             "support.variable",
-            "entity.name.tag",
             "markup.heading",
             "entity.name.section"
          ],
          "settings": {
             "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable.readonly",
+         "scope": [
+            "entity.name.tag"
+         ],
+         "settings": {
+            "foreground": "#b52b47"
          }
       },
       {
@@ -1829,7 +1868,9 @@
          "name": "parameter",
          "scope": [
             "variable.parameter.function",
-            "variable.parameter.function-call"
+            "variable.parameter.function-call",
+            "meta.function.parameter",
+            "meta.function.parameters"
          ],
          "settings": {
             "foreground": "#df7850"
@@ -1867,7 +1908,8 @@
          "name": "class",
          "scope": [
             "entity.name.type.class",
-            "entity.other.inherited-class"
+            "entity.other.inherited-class",
+            "entity.other.attribute-name.class"
          ],
          "settings": {
             "foreground": "#3aad5d",
@@ -1897,7 +1939,8 @@
       {
          "name": "method",
          "scope": [
-            "meta.directive.vue"
+            "meta.directive.vue",
+            "entity.other.attribute-name.pseudo-class"
          ],
          "settings": {
             "foreground": "#20a6be"
@@ -1907,11 +1950,21 @@
          "name": "function",
          "scope": [
             "entity.name.function",
-            "support.function",
-            "meta.function-call.generic"
+            "meta.function-call"
          ],
          "settings": {
             "foreground": "#407de6"
+         }
+      },
+      {
+         "name": "function.defaultLibrary",
+         "scope": [
+            "support.function.builtin",
+            "support.function.misc",
+            "support.function"
+         ],
+         "settings": {
+            "foreground": "#6984ef"
          }
       }
    ]

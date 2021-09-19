@@ -10,19 +10,40 @@ After making any modifications to the `config.json` file simply run `node ./gene
 * 
 
 ## The Style Definition Spec
-
-the *config.json* file contains a single main array `themes`
+Themes can be defined in the `config.json` file. The provided json schema file should provide a good enough guide on the structure, so the descriptions here 
 
 ### **path/label/id/uiTheme**  
-Theme metadata for VSCode.
+Theme metadata for VSCode to be inserted into `package.json`.  
+See the [VSCode Contribution points documentation](https://code.visualstudio.com/api/references/contribution-points#contributes.themes)
  
 ### **baseTokenColors**  
 Each semantic token we want to style starts with a simple base color
-### **modifications**  
 
+### **modifications**
+A list of color modifications that will be applied with specific token modifiers.
+Each modifier needs a `default` modification and can additionally have other modifier definitions for specific token types, if the default doesn't work well with their base color for example.
 
-`"brighten": 3` in the JSON definition resolves to `tinyColor.brighten(3)`  
-Besides the default modification we are also able to define modification for specific token types, if the default result doesn't work well with their color.
+The generator uses [TinyColor](https://github.com/bgrins/TinyColor) for transforming color values and most of the color modifications work as described in the [TinyColor Documentation](https://github.com/bgrins/TinyColor#color-modification) with the provided value being used as the argument. `"brighten": 10` in the JSON definition resolves to `color.brighten(10)` 
+
+In the case of the `triad` and `tetrad` modifications the number provided in the JSON acts as an array index and decides which of the resulting values should be chosen from the method's return value.
+
+The `alpha` modification works a bit differently than the `setAlpha` method in tinyColor which sets an absolute alpha value. `alpha` instead sets the alpha relative to the current alpha of the color so the that effect can be stacked.
+
+A simple example of a modifier definition:
+```JSON
+{
+   "readonly":{
+      "default":{
+         "darken":10
+      },
+      "function":{
+         "darken":20
+      }
+   }
+}
+```
+
+The above example defines that all readonly tokens will have their color darkened with by 10, but all readonly *functions* will be darkened twice as much with an amount of 20. 
 
 ### **textformatMapping**
 A list token types or modifiers mapped to a text formatting definition which can take three boolean properties:  
@@ -39,7 +60,7 @@ A list of semantic token types mapped to a list of other semantic tokens that se
 For example Python uses the `builtin` modifier where TypeScript uses a `defaultLibrary` modifier. instead of defining the same token styles twice, `builtin` is set as an alias for `defaultLibrary`.
 
 ### **fallbacks**
-A list of semantic token types with or without modifiers mapped to a list of TextMate scopes that should be highlighted in the same style
+A list of semantic token types with or without modifiers mapped to a list of TextMate scopes that should be highlighted in the same style.
 
 ### **mainTheme**
 A boolean value indicating if a theme is the **primary** theme in a theme pack. 

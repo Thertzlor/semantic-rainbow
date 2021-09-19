@@ -1,7 +1,7 @@
 {
    "name": "semantic-rainbow",
    "displayName": "Semantic Rainbow",
-   "description": "A maximalist color theme for semantic highlighting featuring bold colors and subtle distinctions",
+   "description": "A maximalist color theme for semantic highlighting featuring bold colors with subtle distinctions.",
    "repository": {
       "url": "https://github.com/Thertzlor/semantic-rainbow"
    },
@@ -41,21 +41,24 @@
             "scopes": {
                "parameter": [
                   "variable.parameter.function",
-                  "variable.parameter.function-call"
+                  "variable.parameter.function-call",
+                  "meta.function.parameter",
+                  "meta.function.parameters"
                ],
                "function": [
                   "entity.name.function",
-                  "support.function",
-                  "meta.function-call.generic"
+                  "meta.function-call"
                ],
                "variable": [
                   "variable.other.readwrite",
                   "variable.other",
                   "variable",
                   "support.variable",
-                  "entity.name.tag",
                   "markup.heading",
                   "entity.name.section"
+               ],
+               "variable.readonly": [
+                  "entity.name.tag"
                ],
                "type": [
                   "entity.name.type.alias",
@@ -63,6 +66,11 @@
                ],
                "namespace": [
                   "meta.symbol.namespace"
+               ],
+               "function.defaultLibrary": [
+                  "support.function.builtin",
+                  "support.function.misc",
+                  "support.function"
                ],
                "property": [
                   "variable.other.property",
@@ -78,10 +86,12 @@
                ],
                "class": [
                   "entity.name.type.class",
-                  "entity.other.inherited-class"
+                  "entity.other.inherited-class",
+                  "entity.other.attribute-name.class"
                ],
                "method": [
-                  "meta.directive.vue"
+                  "meta.directive.vue",
+                  "entity.other.attribute-name.pseudo-class"
                ],
                "selfParameter": [
                   "variable.language.this",

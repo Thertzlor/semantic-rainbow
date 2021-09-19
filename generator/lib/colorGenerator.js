@@ -5,6 +5,22 @@
  * @param {any} config The configuration object
  */
 const generateColors = (tinycolor,config)=>{
+
+   const specialModifications = {
+      alpha(color,value){
+         return color.setAlpha(color.getAlpha()*value);
+      },
+      tetrad(color,value){
+         return color.tretrad()[value]
+      }, 
+      triad(color,value){
+         return color.triad()[value]
+      }, 
+      splitcomplement(color,value){
+         return color.splitcomplement()[value]
+      },
+   }
+
    const semanticRules={};
    const fallBackRules=[];
    //In this section we compile metadata about the generated colors
@@ -26,16 +42,16 @@ const generateColors = (tinycolor,config)=>{
    const meta = {numColors,manualColors,baseNumber,modNumber,extraCombinationsNumber,manualPercent:((manualColors / numColors) * 100).toFixed(2)}
    //Transforming a base color using one or more modifications
    const applyColors= (base,variations)=>{
-      const color = new tinycolor(config.baseTokenColors[base])
+      let color = new tinycolor(config.baseTokenColors[base])
       variations.forEach(v=>{
          const def = config.modifications[v][base]||config.modifications[v].default;
-         for (const k in def)((Object.hasOwnProperty.call(def, k)) && color[k](def[k]));
+         for (const k in def)((Object.hasOwnProperty.call(def, k)) && ( k in specialModifications? (color = specialModifications[k](color,def[k])) : color[k](def[k])));
       })
       return color;
    }
    //Encoding colors into style rules
    const encode=(color,text)=>{
-      const finalColor =   color.toHexString();
+      const finalColor =   color[`toHex${color.getAlpha() ===1?'':'8'}String`]();
       const finalText = text.replace(/\s+/g,'.');
       let rule =  finalColor
       //Generating TextMate rules
@@ -48,7 +64,7 @@ const generateColors = (tinycolor,config)=>{
          return {foreground:r.foreground, fontStyle:fontText.join(' ')}
       }
       //Applying text style rules if we find them
-      for (const f in config.textformatMapping) {
+      if(config.textformatMapping) for (const f in config.textformatMapping) {
          if (!(Object.hasOwnProperty.call(config.textformatMapping, f) && (new RegExp(`\\b${f}\\b`,'gm'))).test(finalText)) continue;
          const formatDef = config.textformatMapping[f]
          if(typeof rule === 'string')rule = {foreground:rule};
@@ -58,9 +74,9 @@ const generateColors = (tinycolor,config)=>{
       //Saving the rule
       semanticRules[finalText] = rule;
       //Copying the rule under a different name if the token has an alias
-      for (const k in config.alias) (Object.hasOwnProperty.call(config.alias, k) && (new RegExp(`\\b${k}\\b`,'gm')).test(finalText)) &&  config.alias[k].forEach(a=> semanticRules[finalText.replace(new RegExp(`\\b${k}\\b`, 'g'), a)] = (typeof rule === 'string'?{foreground:rule,alias:true}:{...rule,alias:true}))
+      if(config.alias) for (const k in config.alias) (Object.hasOwnProperty.call(config.alias, k) && (new RegExp(`\\b${k}\\b`,'gm')).test(finalText)) &&  config.alias[k].forEach(a=> semanticRules[finalText.replace(new RegExp(`\\b${k}\\b`, 'g'), a)] = (typeof rule === 'string'?{foreground:rule,alias:true}:{...rule,alias:true}))
       //Saving the TextMate fallback rule
-      if(config.fallbacks[finalText]) fallBackRules.push({name:finalText,scope:config.fallbacks[finalText],settings:textMateTransform(rule)})
+      if(config.fallbacks && config.fallbacks[finalText]) fallBackRules.push({name:finalText,scope:config.fallbacks[finalText],settings:textMateTransform(rule)})
    }
    //Iterating over all defined basic tokens
    for (const t in config.baseTokenColors) {
