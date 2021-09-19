@@ -26,7 +26,7 @@ This theme relies on the presence of language server that support Semantic Highl
 Keep in mind results might vary based on the language extensions you have installed, and even for non-semantic highlighting the theme attempts to approximate results by providing fallback mappings to TextMate rules including but not limited to the [VSCode semantic token scope map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
 
 ## Roadmap
-* Support for triad/tetrad color transformation
+* Support for even more TinyColor color transformations
 * Including color readability checks
 * Language specific rules
 
