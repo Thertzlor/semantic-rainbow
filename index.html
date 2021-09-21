@@ -64,23 +64,24 @@
    </script>
    <style>
       #extable {
-         width: 95vw;
+         width: 97vw;
          text-align: left;
          position: relative;
-         height: 60vh;
+         height: 65vh;
          display: block;
          overflow: hidden;
 
       }
 
       #extable img {
-         max-width: 200%;
+         max-width: 130%;
+         transition: transform 7s ease-out;
+         backface-visibility: hidden;
       }
 
       #extable td {
-         height: 50px !important;
-
          overflow: hidden;
+         position: relative
       }
 
       #extable::after {
@@ -90,11 +91,16 @@
          pointer-events: none;
 
          display: block;
-         background: linear-gradient(transparent 50%, #191a26);
+         background: linear-gradient(transparent 80%, #191a26 98%);
          top: 0;
          bottom: 0;
          left: 0;
          right: 0
+      }
+
+
+      #extable img:hover {
+         transform: translateY(calc((100% - 65vh) * -1))
       }
 
 
@@ -148,6 +154,21 @@
 
       .tableSquare p {
          margin: 0;
+
+      }
+
+      #extable td::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         left: 0;
+         /* background: rgba(255, 0, 0, .1); */
+         box-shadow: inset 0 4px 12px 4px #191a26;
+         display: block;
+         pointer-events: none;
+         z-index: 500000;
 
       }
 
@@ -212,14 +233,14 @@
    <table id="extable">
       <tbody>
          <tr>
-            <th>Python</th>
             <th>TypeScript</th>
+            <th>Python</th>
             <th>SCSS</th>
          </tr>
          <tr>
-            <td><a href="./assets/ex_2.png"><img src="./assets/ex_2.png" alt="Python highlighted"></a> </td>
-            <td><a href="./assets/ex_1.png"><img src="./assets/ex_1.png" alt="Typescript highlighted"></a></td>
-            <td><a href="./assets/ex_3.png"><img src="./assets/ex_3.png" alt="SCSS highlighted"></a></td>
+            <td><a target="blank" href="./assets/ex_1.png"><img src="./assets/ex_1.png" alt="Typescript highlighted"></a></td>
+            <td><a target="blank" href="./assets/ex_3.png"><img src="./assets/ex_3.png" alt="SCSS highlighted"></a></td>
+            <td><a target="blank" href="./assets/ex_2.png"><img src="./assets/ex_2.png" alt="Python highlighted"></a> </td>
          </tr>
       </tbody>
    </table>
@@ -254,7 +275,7 @@
       <p>The bolder the color the more &quot;dynamic&quot; the value it represents. A rewritable variable or property has a saturated and bright red and green respectively, but when something cannot be reassigned like a constant or a readonly property that color will darken, appear not as prominent, a more stable and calmly enduring entity.</p>
       <p>There are of course even more ways to modify a color to be less vibrant and saturated besides dimming it towards black, it can also be bleached towards white, or generally faded using alpha. These different ways to reduce vibrance are used to represent different ways in which tokens differ. Anything belonging to a default library is shown desaturated and brightened. Being predefined, they are outside our control and their coloration reflects that indirectness. And once properly supported private properties and methods will be designated with a slight transparency, as they are ephemeral and only exist in specific contexts.</p>
       <p>And finally going completely beyond color into text formatting:<br>Any time any value is declared or initialized, the token will be displayed in italics. Also classes are shown in bold to distinguish them more effectively from namespaces and highlight their special role in object oriented programming. I am not using the underlined font style because I don&#39;t think it ever looks good.</p>
-      <p>...And that&#39;s the thought process behind <strong>Semantic Rainbow</strong>.</p>
+      <p>The purpose of <strong>Semantic Rainbow</strong> is to extract all information your code can provide. I hope this concept shows how this wealth of information can still be handled in an intuitive manner.</p>
 
    </div>
 

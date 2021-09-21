@@ -4,7 +4,14 @@
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
 
-![Banner](../assets/SR_Example.png)
+### **TypeScript**
+![TypeScript Highlighted](../assets/SR_ts_small.png)
+### **SCSS**
+![TypeScript Highlighted](../assets/SR_cs_small.png)
+### **Python**
+![TypeScript Highlighted](../assets/SR_py_small.png)
+### **Full Editor**
+![Example Full](../assets/SR_Example.png)
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 

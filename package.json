@@ -9,9 +9,9 @@
    "author": {
       "name": "Thertzlor"
    },
-   "icon": "assets/SR_icon128.png",
+   "icon": "assets/SR_icon256.png",
    "version": "1.0.1",
-   "homepage": "https://github.com/Thertzlor/semantic-rainbow",
+   "homepage": "https://thertzlor.github.io/semantic-rainbow/",
    "engines": {
       "vscode": "^1.60.0"
    },
@@ -22,7 +22,7 @@
       "semantic highlighting",
       "dark",
       "syntax highlighting",
-      "maximalist",
+      "TypeScript",
       "color"
    ],
    "contributes": {

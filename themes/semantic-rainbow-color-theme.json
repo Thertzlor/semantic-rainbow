@@ -1716,6 +1716,7 @@
             "keyword.operator.new",
             "keyword.control.flow",
             "keyword.control.switch",
+            "keyword.operator.logical",
             "keyword.operator.type"
          ],
          "settings": {
