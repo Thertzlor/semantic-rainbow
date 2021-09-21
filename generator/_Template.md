@@ -1,9 +1,9 @@
 ![Banner](../assets/SR_Banner.png)
 
 ![Version](https://img.shields.io/visual-studio-marketplace/v/thertzlor.semantic-rainbow)
+[![CodeFactor](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow/badge)](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow)
 ![Rating](https://img.shields.io/visual-studio-marketplace/r/thertzlor.semantic-rainbow)
 ![License](https://img.shields.io/github/license/thertzlor/semantic-rainbow)
-
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
