@@ -4,6 +4,13 @@ All notable changes to the "semantic-rainbow" extension will be documented in th
 
 ## [1.0.2]
 
+- Tweaked YAML highlighting to match JSON
+- TextMate fallbacks for nil keyword and builtin classes
+- new alias: declaration = definition (for Go)
+- Badges in README because why not
+
+## [1.0.2]
+
 - The `in` keword in Python is now correctly highlighted in purple.
 - More examples in the README
 - Layout tweaks on the Github page

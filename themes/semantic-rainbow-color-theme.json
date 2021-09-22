@@ -162,6 +162,10 @@
          "foreground": "#d34048",
          "italic": true
       },
+      "variable.definition": {
+         "foreground": "#d34048",
+         "italic": true
+      },
       "variable.async": "#d7566e",
       "variable.defaultLibrary": "#cd606b",
       "variable.builtin": {
@@ -175,12 +179,24 @@
          "foreground": "#d7224d",
          "italic": true
       },
+      "variable.readonly.definition.async": {
+         "foreground": "#d7224d",
+         "italic": true
+      },
       "variable.readonly.async": "#d02a5a",
       "variable.readonly.declaration": {
          "foreground": "#bc243c",
          "italic": true
       },
+      "variable.readonly.definition": {
+         "foreground": "#bc243c",
+         "italic": true
+      },
       "variable.private.readonly.declaration": {
+         "foreground": "#bc243ccc",
+         "italic": true
+      },
+      "variable.private.readonly.definition": {
          "foreground": "#bc243ccc",
          "italic": true
       },
@@ -189,11 +205,23 @@
          "foreground": "#d7224dcc",
          "italic": true
       },
+      "variable.private.readonly.async.definition": {
+         "foreground": "#d7224dcc",
+         "italic": true
+      },
       "variable.private.declaration": {
          "foreground": "#d34048cc",
          "italic": true
       },
+      "variable.private.definition": {
+         "foreground": "#d34048cc",
+         "italic": true
+      },
       "variable.private.async.declaration": {
+         "foreground": "#dd4f63cc",
+         "italic": true
+      },
+      "variable.private.async.definition": {
          "foreground": "#dd4f63cc",
          "italic": true
       },
@@ -206,8 +234,16 @@
          "foreground": "#cb402f",
          "italic": true
       },
+      "variable.static.definition": {
+         "foreground": "#cb402f",
+         "italic": true
+      },
       "variable.static.async": "#d24144",
       "variable.declaration.async": {
+         "foreground": "#dd4f63",
+         "italic": true
+      },
+      "variable.definition.async": {
          "foreground": "#dd4f63",
          "italic": true
       },
@@ -220,6 +256,10 @@
          "italic": true
       },
       "variable.builtin.declaration": {
+         "foreground": "#d35a60",
+         "italic": true
+      },
+      "variable.defaultLibrary.definition": {
          "foreground": "#d35a60",
          "italic": true
       },
@@ -242,6 +282,10 @@
          "foreground": "#e57d4a",
          "italic": true
       },
+      "parameter.definition": {
+         "foreground": "#e57d4a",
+         "italic": true
+      },
       "parameter.async": "#e77b61",
       "parameter.defaultLibrary": "#e8aa79",
       "parameter.builtin": {
@@ -255,12 +299,24 @@
          "foreground": "#e54617",
          "italic": true
       },
+      "parameter.readonly.definition.async": {
+         "foreground": "#e54617",
+         "italic": true
+      },
       "parameter.readonly.async": "#de411e",
       "parameter.readonly.declaration": {
          "foreground": "#c9511a",
          "italic": true
       },
+      "parameter.readonly.definition": {
+         "foreground": "#c9511a",
+         "italic": true
+      },
       "parameter.private.readonly.declaration": {
+         "foreground": "#c9511acc",
+         "italic": true
+      },
+      "parameter.private.readonly.definition": {
          "foreground": "#c9511acc",
          "italic": true
       },
@@ -269,11 +325,23 @@
          "foreground": "#e54617cc",
          "italic": true
       },
+      "parameter.private.readonly.async.definition": {
+         "foreground": "#e54617cc",
+         "italic": true
+      },
       "parameter.private.declaration": {
          "foreground": "#e57d4acc",
          "italic": true
       },
+      "parameter.private.definition": {
+         "foreground": "#e57d4acc",
+         "italic": true
+      },
       "parameter.private.async.declaration": {
+         "foreground": "#ed7f5ccc",
+         "italic": true
+      },
+      "parameter.private.async.definition": {
          "foreground": "#ed7f5ccc",
          "italic": true
       },
@@ -286,8 +354,16 @@
          "foreground": "#e28a33",
          "italic": true
       },
+      "parameter.static.definition": {
+         "foreground": "#e28a33",
+         "italic": true
+      },
       "parameter.static.async": "#e4824b",
       "parameter.declaration.async": {
+         "foreground": "#ed7f5c",
+         "italic": true
+      },
+      "parameter.definition.async": {
          "foreground": "#ed7f5c",
          "italic": true
       },
@@ -300,6 +376,10 @@
          "italic": true
       },
       "parameter.builtin.declaration": {
+         "foreground": "#edb074",
+         "italic": true
+      },
+      "parameter.defaultLibrary.definition": {
          "foreground": "#edb074",
          "italic": true
       },
@@ -322,6 +402,10 @@
          "foreground": "#ce671e",
          "italic": true
       },
+      "typeParameter.definition": {
+         "foreground": "#ce671e",
+         "italic": true
+      },
       "typeParameter.async": "#de5b27",
       "typeParameter.defaultLibrary": "#ce9350",
       "typeParameter.builtin": {
@@ -335,12 +419,24 @@
          "foreground": "#c23910",
          "italic": true
       },
+      "typeParameter.readonly.definition.async": {
+         "foreground": "#c23910",
+         "italic": true
+      },
       "typeParameter.readonly.async": "#bc3416",
       "typeParameter.readonly.declaration": {
          "foreground": "#a64113",
          "italic": true
       },
+      "typeParameter.readonly.definition": {
+         "foreground": "#a64113",
+         "italic": true
+      },
       "typeParameter.private.readonly.declaration": {
+         "foreground": "#a64113cc",
+         "italic": true
+      },
+      "typeParameter.private.readonly.definition": {
          "foreground": "#a64113cc",
          "italic": true
       },
@@ -349,11 +445,23 @@
          "foreground": "#c23910cc",
          "italic": true
       },
+      "typeParameter.private.readonly.async.definition": {
+         "foreground": "#c23910cc",
+         "italic": true
+      },
       "typeParameter.private.declaration": {
          "foreground": "#ce671ecc",
          "italic": true
       },
+      "typeParameter.private.definition": {
+         "foreground": "#ce671ecc",
+         "italic": true
+      },
       "typeParameter.private.async.declaration": {
+         "foreground": "#e66120cc",
+         "italic": true
+      },
+      "typeParameter.private.async.definition": {
          "foreground": "#e66120cc",
          "italic": true
       },
@@ -366,8 +474,16 @@
          "foreground": "#b8761b",
          "italic": true
       },
+      "typeParameter.static.definition": {
+         "foreground": "#b8761b",
+         "italic": true
+      },
       "typeParameter.static.async": "#cd6d1f",
       "typeParameter.declaration.async": {
+         "foreground": "#e66120",
+         "italic": true
+      },
+      "typeParameter.definition.async": {
          "foreground": "#e66120",
          "italic": true
       },
@@ -380,6 +496,10 @@
          "italic": true
       },
       "typeParameter.builtin.declaration": {
+         "foreground": "#d59a49",
+         "italic": true
+      },
+      "typeParameter.defaultLibrary.definition": {
          "foreground": "#d59a49",
          "italic": true
       },
@@ -402,6 +522,10 @@
          "foreground": "#e3a71d",
          "italic": true
       },
+      "type.definition": {
+         "foreground": "#e3a71d",
+         "italic": true
+      },
       "type.async": "#e49835",
       "type.defaultLibrary": "#c1b38a",
       "type.builtin": {
@@ -415,12 +539,24 @@
          "foreground": "#d8760e",
          "italic": true
       },
+      "type.readonly.definition.async": {
+         "foreground": "#d8760e",
+         "italic": true
+      },
       "type.readonly.async": "#d16d15",
       "type.readonly.declaration": {
          "foreground": "#bb7712",
          "italic": true
       },
+      "type.readonly.definition": {
+         "foreground": "#bb7712",
+         "italic": true
+      },
       "type.private.readonly.declaration": {
+         "foreground": "#bb7712cc",
+         "italic": true
+      },
+      "type.private.readonly.definition": {
          "foreground": "#bb7712cc",
          "italic": true
       },
@@ -429,11 +565,23 @@
          "foreground": "#d8760ecc",
          "italic": true
       },
+      "type.private.readonly.async.definition": {
+         "foreground": "#d8760ecc",
+         "italic": true
+      },
       "type.private.declaration": {
          "foreground": "#e3a71dcc",
          "italic": true
       },
+      "type.private.definition": {
+         "foreground": "#e3a71dcc",
+         "italic": true
+      },
       "type.private.async.declaration": {
+         "foreground": "#eba22ecc",
+         "italic": true
+      },
+      "type.private.async.definition": {
          "foreground": "#eba22ecc",
          "italic": true
       },
@@ -446,8 +594,16 @@
          "foreground": "#cdb51a",
          "italic": true
       },
+      "type.static.definition": {
+         "foreground": "#cdb51a",
+         "italic": true
+      },
       "type.static.async": "#e1ad1f",
       "type.declaration.async": {
+         "foreground": "#eba22e",
+         "italic": true
+      },
+      "type.definition.async": {
          "foreground": "#eba22e",
          "italic": true
       },
@@ -460,6 +616,10 @@
          "italic": true
       },
       "type.builtin.declaration": {
+         "foreground": "#c6b885",
+         "italic": true
+      },
+      "type.defaultLibrary.definition": {
          "foreground": "#c6b885",
          "italic": true
       },
@@ -482,6 +642,10 @@
          "foreground": "#e3c21d",
          "italic": true
       },
+      "interface.definition": {
+         "foreground": "#e3c21d",
+         "italic": true
+      },
       "interface.async": "#e4b035",
       "interface.defaultLibrary": "#d0c57d",
       "interface.builtin": {
@@ -495,12 +659,24 @@
          "foreground": "#d8920e",
          "italic": true
       },
+      "interface.readonly.definition.async": {
+         "foreground": "#d8920e",
+         "italic": true
+      },
       "interface.readonly.async": "#d18615",
       "interface.readonly.declaration": {
          "foreground": "#bb8e12",
          "italic": true
       },
+      "interface.readonly.definition": {
+         "foreground": "#bb8e12",
+         "italic": true
+      },
       "interface.private.readonly.declaration": {
+         "foreground": "#bb8e12cc",
+         "italic": true
+      },
+      "interface.private.readonly.definition": {
          "foreground": "#bb8e12cc",
          "italic": true
       },
@@ -509,11 +685,23 @@
          "foreground": "#d8920ecc",
          "italic": true
       },
+      "interface.private.readonly.async.definition": {
+         "foreground": "#d8920ecc",
+         "italic": true
+      },
       "interface.private.declaration": {
          "foreground": "#e3c21dcc",
          "italic": true
       },
+      "interface.private.definition": {
+         "foreground": "#e3c21dcc",
+         "italic": true
+      },
       "interface.private.async.declaration": {
+         "foreground": "#ebbc2ecc",
+         "italic": true
+      },
+      "interface.private.async.definition": {
          "foreground": "#ebbc2ecc",
          "italic": true
       },
@@ -526,8 +714,16 @@
          "foreground": "#cccd1a",
          "italic": true
       },
+      "interface.static.definition": {
+         "foreground": "#cccd1a",
+         "italic": true
+      },
       "interface.static.async": "#e1c81f",
       "interface.declaration.async": {
+         "foreground": "#ebbc2e",
+         "italic": true
+      },
+      "interface.definition.async": {
          "foreground": "#ebbc2e",
          "italic": true
       },
@@ -540,6 +736,10 @@
          "italic": true
       },
       "interface.builtin.declaration": {
+         "foreground": "#d5cd78",
+         "italic": true
+      },
+      "interface.defaultLibrary.definition": {
          "foreground": "#d5cd78",
          "italic": true
       },
@@ -562,6 +762,10 @@
          "foreground": "#b3c431",
          "italic": true
       },
+      "enum.definition": {
+         "foreground": "#b3c431",
+         "italic": true
+      },
       "enum.async": "#cecc40",
       "enum.defaultLibrary": "#adc463",
       "enum.builtin": {
@@ -575,12 +779,24 @@
          "foreground": "#827b17",
          "italic": true
       },
+      "enum.readonly.definition.async": {
+         "foreground": "#827b17",
+         "italic": true
+      },
       "enum.readonly.async": "#7e721b",
       "enum.readonly.declaration": {
          "foreground": "#686916",
          "italic": true
       },
+      "enum.readonly.definition": {
+         "foreground": "#686916",
+         "italic": true
+      },
       "enum.private.readonly.declaration": {
+         "foreground": "#686916cc",
+         "italic": true
+      },
+      "enum.private.readonly.definition": {
          "foreground": "#686916cc",
          "italic": true
       },
@@ -589,11 +805,23 @@
          "foreground": "#827b17cc",
          "italic": true
       },
+      "enum.private.readonly.async.definition": {
+         "foreground": "#827b17cc",
+         "italic": true
+      },
       "enum.private.declaration": {
          "foreground": "#b3c431cc",
          "italic": true
       },
+      "enum.private.definition": {
+         "foreground": "#b3c431cc",
+         "italic": true
+      },
       "enum.private.async.declaration": {
+         "foreground": "#d0d539cc",
+         "italic": true
+      },
+      "enum.private.async.definition": {
          "foreground": "#d0d539cc",
          "italic": true
       },
@@ -606,8 +834,16 @@
          "foreground": "#8ab02c",
          "italic": true
       },
+      "enum.static.definition": {
+         "foreground": "#8ab02c",
+         "italic": true
+      },
       "enum.static.async": "#adc332",
       "enum.declaration.async": {
+         "foreground": "#d0d539",
+         "italic": true
+      },
+      "enum.definition.async": {
          "foreground": "#d0d539",
          "italic": true
       },
@@ -620,6 +856,10 @@
          "italic": true
       },
       "enum.builtin.declaration": {
+         "foreground": "#abca5d",
+         "italic": true
+      },
+      "enum.defaultLibrary.definition": {
          "foreground": "#abca5d",
          "italic": true
       },
@@ -642,6 +882,10 @@
          "foreground": "#abc991",
          "italic": true
       },
+      "enumMember.definition": {
+         "foreground": "#abc991",
+         "italic": true
+      },
       "enumMember.async": "#bfd1a3",
       "enumMember.defaultLibrary": "#c2d1bb",
       "enumMember.builtin": {
@@ -655,12 +899,24 @@
          "foreground": "#90b747",
          "italic": true
       },
+      "enumMember.readonly.definition.async": {
+         "foreground": "#90b747",
+         "italic": true
+      },
       "enumMember.readonly.async": "#93af4f",
       "enumMember.readonly.declaration": {
          "foreground": "#799f46",
          "italic": true
       },
+      "enumMember.readonly.definition": {
+         "foreground": "#799f46",
+         "italic": true
+      },
       "enumMember.private.readonly.declaration": {
+         "foreground": "#799f46cc",
+         "italic": true
+      },
+      "enumMember.private.readonly.definition": {
          "foreground": "#799f46cc",
          "italic": true
       },
@@ -669,11 +925,23 @@
          "foreground": "#90b747cc",
          "italic": true
       },
+      "enumMember.private.readonly.async.definition": {
+         "foreground": "#90b747cc",
+         "italic": true
+      },
       "enumMember.private.declaration": {
          "foreground": "#abc991cc",
          "italic": true
       },
+      "enumMember.private.definition": {
+         "foreground": "#abc991cc",
+         "italic": true
+      },
       "enumMember.private.async.declaration": {
+         "foreground": "#bdd59fcc",
+         "italic": true
+      },
+      "enumMember.private.async.definition": {
          "foreground": "#bdd59fcc",
          "italic": true
       },
@@ -686,8 +954,16 @@
          "foreground": "#94c080",
          "italic": true
       },
+      "enumMember.static.definition": {
+         "foreground": "#94c080",
+         "italic": true
+      },
       "enumMember.static.async": "#aac892",
       "enumMember.declaration.async": {
+         "foreground": "#bdd59f",
+         "italic": true
+      },
+      "enumMember.definition.async": {
          "foreground": "#bdd59f",
          "italic": true
       },
@@ -700,6 +976,10 @@
          "italic": true
       },
       "enumMember.builtin.declaration": {
+         "foreground": "#c0d4b8",
+         "italic": true
+      },
+      "enumMember.defaultLibrary.definition": {
          "foreground": "#c0d4b8",
          "italic": true
       },
@@ -722,6 +1002,10 @@
          "foreground": "#84b340",
          "italic": true
       },
+      "property.definition": {
+         "foreground": "#84b340",
+         "italic": true
+      },
       "property.async": "#a0be4e",
       "property.defaultLibrary": "#91b372",
       "property.builtin": {
@@ -735,12 +1019,24 @@
          "foreground": "#8fab2e",
          "italic": true
       },
+      "property.readonly.definition.async": {
+         "foreground": "#8fab2e",
+         "italic": true
+      },
       "property.readonly.async": "#91a535",
       "property.readonly.declaration": {
          "foreground": "#74922e",
          "italic": true
       },
+      "property.readonly.definition": {
+         "foreground": "#74922e",
+         "italic": true
+      },
       "property.private.readonly.declaration": {
+         "foreground": "#74922ecc",
+         "italic": true
+      },
+      "property.private.readonly.definition": {
          "foreground": "#74922ecc",
          "italic": true
       },
@@ -749,11 +1045,23 @@
          "foreground": "#8fab2ecc",
          "italic": true
       },
+      "property.private.readonly.async.definition": {
+         "foreground": "#8fab2ecc",
+         "italic": true
+      },
       "property.private.declaration": {
          "foreground": "#84b340cc",
          "italic": true
       },
+      "property.private.definition": {
+         "foreground": "#84b340cc",
+         "italic": true
+      },
       "property.private.async.declaration": {
+         "foreground": "#9dc647cc",
+         "italic": true
+      },
+      "property.private.async.definition": {
          "foreground": "#9dc647cc",
          "italic": true
       },
@@ -766,8 +1074,16 @@
          "foreground": "#65a039",
          "italic": true
       },
+      "property.static.definition": {
+         "foreground": "#65a039",
+         "italic": true
+      },
       "property.static.async": "#80b241",
       "property.declaration.async": {
+         "foreground": "#9dc647",
+         "italic": true
+      },
+      "property.definition.async": {
          "foreground": "#9dc647",
          "italic": true
       },
@@ -780,6 +1096,10 @@
          "italic": true
       },
       "property.builtin.declaration": {
+         "foreground": "#8dba6b",
+         "italic": true
+      },
+      "property.defaultLibrary.definition": {
          "foreground": "#8dba6b",
          "italic": true
       },
@@ -815,6 +1135,11 @@
          "bold": true,
          "italic": true
       },
+      "class.definition": {
+         "foreground": "#33b461",
+         "bold": true,
+         "italic": true
+      },
       "class.async": {
          "foreground": "#3bc65a",
          "bold": true
@@ -840,6 +1165,11 @@
          "bold": true,
          "italic": true
       },
+      "class.readonly.definition.async": {
+         "foreground": "#23aa3a",
+         "bold": true,
+         "italic": true
+      },
       "class.readonly.async": {
          "foreground": "#29a438",
          "bold": true
@@ -849,7 +1179,17 @@
          "bold": true,
          "italic": true
       },
+      "class.readonly.definition": {
+         "foreground": "#23913f",
+         "bold": true,
+         "italic": true
+      },
       "class.private.readonly.declaration": {
+         "foreground": "#23913fcc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.readonly.definition": {
          "foreground": "#23913fcc",
          "bold": true,
          "italic": true
@@ -863,12 +1203,27 @@
          "bold": true,
          "italic": true
       },
+      "class.private.readonly.async.definition": {
+         "foreground": "#23aa3acc",
+         "bold": true,
+         "italic": true
+      },
       "class.private.declaration": {
          "foreground": "#33b461cc",
          "bold": true,
          "italic": true
       },
+      "class.private.definition": {
+         "foreground": "#33b461cc",
+         "bold": true,
+         "italic": true
+      },
       "class.private.async.declaration": {
+         "foreground": "#33cd5dcc",
+         "bold": true,
+         "italic": true
+      },
+      "class.private.async.definition": {
          "foreground": "#33cd5dcc",
          "bold": true,
          "italic": true
@@ -890,11 +1245,21 @@
          "bold": true,
          "italic": true
       },
+      "class.static.definition": {
+         "foreground": "#2da069",
+         "bold": true,
+         "italic": true
+      },
       "class.static.async": {
          "foreground": "#34b365",
          "bold": true
       },
       "class.declaration.async": {
+         "foreground": "#33cd5d",
+         "bold": true,
+         "italic": true
+      },
+      "class.definition.async": {
          "foreground": "#33cd5d",
          "bold": true,
          "italic": true
@@ -913,6 +1278,11 @@
          "italic": true
       },
       "class.builtin.declaration": {
+         "foreground": "#5dbc8f",
+         "bold": true,
+         "italic": true
+      },
+      "class.defaultLibrary.definition": {
          "foreground": "#5dbc8f",
          "bold": true,
          "italic": true
@@ -945,6 +1315,10 @@
          "foreground": "#259a6f",
          "italic": true
       },
+      "namespace.definition": {
+         "foreground": "#259a6f",
+         "italic": true
+      },
       "namespace.async": "#2bad6c",
       "namespace.defaultLibrary": "#529f8c",
       "namespace.builtin": {
@@ -958,12 +1332,24 @@
          "foreground": "#188d4d",
          "italic": true
       },
+      "namespace.readonly.definition.async": {
+         "foreground": "#188d4d",
+         "italic": true
+      },
       "namespace.readonly.async": "#1d8848",
       "namespace.readonly.declaration": {
          "foreground": "#187449",
          "italic": true
       },
+      "namespace.readonly.definition": {
+         "foreground": "#187449",
+         "italic": true
+      },
       "namespace.private.readonly.declaration": {
+         "foreground": "#187449cc",
+         "italic": true
+      },
+      "namespace.private.readonly.definition": {
          "foreground": "#187449cc",
          "italic": true
       },
@@ -972,11 +1358,23 @@
          "foreground": "#188d4dcc",
          "italic": true
       },
+      "namespace.private.readonly.async.definition": {
+         "foreground": "#188d4dcc",
+         "italic": true
+      },
       "namespace.private.declaration": {
          "foreground": "#259a6fcc",
          "italic": true
       },
+      "namespace.private.definition": {
+         "foreground": "#259a6fcc",
+         "italic": true
+      },
       "namespace.private.async.declaration": {
+         "foreground": "#25b473cc",
+         "italic": true
+      },
+      "namespace.private.async.definition": {
          "foreground": "#25b473cc",
          "italic": true
       },
@@ -989,8 +1387,16 @@
          "foreground": "#208571",
          "italic": true
       },
+      "namespace.static.definition": {
+         "foreground": "#208571",
+         "italic": true
+      },
       "namespace.static.async": "#269972",
       "namespace.declaration.async": {
+         "foreground": "#25b473",
+         "italic": true
+      },
+      "namespace.definition.async": {
          "foreground": "#25b473",
          "italic": true
       },
@@ -1003,6 +1409,10 @@
          "italic": true
       },
       "namespace.builtin.declaration": {
+         "foreground": "#4ba694",
+         "italic": true
+      },
+      "namespace.defaultLibrary.definition": {
          "foreground": "#4ba694",
          "italic": true
       },
@@ -1025,6 +1435,10 @@
          "foreground": "#5ecaa1",
          "italic": true
       },
+      "selfParameter.definition": {
+         "foreground": "#5ecaa1",
+         "italic": true
+      },
       "selfParameter.async": "#72d0a0",
       "selfParameter.defaultLibrary": "#8dcdbd",
       "selfParameter.builtin": {
@@ -1038,12 +1452,24 @@
          "foreground": "#3ed07e",
          "italic": true
       },
+      "selfParameter.readonly.definition.async": {
+         "foreground": "#3ed07e",
+         "italic": true
+      },
       "selfParameter.readonly.async": "#46c979",
       "selfParameter.readonly.declaration": {
          "foreground": "#36bf7e",
          "italic": true
       },
+      "selfParameter.readonly.definition": {
+         "foreground": "#36bf7e",
+         "italic": true
+      },
       "selfParameter.private.readonly.declaration": {
+         "foreground": "#36bf7ecc",
+         "italic": true
+      },
+      "selfParameter.private.readonly.definition": {
          "foreground": "#36bf7ecc",
          "italic": true
       },
@@ -1052,11 +1478,23 @@
          "foreground": "#3ed07ecc",
          "italic": true
       },
+      "selfParameter.private.readonly.async.definition": {
+         "foreground": "#3ed07ecc",
+         "italic": true
+      },
       "selfParameter.private.declaration": {
          "foreground": "#5ecaa1cc",
          "italic": true
       },
+      "selfParameter.private.definition": {
+         "foreground": "#5ecaa1cc",
+         "italic": true
+      },
       "selfParameter.private.async.declaration": {
+         "foreground": "#6cd5a5cc",
+         "italic": true
+      },
+      "selfParameter.private.async.definition": {
          "foreground": "#6cd5a5cc",
          "italic": true
       },
@@ -1069,8 +1507,16 @@
          "foreground": "#4ac4aa",
          "italic": true
       },
+      "selfParameter.static.definition": {
+         "foreground": "#4ac4aa",
+         "italic": true
+      },
       "selfParameter.static.async": "#5fc9a5",
       "selfParameter.declaration.async": {
+         "foreground": "#6cd5a5",
+         "italic": true
+      },
+      "selfParameter.definition.async": {
          "foreground": "#6cd5a5",
          "italic": true
       },
@@ -1083,6 +1529,10 @@
          "italic": true
       },
       "selfParameter.builtin.declaration": {
+         "foreground": "#88d2c3",
+         "italic": true
+      },
+      "selfParameter.defaultLibrary.definition": {
          "foreground": "#88d2c3",
          "italic": true
       },
@@ -1105,6 +1555,10 @@
          "foreground": "#19a2c5",
          "italic": true
       },
+      "method.definition": {
+         "foreground": "#19a2c5",
+         "italic": true
+      },
       "method.async": "#1dcdda",
       "method.defaultLibrary": "#4a9ec6",
       "method.builtin": {
@@ -1118,12 +1572,24 @@
          "foreground": "#0db5b8",
          "italic": true
       },
+      "method.readonly.definition.async": {
+         "foreground": "#0db5b8",
+         "italic": true
+      },
       "method.readonly.async": "#13b2ad",
       "method.readonly.declaration": {
          "foreground": "#0f8d9c",
          "italic": true
       },
+      "method.readonly.definition": {
+         "foreground": "#0f8d9c",
+         "italic": true
+      },
       "method.private.readonly.declaration": {
+         "foreground": "#0f8d9ccc",
+         "italic": true
+      },
+      "method.private.readonly.definition": {
          "foreground": "#0f8d9ccc",
          "italic": true
       },
@@ -1132,11 +1598,23 @@
          "foreground": "#0db5b8cc",
          "italic": true
       },
+      "method.private.readonly.async.definition": {
+         "foreground": "#0db5b8cc",
+         "italic": true
+      },
       "method.private.declaration": {
          "foreground": "#19a2c5cc",
          "italic": true
       },
+      "method.private.definition": {
+         "foreground": "#19a2c5cc",
+         "italic": true
+      },
       "method.private.async.declaration": {
+         "foreground": "#16c9e1cc",
+         "italic": true
+      },
+      "method.private.async.definition": {
          "foreground": "#16c9e1cc",
          "italic": true
       },
@@ -1149,8 +1627,16 @@
          "foreground": "#1676ae",
          "italic": true
       },
+      "method.static.definition": {
+         "foreground": "#1676ae",
+         "italic": true
+      },
       "method.static.async": "#1a9cc3",
       "method.declaration.async": {
+         "foreground": "#16c9e1",
+         "italic": true
+      },
+      "method.definition.async": {
          "foreground": "#16c9e1",
          "italic": true
       },
@@ -1163,6 +1649,10 @@
          "italic": true
       },
       "method.builtin.declaration": {
+         "foreground": "#439acd",
+         "italic": true
+      },
+      "method.defaultLibrary.definition": {
          "foreground": "#439acd",
          "italic": true
       },
@@ -1185,6 +1675,10 @@
          "foreground": "#3972ec",
          "italic": true
       },
+      "function.definition": {
+         "foreground": "#3972ec",
+         "italic": true
+      },
       "function.async": "#5298ee",
       "function.defaultLibrary": "#6984ef",
       "function.builtin": {
@@ -1201,12 +1695,24 @@
          "foreground": "#1686f6",
          "italic": true
       },
+      "function.readonly.definition.async": {
+         "foreground": "#1686f6",
+         "italic": true
+      },
       "function.readonly.async": "#1d91ef",
       "function.readonly.declaration": {
          "foreground": "#0f68e4",
          "italic": true
       },
+      "function.readonly.definition": {
+         "foreground": "#0f68e4",
+         "italic": true
+      },
       "function.private.readonly.declaration": {
+         "foreground": "#0f68e4cc",
+         "italic": true
+      },
+      "function.private.readonly.definition": {
          "foreground": "#0f68e4cc",
          "italic": true
       },
@@ -1215,11 +1721,23 @@
          "foreground": "#1686f6cc",
          "italic": true
       },
+      "function.private.readonly.async.definition": {
+         "foreground": "#1686f6cc",
+         "italic": true
+      },
       "function.private.declaration": {
          "foreground": "#3972eccc",
          "italic": true
       },
+      "function.private.definition": {
+         "foreground": "#3972eccc",
+         "italic": true
+      },
       "function.private.async.declaration": {
+         "foreground": "#4c8ff3cc",
+         "italic": true
+      },
+      "function.private.async.definition": {
          "foreground": "#4c8ff3cc",
          "italic": true
       },
@@ -1235,8 +1753,16 @@
          "foreground": "#2240ea",
          "italic": true
       },
+      "function.static.definition": {
+         "foreground": "#2240ea",
+         "italic": true
+      },
       "function.static.async": "#3b6deb",
       "function.declaration.async": {
+         "foreground": "#4c8ff3",
+         "italic": true
+      },
+      "function.definition.async": {
          "foreground": "#4c8ff3",
          "italic": true
       },
@@ -1252,6 +1778,10 @@
          "italic": true
       },
       "function.builtin.declaration": {
+         "foreground": "#6479f4",
+         "italic": true
+      },
+      "function.defaultLibrary.definition": {
          "foreground": "#6479f4",
          "italic": true
       },
@@ -1284,6 +1814,10 @@
          "foreground": "#534ef2",
          "italic": true
       },
+      "macro.definition": {
+         "foreground": "#534ef2",
+         "italic": true
+      },
       "macro.async": "#6775f3",
       "macro.defaultLibrary": "#8d7bf7",
       "macro.builtin": {
@@ -1297,12 +1831,24 @@
          "foreground": "#4561fb",
          "italic": true
       },
+      "macro.readonly.definition.async": {
+         "foreground": "#4561fb",
+         "italic": true
+      },
       "macro.readonly.async": "#4a6df5",
       "macro.readonly.declaration": {
          "foreground": "#313ff5",
          "italic": true
       },
+      "macro.readonly.definition": {
+         "foreground": "#313ff5",
+         "italic": true
+      },
       "macro.private.readonly.declaration": {
+         "foreground": "#313ff5cc",
+         "italic": true
+      },
+      "macro.private.readonly.definition": {
          "foreground": "#313ff5cc",
          "italic": true
       },
@@ -1311,11 +1857,23 @@
          "foreground": "#4561fbcc",
          "italic": true
       },
+      "macro.private.readonly.async.definition": {
+         "foreground": "#4561fbcc",
+         "italic": true
+      },
       "macro.private.declaration": {
          "foreground": "#534ef2cc",
          "italic": true
       },
+      "macro.private.definition": {
+         "foreground": "#534ef2cc",
+         "italic": true
+      },
       "macro.private.async.declaration": {
+         "foreground": "#626af8cc",
+         "italic": true
+      },
+      "macro.private.async.definition": {
          "foreground": "#626af8cc",
          "italic": true
       },
@@ -1328,8 +1886,16 @@
          "foreground": "#5b37f0",
          "italic": true
       },
+      "macro.static.definition": {
+         "foreground": "#5b37f0",
+         "italic": true
+      },
       "macro.static.async": "#5a4ff1",
       "macro.declaration.async": {
+         "foreground": "#626af8",
+         "italic": true
+      },
+      "macro.definition.async": {
          "foreground": "#626af8",
          "italic": true
       },
@@ -1342,6 +1908,10 @@
          "italic": true
       },
       "macro.builtin.declaration": {
+         "foreground": "#9077fb",
+         "italic": true
+      },
+      "macro.defaultLibrary.definition": {
          "foreground": "#9077fb",
          "italic": true
       },
@@ -1532,7 +2102,8 @@
          "scope": [
             "constant.language.null",
             "constant.language.undefined",
-            "constant.language.void"
+            "constant.language.void",
+            "constant.language.nil"
          ],
          "settings": {
             "foreground": "#946969"
@@ -1564,6 +2135,7 @@
       {
          "scope": [
             "string.quoted",
+            "string.unquoted",
             "string.template",
             "meta.attribute-selector",
             "variable.parameter.url"
@@ -1644,7 +2216,8 @@
       },
       {
          "scope": [
-            "punctuation.definition.comment"
+            "punctuation.definition.comment",
+            "entity.other.document.begin.yaml"
          ],
          "settings": {
             "foreground": "#5a5a5a"
@@ -1834,6 +2407,15 @@
          }
       },
       {
+         "name": "property",
+         "scope": [
+            "variable.other.property"
+         ],
+         "settings": {
+            "foreground": "#88ac47"
+         }
+      },
+      {
          "name": "variable",
          "scope": [
             "variable.other.readwrite",
@@ -1899,7 +2481,8 @@
             "meta.flow-mapping.yaml",
             "support.type.property-name.css",
             "meta.property-name",
-            "entity.other.attribute-name"
+            "entity.other.attribute-name",
+            "entity.name.tag.yaml"
          ],
          "settings": {
             "foreground": "#88ac47"
@@ -1914,6 +2497,16 @@
          ],
          "settings": {
             "foreground": "#3aad5d",
+            "fontStyle": "bold"
+         }
+      },
+      {
+         "name": "class.defaultLibrary",
+         "scope": [
+            "support.class"
+         ],
+         "settings": {
+            "foreground": "#64b58a",
             "fontStyle": "bold"
          }
       },

@@ -145,6 +145,9 @@
             "namespace": [
                "meta.symbol.namespace"
             ],
+            "class.defaultLibrary": [
+               "support.class"
+            ],
             "function.defaultLibrary": [
                "support.function.builtin",
                "support.function.misc",
@@ -160,7 +163,8 @@
                "meta.flow-mapping.yaml",
                "support.type.property-name.css",
                "meta.property-name",
-               "entity.other.attribute-name"
+               "entity.other.attribute-name",
+               "entity.name.tag.yaml"
             ],
             "class": [
                "entity.name.type.class",
@@ -186,6 +190,9 @@
             ],
             "documentation": [
                "typeHint"
+            ],
+            "declaration": [
+               "definition"
             ],
             "function.defaultLibrary": [
                "magicFunction"
