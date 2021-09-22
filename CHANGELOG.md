@@ -2,7 +2,7 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
-## [1.0.2]
+## [1.0.3]
 
 - Tweaked YAML highlighting to match JSON
 - TextMate fallbacks for nil keyword and builtin classes
