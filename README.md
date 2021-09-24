@@ -44,6 +44,9 @@ The definition of colors and transformations follows a [simple spec](https://git
 This theme relies on the presence of language server that support Semantic Highlighting. Some of the languages with the best support for this feature include JavaScript, TypeScript and Python.  
 Keep in mind results might vary based on the language extensions you have installed, and even for non-semantic highlighting the theme attempts to approximate results by providing fallback mappings to TextMate rules including but not limited to the [VSCode semantic token scope map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
 
+## Installation
+Install from VSCode or via the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=thertzlor.semantic-rainbow).
+
 ## Roadmap
 * Support for even more TinyColor color transformations
 * Including color readability checks
