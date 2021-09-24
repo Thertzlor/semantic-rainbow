@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/visual-studio-marketplace/v/thertzlor.semantic-rainbow)
 [![CodeFactor](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow/badge)](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow)
-![Rating](https://img.shields.io/visual-studio-marketplace/r/thertzlor.semantic-rainbow)
+![Rating](https://img.shields.io/visual-studio-marketplace/stars/thertzlor.semantic-rainbow)
 ![License](https://img.shields.io/github/license/thertzlor/semantic-rainbow)
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
@@ -16,6 +16,14 @@ Utilizing both bold colors and subtle distinctions, anything than *can* be ident
 ![TypeScript Highlighted](../assets/SR_py_small.png)
 ### **Full Editor**
 ![Example Full](../assets/SR_Example.png)
+
+List of languages supported (sorted by amount of tests):
+- TypeScript/JavaScript
+- CSS/SCSS
+- Python
+- HTML/Twig
+- Go
+- Ruby
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 

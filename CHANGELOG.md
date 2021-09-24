@@ -2,10 +2,15 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
+## [1.0.4]
+
+- New color for `super` keyword, closer to `this`
+- Fixed typo in changelog.
+
 ## [1.0.3]
 
 - Tweaked YAML highlighting to match JSON
-- TextMate fallbacks for nil keyword and builtin classes
+- TextMate fallbacks for `nil` keyword and builtin classes
 - new alias: declaration = definition (for Go)
 - Badges in README because why not
 
