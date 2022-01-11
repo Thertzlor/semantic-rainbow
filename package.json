@@ -10,7 +10,7 @@
       "name": "Thertzlor"
    },
    "icon": "assets/SR_icon256.png",
-   "version": "1.0.4",
+   "version": "1.0.5",
    "homepage": "https://thertzlor.github.io/semantic-rainbow/",
    "engines": {
       "vscode": "^1.60.0"
@@ -39,13 +39,15 @@
             "scopes": {
                "parameter": [
                   "variable.parameter.function",
+                  "variable.parameter",
                   "variable.parameter.function-call",
                   "meta.function.parameter",
                   "meta.function.parameters"
                ],
                "function": [
                   "entity.name.function",
-                  "meta.function-call"
+                  "meta.function-call",
+                  "entity.name.command"
                ],
                "variable": [
                   "variable.other.readwrite",
@@ -57,6 +59,9 @@
                ],
                "variable.readonly": [
                   "entity.name.tag"
+               ],
+               "variable.declaration": [
+                  "variable.other.assignment.shell"
                ],
                "type": [
                   "entity.name.type.alias",
@@ -78,6 +83,7 @@
                   "support.variable.property",
                   "variable.other.object.property",
                   "meta.attribute",
+                  "constant.other.option",
                   "support.type.property-name",
                   "variable.object.property",
                   "meta.flow-mapping.yaml",
@@ -88,6 +94,7 @@
                ],
                "class": [
                   "entity.name.type.class",
+                  "entity.name.class",
                   "entity.other.inherited-class",
                   "entity.other.attribute-name.class"
                ],
@@ -107,7 +114,7 @@
          }
       ]
    },
-   "dependencies": {
+   "devDependencies": {
       "@types/node": "^16.9.1",
       "tinycolor2": "^1.4.2"
    }

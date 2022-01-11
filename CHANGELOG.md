@@ -2,6 +2,11 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
+## [1.0.5]
+
+- Better coloring for Bash commands and variables.
+- Fixed typos documentation.
+
 ## [1.0.4]
 
 - New color for `super` keyword, closer to `this`
