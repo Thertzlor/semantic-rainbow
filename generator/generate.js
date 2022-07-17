@@ -1,7 +1,7 @@
 //This file is used to merge the generated style rules with the actual VSCode theme definition as well as outputting the readme and modifying package.json
 import tinycolor from "tinycolor2";
 import {generateColors, interpolate} from "./lib/colorGenerator.js";
-import {readFileSync, writeFile} from "fs";
+import {readFileSync, writeFile, existsSync} from "fs";
 import {relative, parse} from "path"
 const initialDirectory = process.cwd();
 //Defining paths and reading files
@@ -13,7 +13,7 @@ packageData.contributes.semanticTokenScopes = [];
 packageData.contributes.themes = [];
 //iterating over all color themes in the config 
 themes.forEach(t => {
-   const {id, label, uiTheme, path, fallbacks, mainTheme} = t;
+   const {id, label, uiTheme, path, fallbacks, mainTheme, colorPath} = t;
    //Inserting theme metadata into package.json
    packageData.contributes.themes.push({id, label, uiTheme, path})
    //Contributing semantic token scopes. Not sure if this actually does anything.
@@ -22,6 +22,13 @@ themes.forEach(t => {
    const {semanticRules, fallBackRules, meta} = generateColors(tinycolor, t);
    //Reading the theme definition JSON
    const cnf = JSON.parse(readFileSync(path, 'utf-8'));
+   //fetching color info
+   let colorCation = colorPath
+   if (!colorPath) {
+      const {name, ext} = parse(path)
+      colorCation = `./colors/${name}${ext}`
+   }
+   const colorInfo = existsSync(colorCation) ? JSON.parse(readFileSync(colorCation, 'utf-8')) : {}
    const {tokenColors} = cnf;
    //Here we deal with existing textmate rules that might interfere with the fallbacks that were generated
    fallBackRules.forEach(({scope}) => tokenColors.map((r, i) => (typeof r.scope === 'string' ? scope.includes(r.scope) : r.scope.some(i => scope.includes(i))) ? {i, r} : null).filter(f => f).sort((a, b) => a.i < b.i ? 1 : -1).forEach(({r, i}) => {
@@ -40,6 +47,7 @@ themes.forEach(t => {
    //Updating the color theme with the new values
    cnf.semanticTokenColors = semanticRules;
    cnf.tokenColors = tokenColors.concat(fallBackRules);
+   if (colorInfo && colorInfo.colors) {cnf.colors = colorInfo.colors}
    const stringRules = JSON.stringify(cnf, null, 3);
    //Updating the readme with color stats if it's the main Theme
    const pathDiff = (relative(parse(readmeTemplatePath).dir, parse(readmePath).dir))

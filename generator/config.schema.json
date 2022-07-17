@@ -68,7 +68,11 @@
                },
                "path": {
                   "type": "string",
-                  "description": "Path of the tmTheme file. The path is relative to the extension folder and is typically './colorthemes/awesome-color-theme.json'"
+                  "description": "Path of the Theme file. The path is relative to the extension folder and is typically './themes/awesome-color-theme.json'"
+               },
+               "colorPath": {
+                  "type": "string",
+                  "description": "Optional path of the color definition file. if empty it will default to loading a file of the same name as the main theme file from the './colors/' folder, if not such file exists, it will be assumed that all colors are defined in the main theme file"
                },
                "textformatMapping": {
                   "type": "object",
