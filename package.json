@@ -82,6 +82,7 @@
                   "variable.other.property",
                   "support.variable.property",
                   "variable.other.object.property",
+                  "variable.other.table.property",
                   "meta.attribute",
                   "constant.other.option",
                   "support.type.property-name",
@@ -96,10 +97,12 @@
                   "entity.name.type.class",
                   "entity.name.class",
                   "entity.other.inherited-class",
+                  "entity.name.function-table",
                   "entity.other.attribute-name.class"
                ],
                "method": [
                   "meta.directive.vue",
+                  "entity.name.method-function",
                   "entity.other.attribute-name.pseudo-class"
                ],
                "selfParameter": [

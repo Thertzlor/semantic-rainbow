@@ -22,6 +22,7 @@ List of languages supported (sorted by amount of tests):
 - CSS/SCSS
 - Python
 - HTML/Twig
+- lua
 - Go
 - Ruby
 
