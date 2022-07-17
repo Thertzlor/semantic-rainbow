@@ -10,10 +10,9 @@
    <script src='./generator/lib/tinycolor.js'></script>
    <script type="module">
       import {generateColors, interpolate} from './generator/lib/colorGenerator.js';
-      //We need to fetch the JSON configuration file via HTTP
-      const getConfig = new Promise((res, rej) => {
+      const urlFetch = url => new Promise((res, rej) => {
          const Http = new XMLHttpRequest();
-         Http.open("GET", './generator/config.json');
+         Http.open("GET", url);
          Http.send();
          Http.onreadystatechange = e => {
             if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
@@ -21,11 +20,23 @@
          }
       });
 
+      const colorClass = (path, color, bg) => [...document.getElementsByClassName(path.replace(/\./gm, '_'))].forEach(e => e.style[bg ? 'backgroundColor' : 'color'] = color);
+
+
       (async () => {
-         const {themes} = JSON.parse(await getConfig);
+         //We need to fetch the JSON configuration file via HTTP
+         const {themes} = JSON.parse(await urlFetch('./generator/config.json').catch(() => '{themes:[]}'));
          const frag = new DocumentFragment();
+         const mainTheme = themes.find(t => themes.length === 1 || t.mainTheme)
          //Only using the stats from the main Theme
-         const {semanticRules, meta} = generateColors(tinycolor, themes.find(t => themes.length === 1 || t.mainTheme));
+         const {semanticRules, meta} = generateColors(tinycolor, mainTheme);
+         const {colorPath, path} = mainTheme
+
+         let colorUrl = colorPath || `./colors/${path.split('/').pop()}`
+
+         const {colors} = JSON.parse(await urlFetch(colorUrl).catch(() => '{colors:{}}'));
+         console.log(colors);
+
          //Filling in variables into the text;
          [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, meta));
          //Creating the color table
@@ -51,10 +62,15 @@
             const tooltip = tableSquare.appendChild(document.createElement('div'))
             tooltip.classList.add('expl');
             //HTML formatting for the token description
-            [...document.getElementsByClassName(k.replace(/\./gm, '_'))].forEach(e => e.style.color = colorValue)
+            colorClass(k, colorValue)
             tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : `<i>${e}</i>`).join('\n') + `\n<p style="color:${colorValue}; ${k.includes('declaration') ? 'font-style:italic;' : ''} text-shadow:none;">${colorValue}</p>`;
             tableSquare.style.background = colorValue;
             tableSquare.classList.add('tableSquare')
+         }
+         for (const c in colors) {
+            if (!Object.hasOwnProperty.call(colors, c)) continue;
+            const col = colors[c]
+            colorClass(c, tinycolor(col).toRgbString(), true)
          }
          //Showing the table
          document.getElementById("colorTable").appendChild(frag)
@@ -77,6 +93,7 @@
          max-width: 130%;
          transition: transform 7s ease-out;
          backface-visibility: hidden;
+         margin-top: -2em;
       }
 
       #extable td {
@@ -85,13 +102,13 @@
       }
 
       #extable::after {
-         box-shadow: inset -10px 0 22px 8px #191a26;
+         box-shadow: inset -10px 0 22px 8px #14151a;
          position: absolute;
          content: '';
          pointer-events: none;
 
          display: block;
-         background: linear-gradient(transparent 80%, #191a26 98%);
+         background: linear-gradient(transparent 80%, #14151a 98%);
          top: 0;
          bottom: 0;
          left: 0;
@@ -134,7 +151,7 @@
          bottom: 40%;
          right: 40%;
          pointer-events: none;
-         background: #191a26;
+         background: #14151a;
          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
          padding: 10px;
          border: 3px solid #595e75;
@@ -165,7 +182,7 @@
          right: 0;
          left: 0;
          /* background: rgba(255, 0, 0, .1); */
-         box-shadow: inset 0 4px 12px 4px #191a26;
+         box-shadow: inset 0 4px 12px 4px #14151a;
          display: block;
          pointer-events: none;
          z-index: 500000;
@@ -188,6 +205,12 @@
          padding-bottom: 3%
       }
 
+      .bg {
+         text-shadow: none;
+         border-radius: 0.2em;
+         padding: 0 .1em;
+      }
+
       body,
       html {
          margin: 0;
@@ -195,7 +218,7 @@
          font-family: 'Fira Sans', Calibri, sans-serif;
          font-weight: 500;
          font-size: 1.1em;
-         background: #191a26;
+         background: #14151a;
       }
 
       .text {
@@ -225,7 +248,7 @@
 </head>
 
 <body class="bod">
-   <h1>Semantic Rainbow</h1>
+   <h1> <a href="https://github.com/Thertzlor/semantic-rainbow" style="text-decoration:none ;">Semantic Rainbow</a> </h1>
    <h3 class="text"> A {manualPercent}% hand crafted Color Theme for Visual Studio Code</h3>
    <hr>
    <h2>Examples</h2>
@@ -240,10 +263,13 @@
          <tr>
             <td><a target="blank" href="./assets/ex_1.png"><img src="./assets/ex_1.png" alt="Typescript highlighted"></a></td>
             <td><a target="blank" href="./assets/ex_3.png"><img src="./assets/ex_3.png" alt="SCSS highlighted"></a></td>
-            <td><a target="blank" href="./assets/ex_2.png"><img src="./assets/ex_2.png" alt="Python highlighted"></a> </td>
+            <td><a target="blank" href="./assets/ex_2.png"><img src="./assets/ex_2.png" alt="Python highlighted"></a>
+            </td>
          </tr>
       </tbody>
    </table>
+   <hr>
+   <h3><a href="https://marketplace.visualstudio.com/items?itemName=thertzlor.semantic-rainbow">Get it on the Visual Studio Marketplace</a></h3>
    <hr>
    <h2>Colors</h2>
    <p class="ctx">[Hover for details]</p>
@@ -252,31 +278,55 @@
    <div class="text">
       <hr>
       <h2 id="faq">FAQ</h2>
-
-      <p><strong>Are that many colors really necessary?</strong><br>No, absolutely not. Some of them are in fact completely ludicrous.<br>For example if you know any language in which <em>static async enum members</em> are a thing I would love to see it.
-         On the bright side, that means that not every single color needs to be the most beautiful tone, and that I don&#39;t need to worry about the contrast between some of the colors if one of them is a super weird or even impossible edge case.</p>
-      <p><strong>Some of those colors seem pretty close to each other, is it really possible to tell them apart?</strong><br>It is true that some colors would be hard to distinguish in <em>isolation</em> but in actual code tokens are literally surrounded by context. You&#39;d be surprised how many slight differences you pick up subconsciously after a while.</p>
-      <p><strong>But some of them seem pretty much identical?</strong><br>That would be the declaration styles. That&#39;s because they are mainly differentiated from other tokens by being shown in <em>italics</em>.</p>
-      <p><strong>Which languages are used to test this Theme?</strong><br>A: I am mainly testing in TypeScript, Python, CSS/SCSS and HTML. I am not opposed to include other languages in the future.</p>
-      <p><strong>I can&#39;t get the private token modifier in TypeScript to work, am I doing something wrong?</strong><br>No, the private modifier isn&#39;t implemented in the Typescript language server yet. The token is included partly just top be future proof and partly because other language servers might already support it.</p>
+      <p><strong>Are that many colors really necessary?</strong><br>
+         No, absolutely not. Some of them are in fact completely ludicrous.<br>
+         For example if you know any language in which <em>static async enum members</em> are a thing I would love to see it. On the bright side, that means that not every single color needs to be the most beautiful tone, and that I don&#39;t need to worry about the contrast between some of the colors if one of them is a super weird or even impossible edge case.</p>
+      <p><strong>Some of those colors seem pretty close to each other, is it really possible to tell them apart?</strong><br>
+         It is true that some colors would be hard to distinguish in <em>isolation</em> but in actual code tokens are literally surrounded by context. You&#39;d be surprised how many slight differences you pick up subconsciously after a while.</p>
+      <p><strong>But some of them seem pretty much identical?</strong><br>
+         That would be the declaration styles. That&#39;s because they are mainly differentiated from other tokens by being shown in <em>italics</em>.</p>
+      <p><strong>Which languages are used to test this Theme?</strong><br>
+         A: I am mainly testing in TypeScript, Python, CSS/SCSS and HTML. I am not opposed to include other languages in the future.</p>
+      <p><strong>I can&#39;t get the private token modifier in TypeScript to work, am I doing something wrong?</strong><br>
+         No, the private modifier isn&#39;t implemented in the Typescript language server yet. The token is included partly just top be future proof and partly because other language servers might already support it.</p>
       <hr>
       <h2 id="design-philosophy">Design Philosophy</h2>
-      <p>I am not going to pretend that I went into this project with a definite concept and a background in color psychology. Many of these color associations emerged basically on their own as I was tweaking colors back and forth and later I went back to figure out <em>how</em> they might work.<br>The key to making a Theme with this many colors work without things getting too confusing is to create a spectrum in which colors, rather than arbitrarily representing keywords instead represent different concepts and roles, and based on this spectrum colors are assigned to the different tokens.</p>
+      <p>I am not going to pretend that I went into this project with a definite concept and a background in color psychology. Many of these color associations emerged basically on their own as I was tweaking colors back and forth and later I went back to figure out <em>how</em> they might work.<br>
+         The key to making a Theme with this many colors work without things getting too confusing is to create a spectrum in which colors, rather than arbitrarily representing keywords instead represent different concepts and roles, and based on this spectrum colors are assigned to the different tokens.</p>
       <p>The spectrum that emerged for this particular theme is the following:</p>
       <h3 id="red-valuesinformation"><strong class="variable_readonly">Red:</strong> Values/Information</h3>
       <h3 id="purple-keywordsflow-control"><strong class="macro_static">Purple:</strong> Keywords/Flow Control</h3>
       <h3 id="blue-actiontransformation"><strong class="function">Blue:</strong> Action/Transformation</h3>
       <h3 id="green-statestorage"><strong class="class">Green:</strong> State/Storage</h3>
       <h3 id="yellow-definitionsprimitives"><strong class="type">Yellow:</strong> Definitions/Primitives</h3>
-      <p>Anything directly containing a discrete piece of information is red. This is where your <span class="variable">variables</span> and <span class="variable_readonly">constants</span> reside. They are so to speak the lifeblood flowing through the code and whenever you see red, you know information is being accessed and processed.<br>Blue is the color for change and transformation, in other words: <span class="function">Functions</span>, since they generate and modify other information. To put it in more poetic terms information flows <em>through</em> them like water.<br>Green is for anything that is stateful or defines a state. Here we find <span class="property">properties</span> that set the state within an object, <span class="namespace">namespaces</span> which represent groupings of information a and <span class="class">classes</span> which are of course also stateful. (Surely you could argue that variables are also &quot;stateful&quot; but they only represent their own singular state at the time).<br>Yellow jumps out at you as a sort of signal, for example a <span class="type">type</span> signalling exactly what static (at least in TS) kind of data a certain parameter or variable expects. It also occurs where we see &quot;raw&quot; primitive data being defined such as a string representing nothing other than itself, or boolean values.</p>
-      <p>These are the main components and for most other tokens deciding which color to assign them is a matter of interpolation.<br>For example <span class="method">methods</span> are midway between the blue of <span class="function">functions</span> and the green of <span class="class">classes</span>, representing them being being influenced by the specific state of their containing context.<br>keywords like <em>return, for, var, etc</em> direct information, true but information <em>around</em> themselves depending on what <em>they</em> represent so they stand between blue transformation and red information.<br><span class="parameter">Parameters</span> are orange because in addition to storing values like regular <span class="variable">variables</span> they veer slightly in the direction of statefullness (green), as they represent the specific state of a single execution of a function.<br>Numbers are slightly more greenish yellow than other primitives since they represent a very <em>discrete</em> state and <span class="enum">enums</span> are more yellow than <span class="namespace">namespaces</span> and <span class="class">classes</span> because they are basically a state solely defined by such primitives.<br>And so on and so forth, for basically every token this kind of reasoning is applied, if only post-hoc.</p>
-      <p>Up to this point everything has been about the hue of the colors. Other color properties can be used to convey even more information. Another color rule used in Semantic Rainbow is the following:</p>
-      <h3 id="saturation-and-vibrance-is-mapped-control-and-mutability"><strong>Saturation and Vibrance</strong> is mapped control and mutability.</h3>
+      <p>Anything directly containing a discrete piece of information is red. This is where your <span class="variable">variables</span> and <span class="variable_readonly">constants</span> reside. They are so to speak the lifeblood flowing through the code and whenever you see red, you know information is being accessed and processed.<br>
+         Blue is the color for change and transformation, in other words: <span class="function">Functions</span>, since they generate and modify other information. To put it in more poetic terms information flows <em>through</em> them like water.<br>
+         Green is for anything that is stateful or defines a state. Here we find <span class="property">properties</span> that set the state within an object, <span class="namespace">namespaces</span> which represent groupings of information a and <span class="class">classes</span> which are of course also stateful. (Surely you could argue that variables are also &quot;stateful&quot; but they only represent their own singular state at the time).<br>
+         Yellow jumps out at you as a sort of signal, for example a <span class="type">type</span> signalling exactly what static (at least in TS) kind of data a certain parameter or variable expects. It also occurs where we see &quot;raw&quot; primitive data being defined such as a string representing nothing other than itself, or boolean values.</p>
+      <p>These are the main components and for most other tokens deciding which color to assign them is a matter of interpolation.<br>
+         For example <span class="method">methods</span> are midway between the blue of <span class="function">functions</span> and the green of <span class="class">classes</span>, representing them being being influenced by the specific state of their containing context.<br>
+         <span class="macro_static">keywords</span> like <em>return, for, var, etc</em> direct information, true but information <em>around</em> themselves depending on what <em>they</em> represent so they stand between blue transformation and red information.<br>
+         <span class="parameter">Parameters</span> are orange because in addition to storing values like regular <span class="variable">variables</span> they veer slightly in the direction of statefullness (green), as they represent the specific state of a single execution of a function.<br>
+         Numbers are slightly more greenish yellow than other primitives since they represent a very <em>discrete</em> state and <span class="enum">enums</span> are more yellow than <span class="namespace">namespaces</span> and <span class="class">classes</span> because they are basically a state solely defined by such primitives.<br>
+         And so on and so forth, for basically every token this kind of reasoning is applied, if only post-hoc.
+      </p>
+      <p>Up to this point everything has been about the hue of the colors. Other color properties can be used to convey even more information. The next color rule used in Semantic Rainbow is the following:</p>
+      <h3 id="saturation-and-vibrance-are-mapped-to-control-and-mutability"><strong>Saturation and Vibrance</strong> are mapped to control and mutability.</h3>
       <p>The bolder the color the more &quot;dynamic&quot; the value it represents. A rewritable variable or property has a saturated and bright red and green respectively, but when something cannot be reassigned like a constant or a readonly property that color will darken, appear not as prominent, a more stable and calmly enduring entity.</p>
       <p>There are of course even more ways to modify a color to be less vibrant and saturated besides dimming it towards black, it can also be bleached towards white, or generally faded using alpha. These different ways to reduce vibrance are used to represent different ways in which tokens differ. Anything belonging to a default library is shown desaturated and brightened. Being predefined, they are outside our control and their coloration reflects that indirectness. And once properly supported private properties and methods will be designated with a slight transparency, as they are ephemeral and only exist in specific contexts.</p>
-      <p>And finally going completely beyond color into text formatting:<br>Any time any value is declared or initialized, the token will be displayed in italics. Also classes are shown in bold to distinguish them more effectively from namespaces and highlight their special role in object oriented programming. I am not using the underlined font style because I don&#39;t think it ever looks good.</p>
+      <p>And finally going completely beyond color into text formatting:<br>
+         Any time any value is declared or initialized, the token will be displayed in italics. Also classes are shown in bold to distinguish them more effectively from namespaces and highlight their special role in object oriented programming. I am not using the underlined font style because I don&#39;t think it ever looks good.</p>
       <p>The purpose of <strong>Semantic Rainbow</strong> is to extract all information your code can provide. I hope this concept shows how this wealth of information can still be handled in an intuitive manner.</p>
-
+      <hr>
+      <h2>Colored Highlights and Ranges</h2>
+      <p>In addition to the usual coloring of tokens version 1.1.0 of <strong>Semantic Rainbow</strong> introduces special coloring for highlighting and ranges used for several VSCode features. The default colors for most of these different highlights are neutral greys, making it hard to distinguish by which means a selection or highlight was created, and I felt it was in the maximalist spirit of the theme to overhaul their appearance and give each type of selection an easily identifiable color.<br>
+         At the same time, since most of the token colors are rather vibrant, selections and and ranges are generally assigned more restrained colors.</p>
+      <p><span class="bg editor_selectionBackground">Manual selections</span> are still presented in a neutral grey, while the <span class="bg editor_selectionHighlightBackground">highlighting of identical text</span> has a slightly less opaque appearance. The <span class="bg editor_inactiveSelectionBackground">selected highlighting in inactive documents</span> has a different shade, designed to pair well with the search highlight color since when switching between matches the highlighting of the current search match is technically inactive.</p>
+      <p><span class="bg editor_findMatchHighlightBackground">The matches of a search are highlighted</span> in green, with a more subtle and subdued green <span class="bg editor_findRangeHighlightBackground">designating the range of the search</span>, if the search is limited to a specific area. Other generic range highlights used by quick open and find features are <span class="bg editor_rangeHighlightBackground">highlighted in a paler and brighter shade of green</span>. Find matches in the peek view editor <span class="bg peekViewEditor_matchHighlightBackground">have a turquoise background.</span></p>
+      <p>If a specific symbol is selected, its other instances are <span class="bg editor_wordHighlightBackground">highlighted in a steely blue</span> with a more vivid coloration <span class="bg editor_wordHighlightStrongBackground">designating a write-access.</span></p>
+      <p>When merely <span class="bg editor_hoverHighlightBackground">hovering over a symbol</span>, a subtle orange highlight is applied, since at this point other more prominent hover actions like tooltips also appear the highlighting does not need grab attention unless it is applied to a larger range.</p>
+      <p><span class="bg editor_snippetTabstopHighlightBackground">The highlight color for snippet tab stops</span> is purple, a stronger color than usual as it signifies the need for user-action and the <span class="bg editor_snippetFinalTabstopHighlightBackground">highlighting of the final tab stop</span> uses the same color but slightly more intense.</p>
+      <p>And finally, the <span class="bg editor_symbolHighlightBackground">Symbol Highlight</span> is an eye-catching orange, chosen because it is only visible for a blink of less than a second when skipping to a symbol definition.</p>
    </div>
 
 </body>

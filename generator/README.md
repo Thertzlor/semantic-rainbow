@@ -7,7 +7,8 @@ The generator will apply the following changes to the color theme definition and
 
 * The semanticTokenColors property will be fully replaced by the values generated based on the config.  
 * Textmate rules defined in tokenColors will be rpelaced or modified based on the fallback definitions in the config but any unrelated TextMate rules will be left intact.  
-* All other definitions in the color theme like interface colors are **not** modified.
+* The static colors of your theme for the workbench and other parts of VSCode can be defined in the `colors` folder via another VSCode theme JSON file with the same name as the final output in the `themes`. Only the "colors" property will be merged into the final theme. This helps keeping manual changes to the programmatic output to a minimum.
+* All other definitions in the color theme are **not** modified and can be set directly in the `themes` folder.
 * The `package.json` file will be updated with the metadata of all configured themes as well as the semanticTokenScopes based on all the Theme's fallback properties.
 * If the required paths are provided a number statistics can be [interpolated into your README](#readme-interpolation).
 
