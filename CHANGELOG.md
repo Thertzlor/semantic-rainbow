@@ -2,6 +2,14 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
+## [1.1.0]
+
+- A major update!
+- Different kind of VSCode selections and ranges now have different colors, see the Github page for examples.
+- In order to give the colored selections more "breathing room" the editor background color was changed to a darker, slightly less saturated color from #191A26 to #14151A. I hope this change isn't too upsetting and of course you can always override it by manually setting the `editor.background` color to the old value in the VSCode settings.
+- Workbench colors can now be defined in a separate JSON in the `colors` folder.
+- A few better token definitions designed to work with the sumneko lua extension.
+
 ## [1.0.5]
 
 - Better coloring for Bash commands and variables.
