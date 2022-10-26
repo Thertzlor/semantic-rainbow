@@ -2,3 +2,4 @@ node_modules
 *.vsix
 **/.vscode/
 **/test/
+answer.md
