@@ -5,6 +5,7 @@
          "label": "Semantic Rainbow",
          "mainTheme": true,
          "uiTheme": "vs-dark",
+         "colorPath": "",
          "path": "./themes/semantic-rainbow-color-theme.json",
          "id": "semantic-rainbow",
          "baseTokenColors": {
@@ -135,7 +136,8 @@
                "variable",
                "support.variable",
                "markup.heading",
-               "entity.name.section"
+               "entity.name.section",
+               "string.other.link.title.markdown"
             ],
             "variable.readonly": [
                "entity.name.tag"

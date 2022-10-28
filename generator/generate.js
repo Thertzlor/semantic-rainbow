@@ -6,6 +6,7 @@ import {relative, parse} from "path"
 const initialDirectory = process.cwd();
 //Defining paths and reading files
 const packageData = JSON.parse(readFileSync("package.json", 'utf-8'))
+/**@type {import('./config.json')} */
 const {themes, readmePath, readmeTemplatePath} = JSON.parse(readFileSync('./generator/config.json', 'utf-8'))
 const readme = readmePath && readmeTemplatePath && readFileSync(readmeTemplatePath, 'utf-8');
 //re-initializing the properties of the package.json that will be dynamically populated.

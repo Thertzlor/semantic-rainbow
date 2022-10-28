@@ -1,3 +1,5 @@
+/**@typedef {Record<string,string|{foreground:string}>} SemanticMap */
+/**@typedef {{settings:{foreground:string}}[]} TextMateList*/
 
 /**
  * Generate a set of color rules
@@ -95,7 +97,7 @@ const generateColors = (tinycolor, config) => {
  * Ridiculously basic string interpolation to generate dynamic readme and html
  * @param {string} text Text with placeolders
  * @param {Record<string,any>} replacements An object of key/value pairs to be interpolated into the text
- * @returns 
+ * @returns {string} Text with interpolations
  */
 const interpolate = (text, replacements) => {
    let finalText = text
@@ -106,4 +108,35 @@ const interpolate = (text, replacements) => {
    return finalText;
 }
 
-export {generateColors, interpolate}
+//The following section contains code meant to enable the reuse of color names within config files. This is not implemented yet.
+
+/**
+ * Checks if the value of a color property is a proper color value (string or hex) or a reference to an existing color name in the colors object
+ * @param {Record<string,string>} values 
+ * @returns {(name:string)=>boolean} bla
+ */
+const isColorVar = values => name => (!name.startsWith('#')) && name.includes('.') && name in values
+
+/**
+ * resolves color variables into actual colors
+ * @param {{tokenColors?:TextMateList,semanticTokenColors?:SemanticMap}} dynamicValues 
+ * @param {Record<string,string>} staticValues 
+ */
+const resolveColors = (dynamicValues, staticValues) => {
+   const cv = isColorVar(staticValues)
+   dynamicValues?.tokenColors.forEach(t => {
+      if (cv(t.settings.foreground)) t.settings.foreground = staticValues[t.settings.foreground]
+   })
+
+   for (const k in dynamicValues?.semanticTokenColors ?? {}) {
+      if (Object.hasOwnProperty.call(dynamicValues.semanticTokenColors, k)) {
+         const element = dynamicValues.semanticTokenColors[k];
+         if (typeof element === 'string') {
+            if (cv(element)) dynamicValues.semanticTokenColors[k] = staticValues[element]
+         }
+         else if (cv(element.foreground)) element.foreground = staticValues[element.foreground]
+      }
+   }
+}
+
+export {generateColors, interpolate, resolveColors}
