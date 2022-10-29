@@ -2,6 +2,9 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
+## [1.1.2]
+- Improved support for Markdown.
+
 ## [1.1.1]
 - Better contrast between comments and the the background color for added lines in the git diff editor.
 - A more subtle purple for snippet tab-stops.

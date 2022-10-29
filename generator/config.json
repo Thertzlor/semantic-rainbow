@@ -135,8 +135,6 @@
                "variable.other",
                "variable",
                "support.variable",
-               "markup.heading",
-               "entity.name.section",
                "string.other.link.title.markdown"
             ],
             "variable.readonly": [
@@ -147,7 +145,17 @@
             ],
             "type": [
                "entity.name.type.alias",
-               "support.type"
+               "support.type",
+               "markup.italic.markdown"
+            ],
+            "type.readonly":[
+               "markup.bold.markdown"
+            ],
+            "type.defaultLibrary.static.async":[
+               "markup.strikethrough.markdown"
+            ],
+            "type.static":[
+               "markup.math.inline.markdown"
             ],
             "namespace": [
                "meta.symbol.namespace"
@@ -160,6 +168,7 @@
                "support.function.misc",
                "support.function"
             ],
+            "property.readonly":["markup.list.numbered.markdown"],
             "property": [
                "variable.other.property",
                "support.variable.property",
@@ -173,7 +182,8 @@
                "support.type.property-name.css",
                "meta.property-name",
                "entity.other.attribute-name",
-               "entity.name.tag.yaml"
+               "entity.name.tag.yaml",
+               "markup.list.unnumbered.markdown"
             ],
             "class": [
                "entity.name.type.class",

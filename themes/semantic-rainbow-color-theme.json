@@ -1809,7 +1809,7 @@
          "name": "Markup quotes",
          "scope": "markup.quote",
          "settings": {
-            "foreground": "#FAB795B3",
+            "foreground": "#007acc",
             "fontStyle": "italic"
          }
       },
@@ -1867,7 +1867,8 @@
          "scope": [
             "storage",
             "punctuation.definition.quote.begin.markdown",
-            "punctuation.definition.list.begin.markdown"
+            "punctuation.definition.list.begin.markdown",
+            "punctuation.definition.heading.markdown"
          ],
          "settings": {
             "foreground": "#B877DBE6"
@@ -1989,6 +1990,8 @@
             "punctuation.section.tag",
             "punctuation.definition.link.title.begin.markdown",
             "punctuation.definition.link.title.end.markdown",
+            "punctuation.definition.link.description.begin.markdown",
+            "punctuation.definition.link.description.end.markdown",
             "punctuation.definition.metadata.markdown",
             "constant.other.placeholder"
          ],
@@ -2090,7 +2093,8 @@
       {
          "scope": [
             "comment.block",
-            "comment.line"
+            "comment.line",
+            "meta.separator.markdown"
          ],
          "settings": {
             "foreground": "#4e4e4e"
@@ -2381,14 +2385,94 @@
          }
       },
       {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "property",
+         "scope": [
+            "variable.other.property"
+         ],
+         "settings": {
+            "foreground": "#88ac47"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type.defaultLibrary.static",
+         "scope": [
+            "markup.strikethrough.markdown"
+         ],
+         "settings": {
+            "foreground": "#b8b279",
+            "fontStyle": "strikethrough"
+         }
+      },
+      {
          "name": "variable",
          "scope": [
             "variable.other.readwrite",
             "variable.other",
             "variable",
             "support.variable",
-            "markup.heading",
-            "entity.name.section",
             "string.other.link.title.markdown"
          ],
          "settings": {
@@ -2440,10 +2524,29 @@
          "name": "type",
          "scope": [
             "entity.name.type.alias",
-            "support.type"
+            "support.type",
+            "markup.italic.markdown"
          ],
          "settings": {
             "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type.readonly",
+         "scope": [
+            "markup.bold.markdown"
+         ],
+         "settings": {
+            "foreground": "#b56e18"
+         }
+      },
+      {
+         "name": "type.static",
+         "scope": [
+            "markup.math.inline.markdown"
+         ],
+         "settings": {
+            "foreground": "#c6a721"
          }
       },
       {
@@ -2461,10 +2564,20 @@
             "support.type.property-name.css",
             "meta.property-name",
             "entity.other.attribute-name",
-            "entity.name.tag.yaml"
+            "entity.name.tag.yaml",
+            "markup.list.unnumbered.markdown"
          ],
          "settings": {
             "foreground": "#88ac47"
+         }
+      },
+      {
+         "name": "property.readonly",
+         "scope": [
+            "markup.list.numbered.markdown"
+         ],
+         "settings": {
+            "foreground": "#768d33"
          }
       },
       {
