@@ -1,19 +1,23 @@
-/**@typedef {Record<string,string|{foreground:string}>} SemanticMap */
+/**@typedef {{foreground:string,alias?:string,bold?: boolean, italic?: boolean, underline?: boolean}} ColorRule */
+/**@typedef {Record<string,string|ColorRule>} SemanticMap */
 /**@typedef {{settings:{foreground:string}}[]} TextMateList*/
+/**@typedef {import('../config.json')['themes'][number]} ColorConfig */
+/**@typedef {import('tinycolor2')} TinyColorClass*/
+/**@typedef {InstanceType<TinyColorClass>} TinyColor*/
 
 /**
  * Generate a set of color rules
- * @param {any} tinycolor the tinycolor library
- * @param {any} config The configuration object
+ * @param {TinyColorClass} tinycolor the tinycolor library
+ * @param {ColorConfig} config The configuration object
  */
 const generateColors = (tinycolor, config) => {
-
+   /**@type {Record<string,(color:TinyColor,value:number) => TinyColor>} */
    const specialModifications = {
       alpha(color, value) {
          return color.setAlpha(color.getAlpha() * value);
       },
       tetrad(color, value) {
-         return color.tretrad()[value]
+         return color.tetrad()[value]
       },
       triad(color, value) {
          return color.triad()[value]
@@ -42,7 +46,11 @@ const generateColors = (tinycolor, config) => {
    })());
    //Putting everything into our "meta" object.
    const meta = {numColors, manualColors, baseNumber, modNumber, extraCombinationsNumber, manualPercent: ((manualColors / numColors) * 100).toFixed(2)}
-   //Transforming a base color using one or more modifications
+   /**
+    * Transforming a base color using one or more modifications
+    * @param {string} base 
+    * @param {string[]} variations 
+    */
    const applyColors = (base, variations) => {
       let color = new tinycolor(config.baseTokenColors[base])
       variations.forEach(v => {
@@ -51,10 +59,14 @@ const generateColors = (tinycolor, config) => {
       })
       return color;
    }
-   //Encoding colors into style rules
+   /**Encoding colors into style rules
+    * @param {TinyColor} color 
+    * @param {string} text 
+    */
    const encode = (color, text) => {
       const finalColor = color[`toHex${color.getAlpha() === 1 ? '' : '8'}String`]();
       const finalText = text.replace(/\s+/g, '.');
+      /**@type {string|ColorRule} */
       let rule = finalColor
       //Generating TextMate rules
       const textMateTransform = r => {
