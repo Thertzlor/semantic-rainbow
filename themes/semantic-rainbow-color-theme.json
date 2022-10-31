@@ -2467,6 +2467,15 @@
          }
       },
       {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
          "name": "variable",
          "scope": [
             "variable.other.readwrite",
@@ -2525,7 +2534,8 @@
          "scope": [
             "entity.name.type.alias",
             "support.type",
-            "markup.italic.markdown"
+            "markup.italic.markdown",
+            "entity.name.type.kotlin"
          ],
          "settings": {
             "foreground": "#db9b25"

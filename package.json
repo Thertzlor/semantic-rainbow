@@ -70,7 +70,8 @@
                "type": [
                   "entity.name.type.alias",
                   "support.type",
-                  "markup.italic.markdown"
+                  "markup.italic.markdown",
+                  "entity.name.type.kotlin"
                ],
                "type.readonly": [
                   "markup.bold.markdown"
