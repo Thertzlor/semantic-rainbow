@@ -6,6 +6,7 @@
          "mainTheme": true,
          "uiTheme": "vs-dark",
          "colorPath": "",
+         "defaultLanguages":["cpp"],
          "path": "./themes/semantic-rainbow-color-theme.json",
          "id": "semantic-rainbow",
          "baseTokenColors": {

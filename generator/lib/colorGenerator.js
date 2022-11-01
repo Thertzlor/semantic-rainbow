@@ -94,11 +94,26 @@ const generateColors = (tinycolor, config) => {
    for (const t in config.baseTokenColors) {
       if (!(Object.hasOwnProperty.call(config.baseTokenColors, t))) return;
       //Saving rule without any modifications
-      const [token, lang] = t.split(':')
-      encode(new tinycolor(config.baseTokenColors[t]), token, lang);
-      //Saving rules for all modifications and all combinations of modifiers
-      for (const v in config.modifications) ((Object.hasOwnProperty.call(config.modifications, v)) && encode(applyColors(token, [v], lang), `${token}\n${v}`, lang))
-      config.modifierCombinations.map(c => c.split('.')).forEach(c => encode(applyColors(token, c, lang), `${token}\n${c.join(' ')}`, lang))
+      const [token, lg] = t.split(':')
+      encode(new tinycolor(config.baseTokenColors[t]), token, lg);
+      /**@type {Set<string>} */
+      const doneColors = new Set()
+      for (const lang of new Set([lg].concat(config.defaultLanguages || []))) {
+         //Saving rules for all modifications and all combinations of modifiers
+         for (const v in config.modifications) {
+            if (!(Object.hasOwnProperty.call(config.modifications, v))) continue;
+            const newCol = applyColors(token, [v], lang)
+            if (doneColors.has(newCol.toHex8())) continue;
+            doneColors.add(newCol.toHex8())
+            encode(newCol, `${token}\n${v}`, lang)
+         }
+         for (const [c, l] of config.modifierCombinations.map(c => c.split(':')).map(([c, l]) => [c.split('.'), l])) {//@ts-ignore
+            const newCol = applyColors(token, c, l || lang)
+            if (doneColors.has(newCol.toHex8())) continue;
+            doneColors.add(newCol.toHex8());//@ts-ignore
+            encode(newCol, `${token}\n${c.join(' ')}`, l || lang)
+         }
+      }
    }
    return {semanticRules, fallBackRules, meta};
 }

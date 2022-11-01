@@ -62,6 +62,7 @@
                   "type": "string",
                   "description": "Base theme defining the colors around the editor: 'vs' is the light color theme, 'vs-dark' is the dark color theme. 'hc-black' is the dark high contrast theme"
                },
+               "defaultLanguages":{"type":"array","items":{"type":"string"},"description":"A list of vscode languages for which modifications should always be generated."},
                "id": {
                   "type": "string",
                   "description": "Id of the color theme as used in the user settings"
