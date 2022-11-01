@@ -60,7 +60,8 @@ const generateColors = (tinycolor, config) => {
     */
    const encode = (color, text, lang) => {
       const finalColor = color[`toHex${color.getAlpha() === 1 ? '' : '8'}String`]();
-      const finalText = `${text.replace(/\s+/g, '.')}${lang ? `:${lang}` : ''}`;
+      const noLangText = text.replace(/\s+/g, '.')
+      const finalText = `${noLangText}${lang ? `:${lang}` : ''}`;
       /**@type {string|ColorRule} */
       let rule = finalColor
       //Generating TextMate rules
@@ -87,6 +88,7 @@ const generateColors = (tinycolor, config) => {
       if (config.alias) for (const k in config.alias) (Object.hasOwnProperty.call(config.alias, k) && (new RegExp(`\\b${k}\\b`, 'gm')).test(finalText)) && config.alias[k].forEach(a => semanticRules[finalText.replace(new RegExp(`\\b${k}\\b`, 'g'), a)] = (typeof rule === 'string' ? {foreground: rule, alias: true} : {...rule, alias: true}))
       //Saving the TextMate fallback rule
       if (config.fallbacks && config.fallbacks[finalText]) fallBackRules.push({name: finalText, scope: config.fallbacks[finalText], settings: textMateTransform(rule)})
+      else if (config.fallbacks && noLangText !== finalText && config.fallbacks[noLangText]) fallBackRules.push({name: finalText, scope: config.fallbacks[noLangText].map(t => `source.${lang} ${t}`), settings: textMateTransform(rule)})
    }
    //Iterating over all defined basic tokens
    for (const t in config.baseTokenColors) {

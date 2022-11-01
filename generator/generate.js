@@ -48,8 +48,15 @@ themes.forEach(t => {
    //Deleting the "alias" property from rule definitions, since it is not necessary for vscode
    for (const k in semanticRules) ((Object.hasOwnProperty.call(semanticRules, k)) && (r => (typeof r !== 'string') && r.alias && delete r.alias)(semanticRules[k]));
    //Updating the color theme with the new values
-   cnf.semanticTokenColors = semanticRules;//@ts-ignore
-   cnf.tokenColors = tokenColors.concat(fallBackRules);
+   cnf.semanticTokenColors = semanticRules;
+   for (const [i, t] of tokenColors.entries()) {
+      if (typeof t.scope === 'string' && /^source\.\w+ /.test(t.scope)) tokenColors[i] = undefined;
+      else if (typeof t.scope !== 'string') {
+         for (let scopeDex = t.scope.findIndex(s => /^source\.\w+ /.test(s)); scopeDex !== -1; scopeDex = t.scope.findIndex(s => /^source\.\w+ /.test(s)))  t.scope.splice(scopeDex, 1)
+         if(!t.scope.length)tokenColors[i] = undefined
+      }
+   }//@ts-ignore
+   cnf.tokenColors = tokenColors.filter(f => f).concat(fallBackRules);
    if (colorInfo && colorInfo.colors) {cnf.colors = colorInfo.colors}
    const stringRules = JSON.stringify(cnf, null, 3);
    //Updating the readme with color stats if it's the main Theme
