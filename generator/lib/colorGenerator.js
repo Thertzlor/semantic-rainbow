@@ -1,4 +1,4 @@
-/**@typedef {{foreground:string,alias?:string,bold?: boolean, italic?: boolean, underline?: boolean}} ColorRule */
+/**@typedef {{foreground:string,alias?:string|boolean,bold?: boolean, italic?: boolean, underline?: boolean}} ColorRule */
 /**@typedef {Record<string,string|ColorRule>} SemanticMap */
 /**@typedef {{settings:{foreground:string}}[]} TextMateList*/
 /**@typedef {import('../config.json')['themes'][number]} ColorConfig */
@@ -18,8 +18,9 @@ const generateColors = (tinycolor, config) => {
       triad: (color, value) => color.triad()[value],
       splitcomplement: (color, value) => color.splitcomplement()[value]
    }
-
+   /**@type {Record<string,string | ColorRule>} */
    const semanticRules = {};
+   /**@type {{name:string,scope:string[],settings:{foreground:string,fontStyle?:string}}[]} */
    const fallBackRules = [];
    //In this section we compile metadata about the generated colors
    const baseNumber = Object.keys(config.baseTokenColors).length;
@@ -42,11 +43,12 @@ const generateColors = (tinycolor, config) => {
     * Transforming a base color using one or more modifications
     * @param {string} base 
     * @param {string[]} variations 
+    * @param {string?} [lang]
     */
-   const applyColors = (base, variations) => {
-      let color = new tinycolor(config.baseTokenColors[base])
+   const applyColors = (base, variations, lang) => {
+      let color = new tinycolor((lang && config.baseTokenColors[`${base}:${lang}`]) || config.baseTokenColors[base])
       variations.forEach(v => {
-         const def = config.modifications[v][base] || config.modifications[v].default;
+         const def = (lang && config.modifications[v][`${base}:${lang}`]) || config.modifications[v][base] || (lang && config.modifications[v][`default:${lang}`]) || config.modifications[v].default;
          for (const k in def) ((Object.hasOwnProperty.call(def, k)) && (k in specialModifications ? (color = specialModifications[k](color, def[k])) : color[k](def[k])));
       })
       return color;
@@ -54,10 +56,11 @@ const generateColors = (tinycolor, config) => {
    /**Encoding colors into style rules
     * @param {TinyColor} color 
     * @param {string} text 
+    * @param {string?} [lang]
     */
-   const encode = (color, text) => {
+   const encode = (color, text, lang) => {
       const finalColor = color[`toHex${color.getAlpha() === 1 ? '' : '8'}String`]();
-      const finalText = text.replace(/\s+/g, '.');
+      const finalText = `${text.replace(/\s+/g, '.')}${lang ? `:${lang}` : ''}`;
       /**@type {string|ColorRule} */
       let rule = finalColor
       //Generating TextMate rules
@@ -89,10 +92,11 @@ const generateColors = (tinycolor, config) => {
    for (const t in config.baseTokenColors) {
       if (!(Object.hasOwnProperty.call(config.baseTokenColors, t))) return;
       //Saving rule without any modifications
-      encode(new tinycolor(config.baseTokenColors[t]), t)
+      const [token, lang] = t.split(':')
+      encode(new tinycolor(config.baseTokenColors[t]), token, lang);
       //Saving rules for all modifications and all combinations of modifiers
-      for (const v in config.modifications) ((Object.hasOwnProperty.call(config.modifications, v)) && encode(applyColors(t, [v]), t + '\n' + v))
-      config.modifierCombinations.map(c => c.split('.')).forEach(c => encode(applyColors(t, c), t + '\n' + c.join(' ')))
+      for (const v in config.modifications) ((Object.hasOwnProperty.call(config.modifications, v)) && encode(applyColors(token, [v], lang), `${token}\n${v}`, lang))
+      config.modifierCombinations.map(c => c.split('.')).forEach(c => encode(applyColors(token, c, lang), `${token}\n${c.join(' ')}`, lang))
    }
    return {semanticRules, fallBackRules, meta};
 }

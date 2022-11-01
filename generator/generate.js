@@ -29,24 +29,26 @@ themes.forEach(t => {
       const {name, ext} = parse(path)
       colorCation = `./colors/${name}${ext}`
    }
+   /**@type {Record<string,string>} */
    const colorInfo = existsSync(colorCation) ? JSON.parse(readFileSync(colorCation, 'utf-8')) : {}
+   /**@type {{tokenColors:{foreground:string,scope:string|string[]}[]}} */
    const {tokenColors} = cnf;
    //Here we deal with existing textmate rules that might interfere with the fallbacks that were generated
    fallBackRules.forEach(({scope}) => tokenColors.map((r, i) => (typeof r.scope === 'string' ? scope.includes(r.scope) : r.scope.some(i => scope.includes(i))) ? {i, r} : null).filter(f => f).sort((a, b) => a.i < b.i ? 1 : -1).forEach(({r, i}) => {
       //Deleting existing textmate rules that contradict our fallback rules
-      if (scope.includes(r.scope)) return tokenColors.splice(i, 1);
+      if (typeof r.scope === 'string' && scope.includes(r.scope)) return tokenColors.splice(i, 1);
       if (scope.every(i => r.scope.includes(i) && (r.scope.length === scope.length))) return tokenColors.splice(i, 1);
       //If any textmate rules contains individual scopes that are covered by our fallbacks they will be removed from the rule
-      scope.forEach(s => {
-         const subIndex = r.scope.findIndex(e => e === s);
+      scope.forEach(s => {//@ts-ignore
+         const subIndex = r.scope.findIndex(e => e === s);// @ts-ignore
          if (subIndex !== -1) tokenColors[i].scope = tokenColors[i].scope.splice(subIndex, 1)
       })
    })
    )
    //Deleting the "alias" property from rule definitions, since it is not necessary for vscode
-   for (const k in semanticRules) ((Object.hasOwnProperty.call(semanticRules, k)) && semanticRules[k].alias && delete semanticRules[k].alias)
+   for (const k in semanticRules) ((Object.hasOwnProperty.call(semanticRules, k)) && (r => (typeof r !== 'string') && r.alias && delete r.alias)(semanticRules[k]));
    //Updating the color theme with the new values
-   cnf.semanticTokenColors = semanticRules;
+   cnf.semanticTokenColors = semanticRules;//@ts-ignore
    cnf.tokenColors = tokenColors.concat(fallBackRules);
    if (colorInfo && colorInfo.colors) {cnf.colors = colorInfo.colors}
    const stringRules = JSON.stringify(cnf, null, 3);
