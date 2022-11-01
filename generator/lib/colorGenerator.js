@@ -13,18 +13,10 @@
 const generateColors = (tinycolor, config) => {
    /**@type {Record<string,(color:TinyColor,value:number) => TinyColor>} */
    const specialModifications = {
-      alpha(color, value) {
-         return color.setAlpha(color.getAlpha() * value);
-      },
-      tetrad(color, value) {
-         return color.tetrad()[value]
-      },
-      triad(color, value) {
-         return color.triad()[value]
-      },
-      splitcomplement(color, value) {
-         return color.splitcomplement()[value]
-      },
+      alpha: (color, value) => color.setAlpha(color.getAlpha() * value),
+      tetrad: (color, value) => color.tetrad()[value],
+      triad: (color, value) => color.triad()[value],
+      splitcomplement: (color, value) => color.splitcomplement()[value]
    }
 
    const semanticRules = {};

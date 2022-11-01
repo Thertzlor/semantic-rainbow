@@ -2553,6 +2553,24 @@
          }
       },
       {
+         "name": "type",
+         "scope": [
+            "entity.name.type.alias"
+         ],
+         "settings": {
+            "foreground": "#db9b25"
+         }
+      },
+      {
+         "name": "type.static",
+         "scope": [
+            "markup.math.inline.markdown"
+         ],
+         "settings": {
+            "foreground": "#c6a721"
+         }
+      },
+      {
          "name": "variable",
          "scope": [
             "variable.other.readwrite",
@@ -2622,9 +2640,7 @@
             "entity.name.type.alias",
             "support.type",
             "markup.italic.markdown",
-            "entity.name.type.kotlin",
-            "entity.name.type.cpp",
-            "entity.name.type.parameter"
+            "entity.name.type.kotlin"
          ],
          "settings": {
             "foreground": "#db9b25"
@@ -2642,7 +2658,9 @@
       {
          "name": "type.static",
          "scope": [
-            "markup.math.inline.markdown"
+            "markup.math.inline.markdown",
+            "entity.name.type.cpp",
+            "entity.name.type.parameter"
          ],
          "settings": {
             "foreground": "#c6a721"

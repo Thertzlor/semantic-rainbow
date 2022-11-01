@@ -64,6 +64,12 @@
                "variable.readonly": [
                   "entity.name.tag"
                ],
+               "macro": [
+                  "entity.name.other.preprocessor.macro"
+               ],
+               "macro.defaultLibrary": [
+                  "entity.name.other.preprocessor.macro.predefined"
+               ],
                "variable.declaration": [
                   "variable.other.assignment.shell"
                ],
@@ -80,10 +86,28 @@
                   "markup.strikethrough.markdown"
                ],
                "type.static": [
-                  "markup.math.inline.markdown"
+                  "markup.math.inline.markdown",
+                  "entity.name.type.cpp",
+                  "entity.name.type.parameter"
+               ],
+               "type.async": [
+                  "support.type.primitive",
+                  "storage.type.built-in.primitive",
+                  "support.type.builtin"
+               ],
+               "type.defaultLibrary": [
+                  "support.type.built-in"
+               ],
+               "function.static": [
+                  "storage.type.template"
+               ],
+               "typeParameter": [
+                  "entity.name.type.template",
+                  "storage.type.template.argument"
                ],
                "namespace": [
-                  "meta.symbol.namespace"
+                  "meta.symbol.namespace",
+                  "entity.name.scope-resolution"
                ],
                "class.defaultLibrary": [
                   "support.class"
@@ -91,7 +115,9 @@
                "function.defaultLibrary": [
                   "support.function.builtin",
                   "support.function.misc",
-                  "support.function"
+                  "support.function",
+                  "keyword.operator.cast.static_cast",
+                  "entity.name.function.definition.special"
                ],
                "property.readonly": [
                   "markup.list.numbered.markdown"
@@ -122,7 +148,8 @@
                "method": [
                   "meta.directive.vue",
                   "entity.name.method-function",
-                  "entity.other.attribute-name.pseudo-class"
+                  "entity.other.attribute-name.pseudo-class",
+                  "entity.name.function.member"
                ],
                "selfParameter": [
                   "variable.language.this",

@@ -11,6 +11,9 @@
    <script src='./generator/lib/tinycolor.js'></script>
    <script type="module">
       import {generateColors, interpolate} from './generator/lib/colorGenerator.js';
+      /**
+       * @param {string} url
+       * @returns {Promise<string>} */
       const urlFetch = url => new Promise((res, rej) => {
          const Http = new XMLHttpRequest();
          Http.open("GET", url);
@@ -21,8 +24,11 @@
          }
       });
 
-      const colorClass = (path, color, bg) => [...document.getElementsByClassName(path.replace(/\./gm, '_'))].forEach(e => e.style[bg ? 'backgroundColor' : 'color'] = color);
-
+      /** 
+       * @param {string} path
+       * @param {string} color
+       * @param {string} bg */
+      const colorClass = (path, color, bg) => [...document.getElementsByClassName(path.replace(/\./gm, '_').replace(/:/gm,'-'))].forEach(e => e.style[bg ? 'backgroundColor' : 'color'] = color);
 
       (async () => {
          //We need to fetch the JSON configuration file via HTTP
@@ -75,7 +81,6 @@
          }
          //Showing the table
          document.getElementById("colorTable").appendChild(frag)
-
       })()
 
    </script>
@@ -87,7 +92,6 @@
          height: 65vh;
          display: block;
          overflow: hidden;
-
       }
 
       #extable img {
@@ -116,11 +120,9 @@
          right: 0
       }
 
-
       #extable img:hover {
          transform: translateY(calc((100% - 65vh) * -1))
       }
-
 
       * {
          box-sizing: border-box;
@@ -160,7 +162,6 @@
       }
 
       .tableSquare:hover {
-
          border-color: white;
       }
 
@@ -172,7 +173,6 @@
 
       .tableSquare p {
          margin: 0;
-
       }
 
       #extable td::before {
@@ -187,7 +187,6 @@
          display: block;
          pointer-events: none;
          z-index: 500000;
-
       }
 
       .tableSquare::after {
