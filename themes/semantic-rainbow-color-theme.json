@@ -2089,6 +2089,8 @@
       {
          "scope": [
             "punctuation.definition.comment",
+            "string.quoted.docstring punctuation.definition.string.begin",
+            "string.quoted.docstring punctuation.definition.string.end",
             "entity.other.document.begin.yaml"
          ],
          "settings": {
@@ -2099,7 +2101,8 @@
          "scope": [
             "comment.block",
             "comment.line",
-            "meta.separator.markdown"
+            "meta.separator.markdown",
+            "string.quoted.docstring"
          ],
          "settings": {
             "foreground": "#4e4e4e"
