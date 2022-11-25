@@ -108,7 +108,6 @@ const generateColors = (tinycolor, config) => {
             encode(newCol, `${token}\n${v}`, lang)
          }
          for (const [c, l] of config.modifierCombinations.map(c => c.split(':')).map(([c, l]) => [c.split('.'), l])) {
-            if (!c.includes(token)) continue
             const varray = c.length === 1 ? [] : c
             //@ts-ignore
             const newCol = applyColors(token, varray, l || lang)

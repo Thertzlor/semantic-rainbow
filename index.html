@@ -52,7 +52,7 @@
          let lastKey = '';
          for (const k in semanticRules) {
             //We only output a demo for the main token type, not for any aliases
-            if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias) continue;
+            if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias||k.includes(':')) continue;
             const styleElement = semanticRules[k];
             const keyArray = k.split('.');
             const firstKey = keyArray[0]
