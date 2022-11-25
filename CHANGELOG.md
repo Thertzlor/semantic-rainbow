@@ -2,14 +2,18 @@
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
 
+## [1.1.4]
+- Improvements for **lua** syntax highlighting. This specificially targets the lua grammar used by the [sumneko lua language server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) (which also includes the first language specific color tweak)
+- Bug fix for handling `baseToken:language` combinations in the `modifierCombinations` list.
+
 ## [1.1.3]
 - The color generator now supports generating styles targeting specific languages. As of yet no language specific styles are implemented in the main theme, but examples are bing worked on.
 - The README files has been updated with better examples and a new section for language targeting.
-- A couple of improvements for C++ highlighting, potentially more to come.
+- A couple of improvements for **C++** highlighting, potentially more to come.
 - Python docstrings no longer look like regular strings.
 
 ## [1.1.2]
-- Improved support for Markdown.
+- Improved support for **Markdown**.
 
 ## [1.1.1]
 - Better contrast between comments and the the background color for added lines in the git diff editor.

@@ -21,10 +21,11 @@ List of languages supported (sorted by amount of tests):
 - TypeScript/JavaScript
 - CSS/SCSS
 - Python
-- HTML/Twig
 - lua
+- HTML/Twig
 - Go
 - Ruby
+- C++
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 
