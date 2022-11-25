@@ -60,8 +60,9 @@ const generateColors = (tinycolor, config) => {
     */
    const encode = (color, text, lang) => {
       const finalColor = color[`toHex${color.getAlpha() === 1 ? '' : '8'}String`]();
-      const noLangText = text.replace(/\s+/g, '.')
+      const noLangText = text.trim().replace(/\s+/g, '.')
       const finalText = `${noLangText}${lang ? `:${lang}` : ''}`;
+      if (finalText.includes('lua')) console.log(noLangText)
       /**@type {string|ColorRule} */
       let rule = finalColor
       //Generating TextMate rules
@@ -102,16 +103,21 @@ const generateColors = (tinycolor, config) => {
          //Saving rules for all modifications and all combinations of modifiers
          for (const v in config.modifications) {
             if (!(Object.hasOwnProperty.call(config.modifications, v))) continue;
+            if (lang === 'lua') console.log(token, v, lang)
             const newCol = applyColors(token, [v], lang)
             if (doneColors.has(newCol.toHex8())) continue;
             doneColors.add(newCol.toHex8())
             encode(newCol, `${token}\n${v}`, lang)
          }
-         for (const [c, l] of config.modifierCombinations.map(c => c.split(':')).map(([c, l]) => [c.split('.'), l])) {//@ts-ignore
-            const newCol = applyColors(token, c, l || lang)
+         for (const [c, l] of config.modifierCombinations.map(c => c.split(':')).map(([c, l]) => [c.split('.'), l])) {
+            if (!c.includes(token)) continue
+            const varray = c.length === 1 ? [] : c
+            console.log({varray, l, token})
+            //@ts-ignore
+            const newCol = applyColors(token, varray, l || lang)
             if (doneColors.has(newCol.toHex8())) continue;
             doneColors.add(newCol.toHex8());//@ts-ignore
-            encode(newCol, `${token}\n${c.join(' ')}`, l || lang)
+            encode(newCol, `${token}\n${varray.join(' ')}`, l || lang)
          }
       }
    }

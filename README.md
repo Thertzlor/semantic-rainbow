@@ -28,16 +28,16 @@ List of languages supported (sorted by amount of tests):
 
 Semantic Highlighting enables an amazing amount of granular control of styles and **Semantic Rainbow** aims to make use of all of it.
 
-By highlighting **14** types of semantic tokens each with **7** varations corresponding to different semantic modifiers and an additional **17** shades for combinations of two or more individual modifiers, this theme defines a total of **336** styles for all conceivable (and a few inconceivable) kinds of tokens.
+By highlighting **14** types of semantic tokens each with **7** varations corresponding to different semantic modifiers and an additional **18** shades for combinations of two or more individual modifiers, this theme defines a total of **350** styles for all conceivable (and a few inconceivable) kinds of tokens.
 
 If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *non-async default library method* look no further.
 
 For a list of styles and a breakdown of the design process, check out the [GitHub page of this repo](https://thertzlor.github.io/semantic-rainbow/).
 
 ## How it works
-If 336 styles sounds like too much to configure by hand, you're right.  
+If 350 styles sounds like too much to configure by hand, you're right.  
 *Semantic Rainbow* is programmatically generated, based on a configuration of base colors for the different tokens and a list of specific color transformations for token modifiers which can also be stacked to represent different combinations.  
-About 8.63% of styles/transformations are manually defined, stepping in where the automatic generation produced less than optimal results.
+About 8.29% of styles/transformations are manually defined, stepping in where the automatic generation produced less than optimal results.
 
 The definition of colors and transformations follows a [simple spec](https://github.com/Thertzlor/semantic-rainbow/tree/main/generator#user-content-working-with-the-semantic-theme-generator) for easy tweaking and forking to create any number of dynamic semantic themes.
 

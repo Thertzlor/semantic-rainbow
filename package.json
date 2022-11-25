@@ -112,6 +112,9 @@
                "class.defaultLibrary": [
                   "support.class"
                ],
+               "function:lua": [
+                  "support.function.any-method"
+               ],
                "function.defaultLibrary": [
                   "support.function.builtin",
                   "support.function.misc",
@@ -132,6 +135,7 @@
                   "support.type.property-name",
                   "variable.object.property",
                   "meta.flow-mapping.yaml",
+                  "entity.other.attribute",
                   "support.type.property-name.css",
                   "meta.property-name",
                   "entity.other.attribute-name",
