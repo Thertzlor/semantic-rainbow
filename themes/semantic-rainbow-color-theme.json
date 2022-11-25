@@ -508,7 +508,8 @@
       {
          "scope": [
             "punctuation.definition.bracket.curly.begin.jsdoc",
-            "punctuation.definition.bracket.curly.end.jsdoc"
+            "punctuation.definition.bracket.curly.end.jsdoc",
+            "comment.line.double-dash.doc keyword.operator"
          ],
          "settings": {
             "foreground": "#bbaa8c"
@@ -598,7 +599,8 @@
       {
          "scope": [
             "variable.other.jsdoc",
-            "keyword.other.documentation"
+            "keyword.other.documentation",
+            "storage.type.annotation"
          ],
          "settings": {
             "foreground": "#8a736a"
@@ -626,7 +628,10 @@
          }
       },
       {
-         "scope": "storage.type.class.jsdoc",
+         "scope": [
+            "storage.type.class.jsdoc",
+            "comment.line.double-dash.doc entity.name"
+         ],
          "settings": {
             "foreground": "#4e634e"
          }
@@ -705,7 +710,8 @@
       },
       {
          "scope": [
-            "storage.modifier"
+            "storage.modifier",
+            "keyword.local"
          ],
          "settings": {
             "foreground": "#6d61a3"
@@ -1188,6 +1194,51 @@
          }
       },
       {
+         "name": "type.static",
+         "scope": [
+            "markup.math.inline.markdown"
+         ],
+         "settings": {
+            "foreground": "#c6a721"
+         }
+      },
+      {
+         "name": "type.static",
+         "scope": [
+            "markup.math.inline.markdown"
+         ],
+         "settings": {
+            "foreground": "#c6a721"
+         }
+      },
+      {
+         "name": "type.async",
+         "scope": [
+            "support.type.primitive"
+         ],
+         "settings": {
+            "foreground": "#e49835"
+         }
+      },
+      {
+         "name": "type.async",
+         "scope": [
+            "support.type.primitive"
+         ],
+         "settings": {
+            "foreground": "#e49835"
+         }
+      },
+      {
+         "name": "type.defaultLibrary",
+         "scope": [
+            "support.type.built-in"
+         ],
+         "settings": {
+            "foreground": "#c1b38a"
+         }
+      },
+      {
          "name": "variable",
          "scope": [
             "variable.other.readwrite",
@@ -1288,10 +1339,20 @@
       {
          "name": "type.defaultLibrary",
          "scope": [
-            "support.type.built-in"
+            "support.type.built-in",
+            "comment.line.double-dash.doc support.type"
          ],
          "settings": {
             "foreground": "#c1b38a"
+         }
+      },
+      {
+         "name": "interface.readonly",
+         "scope": [
+            "comment.line.double-dash.doc variable"
+         ],
+         "settings": {
+            "foreground": "#b58418"
          }
       },
       {

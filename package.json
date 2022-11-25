@@ -82,6 +82,9 @@
                "type.readonly": [
                   "markup.bold.markdown"
                ],
+               "interface.readonly": [
+                  "comment.line.double-dash.doc variable"
+               ],
                "type.defaultLibrary.static.async": [
                   "markup.strikethrough.markdown"
                ],
@@ -96,7 +99,8 @@
                   "support.type.builtin"
                ],
                "type.defaultLibrary": [
-                  "support.type.built-in"
+                  "support.type.built-in",
+                  "comment.line.double-dash.doc support.type"
                ],
                "function.static": [
                   "storage.type.template"
