@@ -151,17 +151,17 @@ const isColorVar = values => name => (!name.startsWith('#')) && name.includes('.
  */
 const resolveColors = (dynamicValues, staticValues) => {
    const cv = isColorVar(staticValues)
-   dynamicValues?.tokenColors.forEach(t => {
+   dynamicValues.tokenColors && dynamicValues.tokenColors.forEach(t => {
       if (cv(t.settings.foreground)) t.settings.foreground = staticValues[t.settings.foreground]
    })
 
    for (const k in dynamicValues?.semanticTokenColors ?? {}) {
-      if (Object.hasOwnProperty.call(dynamicValues.semanticTokenColors, k)) {
+      if (Object.hasOwnProperty.call(dynamicValues.semanticTokenColors, k) && dynamicValues.semanticTokenColors) {
          const element = dynamicValues.semanticTokenColors[k];
          if (typeof element === 'string') {
-            if (cv(element)) dynamicValues.semanticTokenColors[k] = staticValues[element]
+            if (cv(element) && dynamicValues.semanticTokenColors && dynamicValues.semanticTokenColors[k]) dynamicValues.semanticTokenColors[k] = staticValues[element]
          }
-         else if (cv(element.foreground)) element.foreground = staticValues[element.foreground]
+         else if (element && cv(element.foreground)) element.foreground = staticValues[element.foreground]
       }
    }
 }
