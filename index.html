@@ -10,7 +10,33 @@
    <link rel="icon" href="./assets/SR_favicon.ico" type="image/x-icon" />
    <script src='./generator/lib/tinycolor.js'></script>
    <script type="module">
+      /**@typedef {{foreground:string,alias?:string|boolean,bold?: boolean, italic?: boolean, underline?: boolean}} ColorRule */
+      /**@typedef {Record<string,string|ColorRule>} SemanticMap */
+      /**@typedef {{settings:{foreground:string}}[]} TextMateList*/
+      /**@typedef {import('../config.json')['themes'][number]} ColorConfig */
+      /**@typedef {import('tinycolor2')} TinyColorClass*/
+      /**@typedef {InstanceType<TinyColorClass>} TinyColor*/
       import {generateColors, interpolate} from './generator/lib/colorGenerator.js';
+      /** @type {(tinycolor: TinyColorClass, config: ColorConfig) => {
+    semanticRules: Record<string, string | ColorRule>;
+    fallBackRules: {
+        name: string;
+        scope: string[];
+        settings: {
+            foreground: string;
+            fontStyle?: string;
+        };
+    }[];
+    meta: {
+        numColors: number;
+        manualColors: number;
+        baseNumber: number;
+        modNumber: number;
+        extraCombinationsNumber: number;
+        manualPercent: string;
+    };
+}} */
+      var genfunc = generateColors
       /**
        * @param {string} url
        * @returns {Promise<string>} */
@@ -28,7 +54,7 @@
        * @param {string} path
        * @param {string} color
        * @param {string} bg */
-      const colorClass = (path, color, bg) => [...document.getElementsByClassName(path.replace(/\./gm, '_').replace(/:/gm,'-'))].forEach(e => e.style[bg ? 'backgroundColor' : 'color'] = color);
+      const colorClass = (path, color, bg) => [...document.getElementsByClassName(path.replace(/\./gm, '_').replace(/:/gm, '-'))].forEach(e => e.style[bg ? 'backgroundColor' : 'color'] = color);
 
       (async () => {
          //We need to fetch the JSON configuration file via HTTP
@@ -36,52 +62,104 @@
          const frag = new DocumentFragment();
          const mainTheme = themes.find(t => themes.length === 1 || t.mainTheme)
          //Only using the stats from the main Theme
-         const {semanticRules, meta} = generateColors(tinycolor, mainTheme);
+         const {semanticRules, meta} = genfunc(tinycolor, mainTheme);
          const {colorPath, path} = mainTheme
 
          let colorUrl = colorPath || `./colors/${path.split('/').pop()}`
 
          const {colors} = JSON.parse(await urlFetch(colorUrl).catch(() => '{colors:{}}'));
-         console.log(colors);
 
          //Filling in variables into the text;
          [...document.getElementsByClassName('text')].forEach(e => e.innerHTML = interpolate(e.innerHTML, meta));
          //Creating the color table
-         const myTable = frag.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'));
+
          let tableContainer;
          let lastKey = '';
+         /** @type {Set<string>} */
+         const languages = new Set()
          for (const k in semanticRules) {
-            //We only output a demo for the main token type, not for any aliases
-            if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias||k.includes(':')) continue;
-            const styleElement = semanticRules[k];
-            const keyArray = k.split('.');
-            const firstKey = keyArray[0]
-            //If the token type has changed, insert a new row into the table
-            if (lastKey !== firstKey) {
-               tableContainer = myTable.appendChild(document.createElement('tr'))
-               //The first cell contains the token name
-               tableContainer.appendChild(document.createElement('td')).innerHTML = firstKey;
+            if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias || !k.includes(':')) continue;
+            const splitter = k.split(':');
+            const lang = splitter.pop()
+            const rule = semanticRules[k]
+            const origRule = semanticRules[splitter.join(':')]
+
+            if (origRule) {
+               const origType = typeof origRule
+               const ruleType = typeof rule
+               if (origType !== ruleType) {
+                  languages.add(lang)
+                  continue
+               }
+               if (typeof origRule === 'string' && rule === origRule) continue;
+               if (typeof origRule !== 'string' && ['bold', 'foreground', 'italic', 'underline'].some(s => origRule[s] !== rule[s])) languages.add(lang)
+            } else languages.add(lang)
+         }
+
+         if (languages.size) {
+            const radio = frag.appendChild(document.createElement('fieldset'))
+            const makeRadio = val => {
+               const rad = radio.appendChild(document.createElement('input'))
+               rad.type = 'radio'
+               rad.id = val
+               rad.value = val
+               rad.name = 'lang'
+               rad.addEventListener('change', function () {
+                  for (const x of ['default', ...languages]) {
+                     const tab = document.getElementById(`tab_${x}`)
+                     tab && (tab.style.display = x === this.value ? 'table' : 'none')
+                  }
+               })
+               const lab = radio.appendChild(document.createElement('label'))
+               lab.innerHTML = val
+               lab.htmlFor = val
+               return rad
             }
-            lastKey = firstKey;
-            const colorValue = styleElement.foreground || styleElement
-            const tableSquare = tableContainer.appendChild(document.createElement('td'))
-            //Generating the tooltip element for the individual cells
-            const tooltip = tableSquare.appendChild(document.createElement('div'))
-            tooltip.classList.add('expl');
-            //HTML formatting for the token description
-            colorClass(k, colorValue)
-            tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : `<i>${e}</i>`).join('\n') + `\n<p style="color:${colorValue}; ${k.includes('declaration') ? 'font-style:italic;' : ''} text-shadow:none;">${colorValue}</p>`;
-            tableSquare.style.background = colorValue;
-            tableSquare.classList.add('tableSquare')
+            makeRadio('default').checked = true
+            languages.forEach(l => makeRadio(l))
          }
-         for (const c in colors) {
-            if (!Object.hasOwnProperty.call(colors, c)) continue;
-            const col = colors[c]
-            colorClass(c, tinycolor(col).toRgbString(), true)
+
+         const tableMaker = (lang, visible) => {
+            const myTable = frag.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'));
+            myTable.parentElement.id = `tab_${lang || 'default'}`
+            myTable.parentElement.style.display = visible ? 'table' : 'none'
+            for (const k in semanticRules) {
+               //We only output a demo for the main token type, not for any aliases
+               if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias || (k.includes(':') && (!lang || !k.includes(`:${lang}`)))) continue;
+               if (!k.includes(':') && semanticRules[`${k}:${lang}`]) continue
+               const styleElement = semanticRules[k];
+               const keyArray = k.split('.');
+               const firstKey = keyArray[0].replace(`:${lang}`, '')
+               //If the token type has changed, insert a new row into the table
+               if (lastKey !== firstKey) {
+                  tableContainer = myTable.appendChild(document.createElement('tr'))
+                  //The first cell contains the token name
+                  tableContainer.appendChild(document.createElement('td')).innerHTML = firstKey;
+               }
+               lastKey = firstKey;
+               const colorValue = styleElement.foreground || styleElement
+               const tableSquare = tableContainer.appendChild(document.createElement('td'))
+               //Generating the tooltip element for the individual cells
+               const tooltip = tableSquare.appendChild(document.createElement('div'))
+               tooltip.classList.add('expl');
+               //HTML formatting for the token description
+               colorClass(k, colorValue)
+               tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : `<i>${e}</i>`).join('\n') + `\n<p style="color:${colorValue}; ${k.includes('declaration') ? 'font-style:italic;' : ''} text-shadow:none;">${colorValue}</p>`;
+               tableSquare.style.background = colorValue;
+               tableSquare.classList.add('tableSquare')
+            }
+            for (const c in colors) {
+               if (!Object.hasOwnProperty.call(colors, c)) continue;
+               const col = colors[c]
+               colorClass(c, tinycolor(col).toRgbString(), true)
+            }
          }
+         for (const l of ['default', ...languages]) tableMaker(l, l === 'default')
+
          //Showing the table
          document.getElementById("colorTable").appendChild(frag)
-      })()
+      }
+      )()
 
    </script>
    <style>
@@ -133,6 +211,21 @@
       table {
          margin: 0 auto;
          border-spacing: .4vw;
+      }
+
+      fieldset {
+         text-align: center;
+         border: none;
+         margin: .5em
+      }
+
+      fieldset input+label {
+         margin-right: 1em;
+         color: lightgray;
+      }
+
+      fieldset input:checked+label {
+         color: white
       }
 
       .tableSquare {
