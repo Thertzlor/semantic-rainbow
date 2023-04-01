@@ -1,6 +1,11 @@
 # Change Log
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
+## [1.1.6]
+- Slightly more contrasting color for the VSCode Sticky Scroll section and the peekView Editor backround and a third color for the VSCode Sticky Scroll section *within* the peekView Editor. Seriously, Sticky Scroll is an amazing feature.
+
+## [1.1.5]
+- Hotfix for a bug introduced in 1.1.4
 
 ## [1.1.4]
 - Improvements for **lua** syntax highlighting. This specificially targets the lua grammar used by the [sumneko lua language server](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) (which also includes the first language specific color tweak)
