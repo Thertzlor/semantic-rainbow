@@ -3199,8 +3199,6 @@
       "dropdown.background": "#232530",
       "editorWidget.background": "#232530",
       "editorWidget.border": "#232530",
-      "peekViewEditor.background": "#232530",
-      "peekViewResult.background": "#232530",
       "peekViewTitle.background": "#232530",
       "walkThrough.embeddedEditorBackground": "#232530",
       "breadcrumbPicker.background": "#232530",
@@ -3252,6 +3250,10 @@
       "editor.wordHighlightBackground": "#2e90d141",
       "editor.wordHighlightStrongBackground": "#2659c771",
       "peekViewResult.matchHighlightBackground": "#6C6F9380",
-      "peekViewEditor.matchHighlightBackground": "#60cfae54"
+      "peekViewEditor.matchHighlightBackground": "#60cfae54",
+      "editorStickyScroll.background": "#202534",
+      "peekViewEditor.background": "#202534",
+      "peekViewEditorStickyScroll.background": "#1f2c2b",
+      "peekViewResult.background": "#202534"
    }
 }
