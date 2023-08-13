@@ -71,6 +71,10 @@
                   "type": "string",
                   "description": "Path of the Theme file. The path is relative to the extension folder and is typically './themes/awesome-color-theme.json'"
                },
+               "parent": {
+                  "type": "string",
+                  "description": "The id of another theme defined in this config file to use as a base for the current theme"
+               },
                "colorPath": {
                   "type": "string",
                   "description": "Optional path of the color definition file. if empty it will default to loading a file of the same name as the main theme file from the './colors/' folder, if not such file exists, it will be assumed that all colors are defined in the main theme file"
@@ -118,7 +122,7 @@
                   "type": "array",
                   "items": {
                      "description": "a period separated list of two or more modifiers",
-                     "pattern": "^[^.]+(\\.[^.]+)*\\.[^.]+$",
+                     "pattern": "^[^.]+(\\.[^.]+)*[.:][^.]+$",
                      "type": "string"
                   }
                },

@@ -96,6 +96,8 @@ An optional array of [VSCode language identifiers](https://code.visualstudio.com
 ### **fallbacks**
 A list of semantic token types with or without modifiers mapped to a list of TextMate scopes that should be highlighted in the same style.
 
+***Important**: If you generate multiple themes VSCode cannot distinguish which semantic token scopes originate from which theme and will always use all scopes combined. This is a basic limitation and can only be solved by turning the themes into separate extensions.*
+
 ### **mainTheme**
 A boolean value indicating if a theme is the **primary** theme in a theme pack. 
 Does not need to be set if there is only one theme configured.  
@@ -168,3 +170,7 @@ To activate readme interpolation fill in the following two properties in the roo
 The path of the template README file.
 ### **readmePath**
 The path where the README file with the interpolated value will be stored.
+### **parent**
+The `id` of another theme defined in the same configuration file, used to create themes that are variations of other themes.  
+Any options that are either not present or null on the current theme definition will be copied from the parent definition.  
+If an option is an object or array it will be combined with the parent's value. Again, any property that isn't present or defined on the child option will be copied over from the parent's option.  
