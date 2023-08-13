@@ -277,6 +277,22 @@
             "defaultLibrary.documentation",
             "function:lua"
          ]
+      },
+      {
+         "label": "Semantic Rainbow - No Italics",
+         "mainTheme": false,
+         "parent": "semantic-rainbow",
+         "uiTheme": "vs-dark",
+         "colorPath": "./colors/semantic-rainbow-color-theme.json",
+         "path": "./themes/semantic-rainbow-no-italics-color-theme.json",
+         "id": "semantic-rainbow-no-italics",
+         "baseTokenColors": {},
+         "modifications": {},
+         "textformatMapping": {
+            "declaration": {}
+         },
+         "fallbacks": {},
+         "modifierCombinations": []
       }
    ],
    "readmePath": "./README.md",

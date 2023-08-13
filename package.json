@@ -10,7 +10,7 @@
       "name": "Thertzlor"
    },
    "icon": "assets/SR_icon256.png",
-   "version": "1.1.6",
+   "version": "1.1.7",
    "homepage": "https://thertzlor.github.io/semantic-rainbow/",
    "engines": {
       "vscode": "^1.60.0"
@@ -37,6 +37,12 @@
             "label": "Semantic Rainbow",
             "uiTheme": "vs-dark",
             "path": "./themes/semantic-rainbow-color-theme.json"
+         },
+         {
+            "id": "semantic-rainbow-no-italics",
+            "label": "Semantic Rainbow - No Italics",
+            "uiTheme": "vs-dark",
+            "path": "./themes/semantic-rainbow-no-italics-color-theme.json"
          }
       ],
       "semanticTokenScopes": [

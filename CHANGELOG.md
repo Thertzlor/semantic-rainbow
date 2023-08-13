@@ -1,6 +1,12 @@
 # Change Log
 
 All notable changes to the "semantic-rainbow" extension will be documented in this file.
+
+## [1.1.7]
+- *Semantic Rainbow* now includes an additional variation, *"Semantic Rainbow - No Italics"* which does not include the italic formatting for declarations.
+- Introduced the `parent` option for theme configs, which allows themes to inherit properties from another theme defined in the same config. Useful for creating multiple minor variations of a single theme.
+- When generating multiple themes, all `semanticTokenScopes` definitions are now combined into one.
+
 ## [1.1.6]
 - Slightly more contrasting color for the VSCode Sticky Scroll section and the peekView Editor backround and a third color for the VSCode Sticky Scroll section *within* the peekView Editor. Seriously, Sticky Scroll is an amazing feature.
 
@@ -12,7 +18,7 @@ All notable changes to the "semantic-rainbow" extension will be documented in th
 - Bug fix for handling `baseToken:language` combinations in the `modifierCombinations` list.
 
 ## [1.1.3]
-- The color generator now supports generating styles targeting specific languages. As of yet no language specific styles are implemented in the main theme, but examples are bing worked on.
+- The color generator now supports generating styles targeting specific languages. As of yet no language specific styles are implemented in the main theme, but examples are being worked on.
 - The README files has been updated with better examples and a new section for language targeting.
 - A couple of improvements for **C++** highlighting, potentially more to come.
 - Python docstrings no longer look like regular strings.
