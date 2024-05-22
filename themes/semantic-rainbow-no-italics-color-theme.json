@@ -2403,6 +2403,114 @@
       {
          "name": "variable",
          "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
+            "variable.other.readwrite"
+         ],
+         "settings": {
+            "foreground": "#cc4755"
+         }
+      },
+      {
+         "name": "variable",
+         "scope": [
             "variable.other.readwrite",
             "variable.other",
             "variable",
@@ -2851,8 +2959,8 @@
       "list.hoverBackground": "#2E303E80",
       "list.inactiveFocusBackground": "#2E303E80",
       "panelSectionHeader.background": "#232637",
-      "editorIndentGuide.background": "#2E303E80",
-      "editorIndentGuide.activeBackground": "#2E303E",
+      "editorIndentGuide.background1": "#2E303E80",
+      "editorIndentGuide.activeBackground1": "#2E303E",
       "peekViewResult.selectionBackground": "#2E303E80",
       "statusBarItem.hoverBackground": "#2E303E",
       "statusBarItem.prominentBackground": "#2E303E",
