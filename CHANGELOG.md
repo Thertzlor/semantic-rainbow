@@ -1,7 +1,16 @@
 # Change Log
 
-All notable changes to the "semantic-rainbow" extension will be documented in this file.
+All notable changes to the "semantic-rainbow" extension will be documented in this file.  
+Some less notable ones too.
 
+## [1.1.8]
+- So I recently got mixed up in some **Java** development and while I don't personally like the language too much it is pretty popular and has a nice language server so *Semantic Rainbow* is now officially supporting it.
+  * Highlighting is based on the tokens provided by the Java extension by Red Hat.
+  * Added support for the `abstract` token modifier.
+- Fixed a bug that caused the color for *builtin primitive types* not to show up.
+- Updated the style of the Github page.
+- Updated 2 deprecated style names.
+  
 ## [1.1.7]
 - *Semantic Rainbow* now includes an additional variation, *"Semantic Rainbow - No Italics"* which does not include the italic formatting for declarations.
 - Introduced the `parent` option for theme configs, which allows themes to inherit properties from another theme defined in the same config. Useful for creating multiple minor variations of a single theme.
