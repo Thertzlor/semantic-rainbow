@@ -36,7 +36,7 @@
         manualPercent: string;
     };
 }} */
-      var genfunc = generateColors
+      var genfunc = generateColors;
       /**
        * @param {string} url
        * @returns {Promise<string>} */
@@ -45,9 +45,9 @@
          Http.open("GET", url);
          Http.send();
          Http.onreadystatechange = e => {
-            if (Http.readyState === 4 && Http.status === 200) res(Http.responseText)
-            else if (Http.readyState === 4) rej(Http.responseText)
-         }
+            if (Http.readyState === 4 && Http.status === 200) res(Http.responseText);
+            else if (Http.readyState === 4) rej(Http.responseText);
+         };
       });
 
       /** 
@@ -60,12 +60,12 @@
          //We need to fetch the JSON configuration file via HTTP
          const {themes} = JSON.parse(await urlFetch('./generator/config.json').catch(() => '{themes:[]}'));
          const frag = new DocumentFragment();
-         const mainTheme = themes.find(t => themes.length === 1 || t.mainTheme)
+         const mainTheme = themes.find(t => themes.length === 1 || t.mainTheme);
          //Only using the stats from the main Theme
          const {semanticRules, meta} = genfunc(tinycolor, mainTheme);
-         const {colorPath, path} = mainTheme
+         const {colorPath, path} = mainTheme;
 
-         let colorUrl = colorPath || `./colors/${path.split('/').pop()}`
+         let colorUrl = colorPath || `./colors/${path.split('/').pop()}`;
 
          const {colors} = JSON.parse(await urlFetch(colorUrl).catch(() => '{colors:{}}'));
 
@@ -76,88 +76,83 @@
          let tableContainer;
          let lastKey = '';
          /** @type {Set<string>} */
-         const languages = new Set()
+         const languages = new Set();
          for (const k in semanticRules) {
             if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias || !k.includes(':')) continue;
             const splitter = k.split(':');
-            const lang = splitter.pop()
-            const rule = semanticRules[k]
-            const origRule = semanticRules[splitter.join(':')]
+            const lang = splitter.pop();
+            const rule = semanticRules[k];
+            const origRule = semanticRules[splitter.join(':')];
 
             if (origRule) {
-               const origType = typeof origRule
-               const ruleType = typeof rule
+               const origType = typeof origRule;
+               const ruleType = typeof rule;
                if (origType !== ruleType) {
-                  languages.add(lang)
-                  continue
+                  languages.add(lang);
+                  continue;
                }
                if (typeof origRule === 'string' && rule === origRule) continue;
-               if (typeof origRule !== 'string' && ['bold', 'foreground', 'italic', 'underline'].some(s => origRule[s] !== rule[s])) languages.add(lang)
-            } else languages.add(lang)
+               if (typeof origRule !== 'string' && ['bold', 'foreground', 'italic', 'underline'].some(s => origRule[s] !== rule[s])) languages.add(lang);
+            } else languages.add(lang);
          }
 
          if (languages.size) {
-            const radio = frag.appendChild(document.createElement('fieldset'))
+            const radio = frag.appendChild(document.createElement('fieldset'));
             const makeRadio = val => {
-               const rad = radio.appendChild(document.createElement('input'))
-               rad.type = 'radio'
-               rad.id = val
-               rad.value = val
-               rad.name = 'lang'
+               const rad = radio.appendChild(document.createElement('input'));
+               rad.type = 'radio';
+               rad.id = val;
+               rad.value = val;
+               rad.name = 'lang';
                rad.addEventListener('change', function () {
                   for (const x of ['default', ...languages]) {
-                     const tab = document.getElementById(`tab_${x}`)
-                     tab && (tab.style.display = x === this.value ? 'table' : 'none')
+                     const tab = document.getElementById(`tab_${x}`);
+                     tab && (tab.style.display = x === this.value ? 'table' : 'none');
                   }
-               })
-               const lab = radio.appendChild(document.createElement('label'))
-               lab.innerHTML = val
-               lab.htmlFor = val
-               return rad
-            }
-            makeRadio('default').checked = true
-            languages.forEach(l => makeRadio(l))
+               });
+               const lab = radio.appendChild(document.createElement('label'));
+               lab.innerHTML = val;
+               lab.htmlFor = val;
+               return rad;
+            };
+            makeRadio('default').checked = true;
+            languages.forEach(l => makeRadio(l));
          }
 
          const tableMaker = (lang, visible) => {
             const myTable = frag.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'));
-            myTable.parentElement.id = `tab_${lang || 'default'}`
-            myTable.parentElement.style.display = visible ? 'table' : 'none'
+            myTable.parentElement.id = `tab_${lang || 'default'}`;
+            myTable.parentElement.style.display = visible ? 'table' : 'none';
             for (const k in semanticRules) {
                //We only output a demo for the main token type, not for any aliases
                if ((!Object.hasOwnProperty.call(semanticRules, k)) || semanticRules[k].alias || (k.includes(':') && (!lang || !k.includes(`:${lang}`)))) continue;
-               if (!k.includes(':') && semanticRules[`${k}:${lang}`]) continue
+               if (!k.includes(':') && semanticRules[`${k}:${lang}`]) continue;
                const styleElement = semanticRules[k];
                const keyArray = k.split('.');
-               const firstKey = keyArray[0].replace(`:${lang}`, '')
+               const firstKey = keyArray[0].replace(`:${lang}`, '');
                //If the token type has changed, insert a new row into the table
                if (lastKey !== firstKey) {
-                  tableContainer = myTable.appendChild(document.createElement('tr'))
+                  tableContainer = myTable.appendChild(document.createElement('tr'));
                   //The first cell contains the token name
                   tableContainer.appendChild(document.createElement('td')).innerHTML = firstKey;
                }
                lastKey = firstKey;
-               const colorValue = styleElement.foreground || styleElement
-               const tableSquare = tableContainer.appendChild(document.createElement('td'))
+               const colorValue = styleElement.foreground || styleElement;
+               const tableSquare = tableContainer.appendChild(document.createElement('td'));
                //Generating the tooltip element for the individual cells
-               const tooltip = tableSquare.appendChild(document.createElement('div'))
+               const tooltip = tableSquare.appendChild(document.createElement('div'));
                tooltip.classList.add('expl');
                //HTML formatting for the token description
-               colorClass(k, colorValue)
+               colorClass(k, colorValue);
                tooltip.innerHTML = (k.replace(/\./g, '\n<br>')).split('\n').map((e, i) => i === 0 ? e : `<i>${e}</i>`).join('\n') + `\n<p style="color:${colorValue}; ${k.includes('declaration') ? 'font-style:italic;' : ''} text-shadow:none;">${colorValue}</p>`;
                tableSquare.style.background = colorValue;
-               tableSquare.classList.add('tableSquare')
+               tableSquare.classList.add('tableSquare');
             }
-            for (const c in colors) {
-               if (!Object.hasOwnProperty.call(colors, c)) continue;
-               const col = colors[c]
-               colorClass(c, tinycolor(col).toRgbString(), true)
-            }
-         }
-         for (const l of ['default', ...languages]) tableMaker(l, l === 'default')
-
+            for (const c in colors) if (Object.hasOwnProperty.call(colors, c)) colorClass(c, tinycolor(colors[c]).toRgbString(), true);
+         };
+         for (const l of ['default', ...languages]) tableMaker(l, l === 'default');
          //Showing the table
-         document.getElementById("colorTable").appendChild(frag)
+         document.getElementById("colorTable").appendChild(frag);
       }
       )()
 
@@ -230,10 +225,21 @@
 
       .tableSquare {
          border: .2vmax transparent solid;
-         margin: 5px;
-         width: 3vw;
          position: relative;
          transition: border-color .3s ease-in-out;
+      }
+
+      #tab_default {
+         width: 93vw;
+      }
+
+      #tab_default td:first-of-type {
+         width: 0;
+         padding-right: 1vw;
+      }
+
+      hr {
+         margin: 3em auto
       }
 
       .tableSquare .expl {
@@ -294,6 +300,10 @@
          text-align: center;
       }
 
+      h1 {
+         margin-top: 1.5em;
+      }
+
       body.bod {
          padding-bottom: 3%
       }
@@ -310,14 +320,20 @@
          padding: 0;
          font-family: 'Fira Sans', Calibri, sans-serif;
          font-weight: 500;
-         font-size: 1.1em;
+         font-size: 1.15em;
          background: #14151a;
       }
 
       .text {
          font-weight: 400;
-         width: 95vw;
          margin: 0 auto;
+         width: 60%;
+         line-height: 1.6;
+      }
+
+      .text hr {
+         width: 130%;
+         margin-left: -15%
       }
 
       .text h2 {
