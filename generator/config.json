@@ -6,7 +6,9 @@
          "mainTheme": true,
          "uiTheme": "vs-dark",
          "colorPath": "",
-         "defaultLanguages":["cpp"],
+         "defaultLanguages": [
+            "cpp"
+         ],
          "path": "./themes/semantic-rainbow-color-theme.json",
          "id": "semantic-rainbow",
          "baseTokenColors": {
@@ -62,6 +64,12 @@
                "default": {
                   "spin": 10,
                   "darken": 5
+               }
+            },
+            "abstract": {
+               "default": {
+                  "spin": -15,
+                  "darken": 10
                }
             },
             "declaration": {
@@ -156,16 +164,16 @@
                "markup.italic.markdown",
                "entity.name.type.kotlin"
             ],
-            "type.readonly":[
+            "type.readonly": [
                "markup.bold.markdown"
             ],
-            "interface.readonly":[
+            "interface.readonly": [
                "comment.line.double-dash.doc variable"
             ],
-            "type.defaultLibrary.static.async":[
+            "type.defaultLibrary.static.async": [
                "markup.strikethrough.markdown"
             ],
-            "type.static":[
+            "type.static": [
                "markup.math.inline.markdown",
                "entity.name.type.cpp",
                "entity.name.type.parameter"
@@ -177,6 +185,7 @@
             ],
             "type.defaultLibrary": [
                "support.type.built-in",
+               "storage.type.primitive",
                "comment.line.double-dash.doc support.type"
             ],
             "function.static": [
@@ -203,7 +212,9 @@
                "keyword.operator.cast.static_cast",
                "entity.name.function.definition.special"
             ],
-            "property.readonly":["markup.list.numbered.markdown"],
+            "property.readonly": [
+               "markup.list.numbered.markdown"
+            ],
             "property": [
                "variable.other.property",
                "support.variable.property",
@@ -235,6 +246,7 @@
                "entity.name.function.member"
             ],
             "selfParameter": [
+               "variable.language.java",
                "variable.language.this",
                "variable.language.self",
                "variable.language.special.self"
@@ -248,7 +260,8 @@
                "builtin"
             ],
             "documentation": [
-               "typeHint"
+               "typeHint",
+               "typeArgument"
             ],
             "declaration": [
                "definition"
