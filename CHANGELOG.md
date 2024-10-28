@@ -3,6 +3,9 @@
 All notable changes to the "semantic-rainbow" extension will be documented in this file.  
 Some less notable ones too.
 
+## [1.1.9]
+- Drastically reduced extension size by omitting sample images.
+
 ## [1.1.8]
 - So I recently got mixed up in some **Java** development and while I don't personally like the language too much it is pretty popular and has a nice language server so *Semantic Rainbow* is now officially supporting it.
   * Highlighting is based on the tokens provided by the Java extension by Red Hat.
