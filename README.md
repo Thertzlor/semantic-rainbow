@@ -1,4 +1,4 @@
-![Banner](assets/SR_Banner.png)
+![Banner](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_Banner.png)
 
 ![Version](https://img.shields.io/visual-studio-marketplace/v/thertzlor.semantic-rainbow)
 [![CodeFactor](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow/badge)](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow)
@@ -9,13 +9,13 @@ Plenty of themes offer minimalist highlighting focusing on specific aspects of c
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
 
 ### **TypeScript**
-![TypeScript Highlighted](assets/SR_ts_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_ts_small.png)
 ### **SCSS**
-![TypeScript Highlighted](assets/SR_cs_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_cs_small.png)
 ### **Python**
-![TypeScript Highlighted](assets/SR_py_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_py_small.png)
 ### **Full Editor**
-![Example Full](assets/SR_Example.png)
+![Example Full](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_Example.png)
 
 List of languages supported (sorted by amount of tests):
 - TypeScript/JavaScript

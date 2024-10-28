@@ -6,10 +6,15 @@ assets/ex_1.png
 assets/ex_2.png
 assets/ex_3.png
 assets/SR_Banner.svg
+assets/SR_Banner.png
+assets/SR_Example.png
 assets/SR_icon.svg
+assets/SR_favicon.png
+assets/*_small.png
 test/**
 generator/**
 .github
 colors/**
 answer.md
 index.html
+node_modules/**
