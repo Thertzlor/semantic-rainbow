@@ -2,11 +2,13 @@
 
 ![Version](https://img.shields.io/visual-studio-marketplace/v/thertzlor.semantic-rainbow)
 [![CodeFactor](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow/badge)](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow)
-![Rating](https://img.shields.io/visual-studio-marketplace/stars/thertzlor.semantic-rainbow)
+![Rating](https://img.shields.io/visual-studio-marketplace/stars/thertzlor.semantic-rainbow) ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/thertzlor.semantic-rainbow)
 ![License](https://img.shields.io/github/license/thertzlor/semantic-rainbow)
 ## Overview
 Plenty of themes offer minimalist highlighting focusing on specific aspects of code while using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
+
+Why do I think this might be a good idea? [This blog posts elaborates on my general reasoning.](https://www.modal-marginalia.com/post/1-syntax-highlighting-and-focus)
 
 ### **TypeScript**
 ![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_ts_small.png)

@@ -1,21 +1,23 @@
-![Banner](../assets/SR_Banner.png)
+![Banner](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_Banner.png)
 
 ![Version](https://img.shields.io/visual-studio-marketplace/v/thertzlor.semantic-rainbow)
 [![CodeFactor](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow/badge)](https://www.codefactor.io/repository/github/thertzlor/semantic-rainbow)
-![Rating](https://img.shields.io/visual-studio-marketplace/stars/thertzlor.semantic-rainbow)
+![Rating](https://img.shields.io/visual-studio-marketplace/stars/thertzlor.semantic-rainbow) ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/thertzlor.semantic-rainbow)
 ![License](https://img.shields.io/github/license/thertzlor/semantic-rainbow)
 ## Overview
-Plenty of themes offer minimalist highlighting focusing on specific aspects of code using a limited color palette. This theme takes the opposite approach.  
+Plenty of themes offer minimalist highlighting focusing on specific aspects of code while using a limited color palette. This theme takes the opposite approach.  
 Utilizing both bold colors and subtle distinctions, anything than *can* be identified *will* be identified.  
 
+Why do I think this might be a good idea? [This blog posts elaborates on my general reasoning.](https://www.modal-marginalia.com/post/1-syntax-highlighting-and-focus)
+
 ### **TypeScript**
-![TypeScript Highlighted](../assets/SR_ts_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_ts_small.png)
 ### **SCSS**
-![TypeScript Highlighted](../assets/SR_cs_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_cs_small.png)
 ### **Python**
-![TypeScript Highlighted](../assets/SR_py_small.png)
+![TypeScript Highlighted](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_py_small.png)
 ### **Full Editor**
-![Example Full](../assets/SR_Example.png)
+![Example Full](https://raw.githubusercontent.com/Thertzlor/semantic-rainbow/refs/heads/main/assets/SR_Example.png)
 
 List of languages supported (sorted by amount of tests):
 - TypeScript/JavaScript
@@ -23,6 +25,7 @@ List of languages supported (sorted by amount of tests):
 - Python
 - lua
 - HTML/Twig
+- Java
 - Go
 - Ruby
 - C++
@@ -31,7 +34,7 @@ Semantic Highlighting enables an amazing amount of granular control of styles an
 
 By highlighting **{baseNumber}** types of semantic tokens each with **{modNumber}** varations corresponding to different semantic modifiers and an additional **{extraCombinationsNumber}** shades for combinations of two or more individual modifiers, this theme defines a total of **{numColors}** styles for all conceivable (and a few inconceivable) kinds of tokens.
 
-If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *non-async default library method* look no further.
+If you've ever wanted a visual distinction between a *readonly async method*, and a *readonly async method of a default library* and also want to tell it apart from a *static default library method* look no further.
 
 For a list of styles and a breakdown of the design process, check out the [GitHub page of this repo](https://thertzlor.github.io/semantic-rainbow/).
 
@@ -43,7 +46,7 @@ About {manualPercent}% of styles/transformations are manually defined, stepping 
 The definition of colors and transformations follows a [simple spec](https://github.com/Thertzlor/semantic-rainbow/tree/main/generator#user-content-working-with-the-semantic-theme-generator) for easy tweaking and forking to create any number of dynamic semantic themes.
 
 ## Compatibility
-This theme relies on the presence of language server that support Semantic Highlighting. Some of the languages with the best support for this feature include JavaScript, TypeScript and Python.  
+This theme relies on the presence of a language server that support Semantic Highlighting. Some of the languages with the best support for this feature include JavaScript, TypeScript, Java and Python.  
 Keep in mind results might vary based on the language extensions you have installed, and even for non-semantic highlighting the theme attempts to approximate results by providing fallback mappings to TextMate rules including but not limited to the [VSCode semantic token scope map](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#semantic-token-scope-map).
 
 ## Installation
@@ -52,7 +55,6 @@ Install from VSCode or via the [Visual Studio Code Marketplace](https://marketpl
 ## Roadmap
 * Support for even more TinyColor color transformations
 * Including color readability checks
-* Language specific rules
 
 ## Contributing
 I am always looking for ways to improve Semantic Rainbow.
